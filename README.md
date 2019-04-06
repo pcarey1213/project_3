@@ -1,2 +1,2 @@
 ## Project 3 ##
-### A category-based, tiered message board App ###
+### A category-based, user-friendly, tiered message board App ###
