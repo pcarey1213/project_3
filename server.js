@@ -8,7 +8,7 @@ const passport = require('./passport');
 const app = express()
 const PORT = 3001
 // Route requires
-const user = require('./routes/user')
+const user = require('./routes/user.js')
 
 // Define middleware here
 app.use(morgan('dev'))
