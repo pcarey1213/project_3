@@ -35,6 +35,7 @@ app.use(passport.session()) // calls the deserializeUser
 
 // Routes
 app.use('/user', user)
+app.use('/category', category)
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
