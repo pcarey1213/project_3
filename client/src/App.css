@@ -14,8 +14,25 @@
   color: white;
 }
 
+.App-title {
+  font-size: 1.5em;
+}
+
 .App-intro {
   font-size: large;
+}
+
+.navbar {
+ 
+  margin-top: auto;
+  
+}
+#top-filler {
+  margin-bottom: auto;
+}
+
+#nav-container {
+  align-items: flex-end;
 }
 
 @keyframes App-logo-spin {
