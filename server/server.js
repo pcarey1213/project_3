@@ -9,6 +9,7 @@ const app = express()
 const PORT = process.env.PORT || 3001
 // Route requires
 const user = require('./routes/user')
+const category = require('./routes/category')
 
 // Define middleware here
 app.use(morgan('dev'))

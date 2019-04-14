@@ -6,13 +6,15 @@ import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
 import Navbar from './components/navbar'
 import Home from './components/home'
+import Category from './components/category'
+
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       loggedIn: false,
-      username: null
+      username: null,
     }
 
     this.getUser = this.getUser.bind(this)
@@ -49,6 +51,12 @@ class App extends Component {
     })
   }
 
+  getCategory() {
+    axios.get('/category/').then(response => {
+      console.log('Ayo your on the category page playa');
+      console.log(response);
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -74,6 +82,11 @@ class App extends Component {
           render={() =>
             <Signup/>}
         />
+
+        <Route
+            exact path = "/category"
+            component={Category} />
+          />
 
       </div>
     );
