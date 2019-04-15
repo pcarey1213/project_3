@@ -4,9 +4,10 @@ import { Route, Link } from 'react-router-dom'
 // components
 import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
-import Navbar from './components/navbar'
-import Home from './components/home'
+import Navbar from './components/Navbar/index'
+import Home from './pages/Home'
 import Category from './components/category'
+import 'semantic-ui/dist/semantic.min.css'
 
 
 class App extends Component {
