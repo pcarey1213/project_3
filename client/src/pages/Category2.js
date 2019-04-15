@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
-
-import Categories from "../components/Categories";
+import SecondCategory from "../components/SecondCategory";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API'
 
-
-class Home extends Component {
+class SecondCategory extends Component {
     constructor() {
         super()
-
         this.state = {
             categories : [],
             categoryName: ""
@@ -46,28 +43,19 @@ class Home extends Component {
             .catch(err => console.log(err));
     }
 
-
     render() {
-        const imageStyle = {
-            width: 400
-        }
+        
         return (
-
-            <Container>
-                <div>
-                    <p>It's good to be home</p>
-                    {/* <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" /> */}
-                </div>
-                                 
-                <Categories>
+            <Container>                                 
+                <SecondCategory>
                     Category 1
-                </Categories>             
-                <Categories>
+                </SecondCategory>             
+                <SecondCategory>
                     Category 2
-                </Categories>                    
-                <Categories>
+                </SecondCategory>                    
+                <SecondCategory>
                     Category 3
-                </Categories>
+                </SecondCategory>
 
                 <Row>
                     
@@ -76,12 +64,9 @@ class Home extends Component {
                 </Row>
             </Container>
             
-
         )
 
     }
 }
 
-
-export default Home
-
+export default SecondCategory;
