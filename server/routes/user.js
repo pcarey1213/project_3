@@ -2,6 +2,10 @@ const express = require('express')
 const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
+// const apiRoutes = require("./api");
+
+// // API routes
+// router.use("/api", apiRoutes);
 
 router.post('/', (req, res) => {
     console.log('user signup');
