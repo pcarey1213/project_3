@@ -4,9 +4,9 @@ import "./style.css";
 const Categories = props => {
     
     return (
-        <article class="col">
-            <div class="spacer"></div>
-            <div class="circle">
+        <article className="col">
+            <div className="spacer"></div>
+            <div className="circle">
                 <h1><a>{props.children}</a></h1> 
             </div>
         </article>

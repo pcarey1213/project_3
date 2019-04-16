@@ -14,23 +14,26 @@ class Home extends Component {
             categories : [],
             categoryName: ""
         }
+        this.getCategories = this.getCategories.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
     }
-    // componentDidMount() {
-    //     this.getCategories();
-    // }
 
-    // getCategories() {
-    //     axios.get('/api/categories').then(res => {
-    //       console.log(res.data);
-          
-            
-    
-    //         this.setState({
-    //             categories: res.data
-    //         })
-          
-    //     })
-    // }
+    componentDidMount() {
+        this.getCategories();
+    }
+
+    getCategories() {
+        API.getCategory()
+        .then(res => {
+            this.setState({
+                categories : res.data
+            })
+        })
+        .catch(err => console.log(err));
+        
+    }
 
     handleInputChange (event){
         event.preventDefault();
@@ -39,13 +42,14 @@ class Home extends Component {
             [name] : value
         })
     }
-    handleFormSubmit = (event) => {
+    handleAddFormSubmit = (event) => {
         event.preventDefault();
-        API.saveCategory(this.state.title)
-            .then(res => console.log(res))
+        API.addCategory({
+            category : this.state.categoryName
+        })
+            .then(res => this.getCategories())
             .catch(err => console.log(err));
     }
-
 
     render() {
         const imageStyle = {
@@ -58,21 +62,17 @@ class Home extends Component {
                     <p>It's good to be home</p>
                     {/* <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" /> */}
                 </div>
-                                 
-                <Categories>
-                    Category 1
-                </Categories>             
-                <Categories>
-                    Category 2
-                </Categories>                    
-                <Categories>
-                    Category 3
-                </Categories>
-
-                <Row>
-                    
-                        <AddCategory />
-                    
+                {this.state.categories.map(category => (
+                    <Categories>
+                        {category.category}
+                    </Categories>
+                ))}     
+                <Row>                    
+                    <AddCategory 
+                        value = {this.state.categoryName}
+                        handleInputChange = {this.handleInputChange}
+                        handleAddFormSubmit = {this.handleAddFormSubmit}
+                    />
                 </Row>
             </Container>
             

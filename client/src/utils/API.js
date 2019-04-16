@@ -2,8 +2,12 @@ import axios from "axios";
 
 export default {
 
-    saveCategory : function(data){
-        return axios.post("/api/categories", data);
+    addCategory : function(data){
+        return axios.post("/category", data);
+    },
+    getCategory : function(data){
+        return axios.get('/category');
     }
 
 }
+

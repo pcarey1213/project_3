@@ -38,9 +38,9 @@ app.use(passport.session()) // calls the deserializeUser
 app.use('/user', user)
 app.use('/category', category)
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 // Starting Server 
 app.listen(PORT, () => {
