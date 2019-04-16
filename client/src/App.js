@@ -4,9 +4,12 @@ import { Route, Link } from 'react-router-dom'
 // components
 import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
-import Navbar from './components/navbar'
+
+import Navbar from './components/Navbar'
+
 import Home from './pages/Home'
 import Category from './components/category'
+import 'semantic-ui/dist/semantic.min.css'
 
 
 
