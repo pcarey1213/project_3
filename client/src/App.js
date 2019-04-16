@@ -55,12 +55,6 @@ class App extends Component {
     })
   }
 
-  getCategory() {
-    axios.get('/category/').then(response => {
-      console.log('Ayo your on the category page playa');
-      console.log(response);
-    })
-  }
   render() {
     return (
       <div className="App">
@@ -87,10 +81,10 @@ class App extends Component {
             <Signup/>}
         />
 
-        <Route
+        {/* <Route
             exact path = "/category"
             component={Category} />
-          />
+          /> */}
 
       </div>
     );

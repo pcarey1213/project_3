@@ -1,8 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const Category = require('../database/models/bubble')
+const Category = require('../database/models/bubble');
+const categoriesController = require("../controllers/categoriesController");
 
-router.post('/', (req, res) => {
+router.route("/")
+.get(categoriesController.findAll);
+
+router
+.post('/', (req, res) => {
     console.log('Category signup');
 
     const {category} = req.body
@@ -26,6 +31,8 @@ router.post('/', (req, res) => {
         }
     })
 })
+
+
 
 
 module.exports = router

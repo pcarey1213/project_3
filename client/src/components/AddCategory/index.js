@@ -8,7 +8,7 @@ const AddCategory = (props) => {
                 <form className="p-2">
             
                     <div className="form-group">
-                        <label for="addCategory">Add Category</label>
+                        <label>Add Category</label>
                         <input type="text" 
                             className="form-control" 
                             id="addCategory" 
@@ -20,7 +20,7 @@ const AddCategory = (props) => {
                     </div>
                     <button type="submit" 
                         className="btn btn-primary"
-                        onClick={props.handleFormSubmit}
+                        onClick={props.handleAddFormSubmit}
                     >
                     Add</button>
                 </form>
