@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-
+import { Route, Link } from 'react-router-dom'
 import Categories from "../components/Categories";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API'
+import Second from '../pages/Second'
+import SecondCategory from '../components/SecondCategory';
+import test from '../pages/test';
+
 
 
 class Home extends Component {
@@ -51,6 +55,10 @@ class Home extends Component {
             .catch(err => console.log(err));
     }
 
+    handleToSecondCategories = () => {
+
+    }
+
     render() {
         const imageStyle = {
             width: 400
@@ -63,10 +71,22 @@ class Home extends Component {
                     {/* <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" /> */}
                 </div>
                 {this.state.categories.map(category => (
-                    <Categories>
-                        {category.category}
-                    </Categories>
-                ))}     
+                    <Link to={`/category/${category._id}`}>
+                        <Categories
+                            key={category._id}
+                        >
+                            {category.category}
+                        </Categories>
+                    </Link>
+                ))}
+                {/* <Route path="/category/:name" 
+                    component={test} 
+                    // render = {()=> <SecondCategory>hahaha</SecondCategory>}
+                />  */}
+                {/* <Route
+                    exact path = "/category/:id"
+                    component={Second} />
+                />     */}
                 <Row>                    
                     <AddCategory 
                         value = {this.state.categoryName}

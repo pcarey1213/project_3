@@ -4,6 +4,12 @@ mongoose.promise = Promise
 
 const BubbleSchema = new Schema({
     category: {type: String, unique: false, required: false},
+    subCategory : [
+        {
+            type : Schema.Types.ObjectId,
+            ref: "SecondBubble"
+        }
+    ]
 });
 
 const Bubble = mongoose.model("Bubble", BubbleSchema)

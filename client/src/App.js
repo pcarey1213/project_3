@@ -10,6 +10,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Category from './components/category'
 import 'semantic-ui/dist/semantic.min.css'
+import Second from './pages/Second';
 
 
 
@@ -81,10 +82,10 @@ class App extends Component {
             <Signup/>}
         />
 
-        {/* <Route
-            exact path = "/category"
-            component={Category} />
-          /> */}
+        <Route
+            path = "/category/:id"
+            component={Second} />
+          
 
       </div>
     );

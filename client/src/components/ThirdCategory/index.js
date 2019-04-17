@@ -1,12 +1,12 @@
 import React, {Component } from 'react';
 // import "./style.scss";
 import "./style.css";
-const SecondCategory = props => {
+const ThirdCategory = props => {
     
     return (
-        <article className="col c2Col">
+        <article className="col c3Col">
             <div className="spacer"></div>
-            <div className="circle C2">
+            <div className="circle C3">
                 <h1>{props.children}</h1> 
             </div>
         </article>
@@ -14,4 +14,4 @@ const SecondCategory = props => {
     )
 }
 
-export default SecondCategory;
+export default ThirdCategory;
