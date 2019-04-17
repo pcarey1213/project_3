@@ -1,3 +1,36 @@
-.ui.menu:not(.vertical) .right.menu {
-    text-align: center;
+#container {
+    background-color: white;
+    box-shadow: 0 5px 5px #ddd;
+}
+#menu{
+    margin-left: 0 !important;
+    float: left !important;
+    padding-left: 100px;
+}
+
+@media only screen and (max-width: 595px) {
+ #menu {
+    padding-left: 50px;
+ }
+}
+
+@media only screen and (max-width: 510px) {
+    #menu {
+       padding-left: 20px;
+    }
+   }
+
+@media only screen and (max-width: 469px) {
+    #search {
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #menu {
+        padding-left: 20px;
+    }
+    #search {
+        width: 100px;
+    }
 }

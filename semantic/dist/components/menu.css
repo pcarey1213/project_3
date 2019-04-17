@@ -11,34 +11,28 @@
 
 
 /*******************************
-            Theme
-*******************************/
-
-@type    : 'collection';
-@element : 'menu';
-
-@import (multiple) '../../theme.config';
-
-/*******************************
             Standard
 *******************************/
+
 
 /*--------------
       Menu
 ---------------*/
 
 .ui.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  margin: @margin;
-  font-family: @fontFamily;
-  background: @background;
-  font-weight: @fontWeight;
-  border: @border;
-  box-shadow: @boxShadow;
-  border-radius: @borderRadius;
-  min-height: @minHeight;
+  margin: 1rem 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background: #FFFFFF;
+  font-weight: normal;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
+  min-height: 2.85714286em;
 }
-
 .ui.menu:after {
   content: '';
   display: block;
@@ -46,14 +40,12 @@
   clear: both;
   visibility: hidden;
 }
-
 .ui.menu:first-child {
   margin-top: 0rem;
 }
 .ui.menu:last-child {
   margin-bottom: 0rem;
 }
-
 
 /*--------------
     Sub-Menu
@@ -62,8 +54,9 @@
 .ui.menu .menu {
   margin: 0em;
 }
-
 .ui.menu:not(.vertical) > .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -72,29 +65,38 @@
 ---------------*/
 
 .ui.menu:not(.vertical) .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-
 .ui.menu .item {
   position: relative;
   vertical-align: middle;
   line-height: 1;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-  flex: 0 0 auto;
-  user-select: none;
-
-  background: @itemBackground;
-  padding: @itemVerticalPadding @itemHorizontalPadding;
-  text-transform: @itemTextTransform;
-  color: @itemTextColor;
-  font-weight: @itemFontWeight;
-  transition: @itemTransition;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: none;
+  padding: 0.92857143em 1.14285714em;
+  text-transform: none;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: normal;
+  -webkit-transition: background 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: background 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
 }
-
 .ui.menu > .item:first-child {
-  border-radius: @borderRadius 0px 0px @borderRadius;
+  border-radius: 0.28571429rem 0px 0px 0.28571429rem;
 }
 
 /* Border */
@@ -104,9 +106,8 @@
   top: 0%;
   right: 0px;
   height: 100%;
-
-  width: @dividerSize;
-  background: @dividerBackground;
+  width: 1px;
+  background: rgba(34, 36, 38, 0.1);
 }
 
 /*--------------
@@ -116,8 +117,11 @@
 .ui.menu .text.item > *,
 .ui.menu .item > a:not(.ui),
 .ui.menu .item > p:only-child {
-  user-select: text;
-  line-height: @textLineHeight;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  line-height: 1.3;
 }
 .ui.menu .item > p:first-child {
   margin-top: 0;
@@ -131,9 +135,9 @@
 ---------------*/
 
 .ui.menu .item > i.icon {
-  opacity: @iconOpacity;
-  float: @iconFloat;
-  margin: @iconMargin;
+  opacity: 0.9;
+  float: none;
+  margin: 0em 0.35714286em 0em 0em;
 }
 
 /*--------------
@@ -142,22 +146,29 @@
 
 .ui.menu:not(.vertical) .item > .button {
   position: relative;
-  top: @buttonOffset;
-  margin: @buttonMargin;
-  padding-bottom: @buttonVerticalPadding;
-  padding-top: @buttonVerticalPadding;
-  font-size: @buttonSize;
+  top: 0em;
+  margin: -0.5em 0em;
+  padding-bottom: 0.78571429em;
+  padding-top: 0.78571429em;
+  font-size: 1em;
 }
 
 /*----------------
  Grid / Container
 -----------------*/
 
-.ui.menu >  .grid,
+.ui.menu > .grid,
 .ui.menu > .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: inherit;
-  flex-direction: inherit;
+  -webkit-box-align: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit;
+  -webkit-box-orient: inherit;
+  -webkit-box-direction: inherit;
+      -ms-flex-direction: inherit;
+          flex-direction: inherit;
 }
 
 /*--------------
@@ -169,15 +180,14 @@
 }
 .ui.menu:not(.vertical) .item > .input {
   position: relative;
-  top: @inputOffset;
-  margin: @inputVerticalMargin 0em;
+  top: 0em;
+  margin: -0.5em 0em;
 }
 .ui.menu .item > .input input {
-  font-size: @inputSize;
-  padding-top: @inputVerticalPadding;
-  padding-bottom: @inputVerticalPadding;
+  font-size: 1em;
+  padding-top: 0.57142857em;
+  padding-bottom: 0.57142857em;
 }
-
 
 /*--------------
      Header
@@ -186,15 +196,14 @@
 .ui.menu .header.item,
 .ui.vertical.menu .header.item {
   margin: 0em;
-  background: @headerBackground;
-  text-transform: @headerTextTransform;
-  font-weight: @headerWeight;
+  background: '';
+  text-transform: normal;
+  font-weight: bold;
 }
-
 .ui.vertical.menu .item > .header:not(.ui) {
-  margin: @verticalHeaderMargin;
-  font-size: @verticalHeaderFontSize;
-  font-weight: @verticalHeaderFontWeight;
+  margin: 0em 0em 0.5em;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 /*--------------
@@ -205,75 +214,78 @@
 /* Dropdown Icon */
 .ui.menu .item > i.dropdown.icon {
   padding: 0em;
-  float: @dropdownIconFloat;
-  margin: 0em 0em 0em @dropdownIconDistance;
+  float: right;
+  margin: 0em 0em 0em 1em;
 }
 
 /* Menu */
 .ui.menu .dropdown.item .menu {
   min-width: calc(100% - 1px);
-  border-radius: 0em 0em @dropdownMenuBorderRadius @dropdownMenuBorderRadius;
-  background: @dropdownBackground;
-  margin: @dropdownMenuDistance 0px 0px;
-  box-shadow: @dropdownMenuBoxShadow;
-  flex-direction: column ;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+  background: #FFFFFF;
+  margin: 0em 0px 0px;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column ;
+          flex-direction: column ;
 }
-
 
 /* Menu Items */
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
   text-align: left;
-  font-size: @dropdownItemFontSize ;
-  padding: @dropdownItemPadding ;
-  background: @dropdownItemBackground ;
-  color: @dropdownItemColor ;
-  text-transform: @dropdownItemTextTransform ;
-  font-weight: @dropdownItemFontWeight ;
-  box-shadow: @dropdownItemBoxShadow ;
-  transition: @dropdownItemTransition ;
+  font-size: 1em;
+  padding: 0.78571429em 1.14285714em;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.87);
+  text-transform: none;
+  font-weight: normal;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: none;
+  transition: none;
 }
 .ui.menu .ui.dropdown .menu > .item:hover {
-  background: @dropdownHoveredItemBackground ;
-  color: @dropdownHoveredItemColor ;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.menu .ui.dropdown .menu > .selected.item {
-  background: @dropdownSelectedItemBackground ;
-  color: @dropdownSelectedItemColor ;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
 }
 .ui.menu .ui.dropdown .menu > .active.item {
-  background: @dropdownActiveItemBackground ;
-  font-weight: @dropdownActiveItemFontWeight ;
-  color: @dropdownActiveItemColor ;
+  background: rgba(0, 0, 0, 0.03);
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.95);
 }
-
 .ui.menu .ui.dropdown.item .menu .item:not(.filtered) {
   display: block;
 }
 .ui.menu .ui.dropdown .menu > .item .icon:not(.dropdown) {
   display: inline-block;
-  font-size: @dropdownItemIconFontSize ;
-  float: @dropdownItemIconFloat;
-  margin: @dropdownItemIconMargin ;
+  font-size: 1em;
+  float: none;
+  margin: 0em 0.75em 0em 0em;
 }
-
 
 /* Secondary */
 .ui.secondary.menu .dropdown.item > .menu,
 .ui.text.menu .dropdown.item > .menu {
-  border-radius: @dropdownMenuBorderRadius;
-  margin-top: @secondaryDropdownMenuDistance;
+  border-radius: 0.28571429rem;
+  margin-top: 0.35714286em;
 }
 
 /* Pointing */
 .ui.menu .pointing.dropdown.item .menu {
-  margin-top: @pointingDropdownMenuDistance;
+  margin-top: 0.75em;
 }
 
 /* Inverted */
 .ui.inverted.menu .search.dropdown.item > .search,
 .ui.inverted.menu .search.dropdown.item > .text {
-  color: @invertedSelectionDropdownColor;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Vertical */
@@ -285,9 +297,10 @@
 .ui.vertical.menu .dropdown.item .menu {
   left: 100%;
   min-width: 0;
-  margin: 0em 0em 0em @dropdownMenuDistance;
-  box-shadow: @dropdownVerticalMenuBoxShadow;
-  border-radius: 0em @dropdownMenuBorderRadius @dropdownMenuBorderRadius @dropdownMenuBorderRadius;
+  margin: 0em 0em 0em 0em;
+  -webkit-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 0em 0.28571429rem 0.28571429rem 0.28571429rem;
 }
 .ui.vertical.menu .dropdown.item.upward .menu {
   bottom: 0;
@@ -300,7 +313,8 @@
   border-bottom-right-radius: 0em;
 }
 .ui.vertical.menu .dropdown.active.item {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Evenly Divided */
@@ -313,20 +327,20 @@
 ---------------*/
 
 .ui.menu .item > .label {
-  background: @labelBackground;
-  color: @labelTextColor;
-  margin-left: @labelTextMargin;
-  padding: @labelVerticalPadding @labelHorizontalPadding;
+  background: #999999;
+  color: #FFFFFF;
+  margin-left: 1em;
+  padding: 0.3em 0.78571429em;
 }
 .ui.vertical.menu .item > .label {
-  background: @labelBackground;
-  color: @labelTextColor;
-  margin-top: @labelOffset;
-  margin-bottom: @labelOffset;
-  padding: @labelVerticalPadding @labelHorizontalPadding;
+  background: #999999;
+  color: #FFFFFF;
+  margin-top: -0.15em;
+  margin-bottom: -0.15em;
+  padding: 0.3em 0.78571429em;
 }
 .ui.menu .item > .floating.label {
-  padding: @labelVerticalPadding @labelHorizontalPadding;
+  padding: 0.3em 0.78571429em;
 }
 
 /*--------------
@@ -336,22 +350,25 @@
 .ui.menu .item > img:not(.ui) {
   display: inline-block;
   vertical-align: middle;
-  margin: @imageMargin;
-  width: @imageWidth;
+  margin: -0.3em 0em;
+  width: 2.5em;
 }
 .ui.vertical.menu .item > img:not(.ui):only-child {
   display: block;
   max-width: 100%;
-  width: @verticalImageWidth;
+  width: auto;
 }
+
 
 /*******************************
           Coupling
 *******************************/
 
+
 /*--------------
      List
 ---------------*/
+
 
 /* Menu divider shouldnt apply */
 .ui.menu .list .item:before {
@@ -362,8 +379,8 @@
      Sidebar
 ---------------*/
 
-/* Show vertical dividers below last */
 
+/* Show vertical dividers below last */
 .ui.vertical.sidebar.menu > .item:first-child:before {
   display: block ;
 }
@@ -376,16 +393,16 @@
     Container
 ---------------*/
 
-@media only screen and (max-width: @largestMobileScreen) {
+@media only screen and (max-width: 767px) {
   .ui.menu > .ui.container {
     width: 100% ;
     margin-left: 0em ;
     margin-right: 0em ;
   }
 }
-@media only screen and (min-width: @tabletBreakpoint) {
+@media only screen and (min-width: 768px) {
   .ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless) > .container > .item:not(.right):not(.borderless):first-child {
-    border-left: @dividerSize solid @dividerBackground;
+    border-left: 1px solid rgba(34, 36, 38, 0.1);
   }
 }
 
@@ -394,20 +411,19 @@
              States
 *******************************/
 
+
 /*--------------
       Hover
 ---------------*/
-
 
 .ui.link.menu .item:hover,
 .ui.menu .dropdown.item:hover,
 .ui.menu .link.item:hover,
 .ui.menu a.item:hover {
   cursor: pointer;
-  background: @hoverItemBackground;
-  color: @hoverItemTextColor;
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.95);
 }
-
 
 /*--------------
      Pressed
@@ -416,23 +432,23 @@
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
-  background: @pressedItemBackground;
-  color: @pressedItemTextColor;
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.95);
 }
-
 
 /*--------------
      Active
 ---------------*/
 
-.ui.menu .active.item  {
-  background: @activeItemBackground;
-  color: @activeItemTextColor;
-  font-weight: @activeItemFontWeight;
-  box-shadow: @activeItemBoxShadow;
+.ui.menu .active.item {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
+  font-weight: normal;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.menu .active.item > i.icon {
-  opacity: @activeIconOpacity;
+  opacity: 1;
 }
 
 /*--------------
@@ -441,10 +457,9 @@
 
 .ui.menu .active.item:hover,
 .ui.vertical.menu .active.item:hover {
-  background-color: @activeHoverItemBackground;
-  color: @activeHoverItemColor;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
 }
-
 
 /*--------------
      Disabled
@@ -454,7 +469,7 @@
 .ui.menu .item.disabled:hover {
   cursor: default ;
   background-color: transparent ;
-  color: @disabledTextColor ;
+  color: rgba(40, 40, 40, 0.3);
 }
 
 
@@ -462,21 +477,27 @@
              Types
 *******************************/
 
+
 /*------------------
 Floated Menu / Item
 -------------------*/
 
+
 /* Left Floated */
 .ui.menu:not(.vertical) .left.item,
 .ui.menu:not(.vertical) :not(.dropdown) > .left.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-right: auto ;
 }
+
 /* Right Floated */
 .ui.menu:not(.vertical) .right.item,
 .ui.menu:not(.vertical) .right.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  margin-left: 0em !important;
 }
 
 /* Swapped Borders */
@@ -486,79 +507,84 @@ Floated Menu / Item
   left: 0;
 }
 
-
 /*--------------
     Vertical
 ---------------*/
 
 .ui.vertical.menu {
   display: block;
-  flex-direction: column;
-  background: @verticalBackground;
-  box-shadow: @verticalBoxShadow;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
 
 /*--- Item ---*/
+
 .ui.vertical.menu .item {
   display: block;
-  background: @verticalItemBackground;
+  background: none;
   border-top: none;
   border-right: none;
 }
 .ui.vertical.menu > .item:first-child {
-  border-radius: @borderRadius @borderRadius 0px 0px;
+  border-radius: 0.28571429rem 0.28571429rem 0px 0px;
 }
 .ui.vertical.menu > .item:last-child {
-  border-radius: 0px 0px @borderRadius @borderRadius;
+  border-radius: 0px 0px 0.28571429rem 0.28571429rem;
 }
 
 /*--- Label ---*/
+
 .ui.vertical.menu .item > .label {
   float: right;
   text-align: center;
 }
 
 /*--- Icon ---*/
+
 .ui.vertical.menu .item > i.icon {
-  width: @iconWidth;
-  float: @verticalIconFloat;
-  margin: @verticalIconMargin;
+  width: 1.18em;
+  float: right;
+  margin: 0em 0em 0em 0.5em;
 }
 .ui.vertical.menu .item > .label + i.icon {
-  float: @labelAndIconFloat;
-  margin: @labelAndIconMargin;
+  float: none;
+  margin: 0em 0.5em 0em 0em;
 }
 
-
 /*--- Border ---*/
+
 .ui.vertical.menu .item:before {
   position: absolute;
   content: '';
   top: 0%;
   left: 0px;
   width: 100%;
-  height: @dividerSize;
-  background: @verticalDividerBackground;
+  height: 1px;
+  background: rgba(34, 36, 38, 0.1);
 }
-
 .ui.vertical.menu .item:first-child:before {
   display: none ;
 }
 
-
 /*--- Sub Menu ---*/
+
 .ui.vertical.menu .item > .menu {
-  margin: @subMenuMargin;
+  margin: 0.5em -1.14285714em 0em;
 }
 .ui.vertical.menu .menu .item {
   background: none;
-  padding: @subMenuVerticalPadding @subMenuHorizontalPadding;
-  font-size: @subMenuFontSize;
-  color: @subMenuTextColor;
+  padding: 0.5em 1.33333333em;
+  font-size: 0.85714286em;
+  color: rgba(0, 0, 0, 0.5);
 }
 .ui.vertical.menu .item .menu a.item:hover,
 .ui.vertical.menu .item .menu .link.item:hover {
-  color: @darkTextColor;
+  color: rgba(0, 0, 0, 0.85);
 }
 .ui.vertical.menu .menu .item:before {
   display: none;
@@ -566,28 +592,28 @@ Floated Menu / Item
 
 /* Vertical Active */
 .ui.vertical.menu .active.item {
-  background: @activeItemBackground;
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 0em;
-  box-shadow: @verticalActiveBoxShadow;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: @borderRadius @borderRadius 0em 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em @borderRadius @borderRadius;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: @borderRadius;
+  border-radius: 0.28571429rem;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
 }
 .ui.vertical.menu .item .menu .active.item {
-  background-color: @subMenuActiveBackground;
-  font-weight: @subMenuActiveFontWeight;
-  color: @subMenuActiveTextColor;
+  background-color: transparent;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.95);
 }
-
 
 /*--------------
      Tabular
@@ -595,23 +621,23 @@ Floated Menu / Item
 
 .ui.tabular.menu {
   border-radius: 0em;
-  box-shadow: none ;
+  -webkit-box-shadow: none ;
+          box-shadow: none ;
   border: none;
-  background: @tabularBackground;
-  border-bottom: @tabularBorderWidth solid @tabularBorderColor;
+  background: none transparent;
+  border-bottom: 1px solid #D4D4D5;
 }
 .ui.tabular.fluid.menu {
-  width: @tabularFluidWidth ;
+  width: calc(100% + (1px * 2));
 }
 .ui.tabular.menu .item {
   background: transparent;
   border-bottom: none;
-
-  border-left: @tabularBorderWidth solid transparent;
-  border-right: @tabularBorderWidth solid transparent;
-  border-top: @tabularOppositeBorderWidth solid transparent;
-  padding: @tabularVerticalPadding @tabularHorizontalPadding;
-  color: @tabularTextColor;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 2px solid transparent;
+  padding: 0.92857143em 1.42857143em;
+  color: rgba(0, 0, 0, 0.87);
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -620,19 +646,20 @@ Floated Menu / Item
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
-  color: @tabularHoveredTextColor;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 /* Active */
 .ui.tabular.menu .active.item {
-  background: @tabularActiveBackground;
-  color: @tabularActiveColor;
-  border-top-width: @tabularBorderWidth;
-  border-color: @tabularBorderColor;
-  font-weight: @tabularActiveWeight;
-  margin-bottom: -@tabularBorderWidth;
-  box-shadow: @tabularActiveBoxShadow;
-  border-radius: @tabularBorderRadius @tabularBorderRadius 0px 0px ;
+  background: none #FFFFFF;
+  color: rgba(0, 0, 0, 0.95);
+  border-top-width: 1px;
+  border-color: #D4D4D5;
+  font-weight: bold;
+  margin-bottom: -1px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0.28571429rem 0.28571429rem 0px 0px;
 }
 
 /* Coupling with segment for attachment */
@@ -646,90 +673,91 @@ Floated Menu / Item
 }
 .top.attached.segment + .ui.bottom.tabular.menu {
   position: relative;
-  width: @tabularFluidWidth;
-  left: -@tabularFluidOffset;
+  width: calc(100% + (1px * 2));
+  left: -1px;
 }
 
 /* Bottom Vertical Tabular */
 .ui.bottom.tabular.menu {
-  background: @tabularBackground;
+  background: none transparent;
   border-radius: 0em;
-  box-shadow: none ;
+  -webkit-box-shadow: none ;
+          box-shadow: none ;
   border-bottom: none;
-  border-top: @tabularBorderWidth solid @tabularBorderColor;
+  border-top: 1px solid #D4D4D5;
 }
 .ui.bottom.tabular.menu .item {
   background: none;
-  border-left: @tabularBorderWidth solid transparent;
-  border-right: @tabularBorderWidth solid transparent;
-  border-bottom: @tabularBorderWidth solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
   border-top: none;
 }
 .ui.bottom.tabular.menu .active.item {
-  background: @tabularActiveBackground;
-  color: @tabularActiveColor;
-  border-color: @tabularBorderColor;
-  margin: -@tabularBorderWidth 0px 0px 0px;
-  border-radius: 0px 0px @tabularBorderRadius @tabularBorderRadius ;
+  background: none #FFFFFF;
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #D4D4D5;
+  margin: -1px 0px 0px 0px;
+  border-radius: 0px 0px 0.28571429rem 0.28571429rem;
 }
 
 /* Vertical Tabular (Left) */
 .ui.vertical.tabular.menu {
-  background: @tabularVerticalBackground;
+  background: none transparent;
   border-radius: 0em;
-  box-shadow: none ;
+  -webkit-box-shadow: none ;
+          box-shadow: none ;
   border-bottom: none;
-  border-right: @tabularBorderWidth solid @tabularBorderColor;
+  border-right: 1px solid #D4D4D5;
 }
 .ui.vertical.tabular.menu .item {
   background: none;
-  border-left: @tabularBorderWidth solid transparent;
-  border-bottom: @tabularBorderWidth solid transparent;
-  border-top: @tabularBorderWidth solid transparent;
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
   border-right: none;
 }
 .ui.vertical.tabular.menu .active.item {
-  background: @tabularActiveBackground;
-  color: @tabularActiveColor;
-  border-color: @tabularBorderColor;
-  margin: 0px -@tabularBorderWidth 0px 0px;
-  border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius ;
+  background: none #FFFFFF;
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #D4D4D5;
+  margin: 0px -1px 0px 0px;
+  border-radius: 0.28571429rem 0px 0px 0.28571429rem;
 }
 
 /* Vertical Right Tabular */
 .ui.vertical.right.tabular.menu {
-  background: @tabularVerticalBackground;
+  background: none transparent;
   border-radius: 0em;
-  box-shadow: none ;
+  -webkit-box-shadow: none ;
+          box-shadow: none ;
   border-bottom: none;
   border-right: none;
-  border-left: @tabularBorderWidth solid @tabularBorderColor;
+  border-left: 1px solid #D4D4D5;
 }
 .ui.vertical.right.tabular.menu .item {
   background: none;
-  border-right: @tabularBorderWidth solid transparent;
-  border-bottom: @tabularBorderWidth solid transparent;
-  border-top: @tabularBorderWidth solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
   border-left: none;
 }
 .ui.vertical.right.tabular.menu .active.item {
-  background: @tabularActiveBackground;
-  color: @tabularActiveColor;
-  border-color: @tabularBorderColor;
-  margin: 0px 0px 0px -@tabularBorderWidth;
-  border-radius: 0px @tabularBorderRadius @tabularBorderRadius 0px ;
+  background: none #FFFFFF;
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #D4D4D5;
+  margin: 0px 0px 0px -1px;
+  border-radius: 0px 0.28571429rem 0.28571429rem 0px;
 }
 
 /* Dropdown */
 .ui.tabular.menu .active.dropdown.item {
   margin-bottom: 0px;
-  border-left: @tabularBorderWidth solid transparent;
-  border-right: @tabularBorderWidth solid transparent;
-  border-top: @tabularOppositeBorderWidth solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 2px solid transparent;
   border-bottom: none;
 }
-
-
 
 /*--------------
    Pagination
@@ -737,21 +765,22 @@ Floated Menu / Item
 
 .ui.pagination.menu {
   margin: 0em;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   vertical-align: middle;
 }
 .ui.pagination.menu .item:last-child {
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 .ui.compact.menu .item:last-child {
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 .ui.pagination.menu .item:last-child:before {
   display: none;
 }
-
 .ui.pagination.menu .item {
-  min-width: @paginationMinWidth;
+  min-width: 3em;
   text-align: center;
 }
 .ui.pagination.menu .icon.item i.icon {
@@ -761,10 +790,11 @@ Floated Menu / Item
 /* Active */
 .ui.pagination.menu .active.item {
   border-top: none;
-  padding-top: @itemVerticalPadding;
-  background-color: @paginationActiveBackground;
-  color: @paginationActiveTextColor;
-  box-shadow: none;
+  padding-top: 0.92857143em;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*--------------
@@ -772,24 +802,28 @@ Floated Menu / Item
 ---------------*/
 
 .ui.secondary.menu {
-  background: @secondaryBackground;
-  margin-left: -@secondaryItemSpacing;
-  margin-right: -@secondaryItemSpacing;
+  background: none;
+  margin-left: -0.35714286em;
+  margin-right: -0.35714286em;
   border-radius: 0em;
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Item */
 .ui.secondary.menu .item {
-  align-self: center;
-  box-shadow: none;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: none;
-  padding: @secondaryItemPadding;
-  margin: @secondaryItemMargin;
-  background: @secondaryItemBackground;
-  transition: @secondaryItemTransition;
-  border-radius: @secondaryItemBorderRadius;
+  padding: 0.78571429em 0.92857143em;
+  margin: 0em 0.35714286em;
+  background: none;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
+  border-radius: 0.28571429rem;
 }
 
 /* No Divider */
@@ -800,8 +834,8 @@ Floated Menu / Item
 /* Header */
 .ui.secondary.menu .header.item {
   border-radius: 0em;
-  border-right: @secondaryHeaderBorder;
-  background: @secondaryHeaderBackground;
+  border-right: none;
+  background: none transparent;
 }
 
 /* Image */
@@ -813,40 +847,41 @@ Floated Menu / Item
 .ui.secondary.menu .dropdown.item:hover,
 .ui.secondary.menu .link.item:hover,
 .ui.secondary.menu a.item:hover {
-  background: @secondaryHoverItemBackground;
-  color: @secondaryHoverItemColor;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Active */
 .ui.secondary.menu .active.item {
-  box-shadow: none;
-  background: @secondaryActiveItemBackground;
-  color: @secondaryActiveItemColor;
-  border-radius: @secondaryItemBorderRadius;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
+  border-radius: 0.28571429rem;
 }
 
 /* Active Hover */
 .ui.secondary.menu .active.item:hover {
-  box-shadow: none;
-  background: @secondaryActiveHoverItemBackground;
-  color: @secondaryActiveHoverItemColor;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.95);
 }
-
 
 /* Inverted */
 .ui.secondary.inverted.menu .link.item,
 .ui.secondary.inverted.menu a.item {
-  color: @secondaryInvertedColor ;
+  color: rgba(255, 255, 255, 0.7);
 }
 .ui.secondary.inverted.menu .dropdown.item:hover,
 .ui.secondary.inverted.menu .link.item:hover,
 .ui.secondary.inverted.menu a.item:hover {
-  background: @secondaryInvertedHoverBackground;
-  color: @secondaryInvertedHoverColor ;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 .ui.secondary.inverted.menu .active.item {
-  background: @secondaryInvertedActiveBackground;
-  color: @secondaryInvertedActiveColor ;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
 }
 
 /* Fix item margins */
@@ -858,18 +893,18 @@ Floated Menu / Item
   margin-right: 0em;
 }
 .ui.secondary.attached.menu {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Sub Menu */
 .ui.vertical.secondary.menu .item:not(.dropdown) > .menu {
-  margin: @secondaryMenuSubMenuMargin;
+  margin: 0em -0.92857143em;
 }
 .ui.vertical.secondary.menu .item:not(.dropdown) > .menu > .item {
-  margin: @secondaryMenuSubMenuItemMargin;
-  padding: @secondaryMenuSubMenuItemPadding;
+  margin: 0em;
+  padding: 0.5em 1.33333333em;
 }
-
 
 /*---------------------
    Secondary Vertical
@@ -877,8 +912,8 @@ Floated Menu / Item
 
 .ui.secondary.vertical.menu > .item {
   border: none;
-  margin: @secondaryVerticalItemMargin;
-  border-radius: @secondaryVerticalItemBorderRadius ;
+  margin: 0em 0em 0.35714286em;
+  border-radius: 0.28571429rem;
 }
 .ui.secondary.vertical.menu > .header.item {
   border-radius: 0em;
@@ -901,27 +936,28 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
-  border-bottom: @secondaryPointingBorderWidth solid @secondaryPointingBorderColor;
+  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
 }
-
 .ui.secondary.pointing.menu .item {
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-radius: 0em;
-  align-self: flex-end;
-
-  margin: 0em 0em -@secondaryPointingBorderWidth;
-  padding: @secondaryPointingItemVerticalPadding @secondaryPointingItemHorizontalPadding;
-  border-bottom-width: @secondaryPointingBorderWidth;
-  transition: @secondaryItemTransition;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 0em 0em -2px;
+  padding: 0.85714286em 1.14285714em;
+  border-bottom-width: 2px;
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 /* Item Types */
 .ui.secondary.pointing.menu .header.item {
-  color: @secondaryPointingHeaderColor ;
+  color: rgba(0, 0, 0, 0.85);
 }
 .ui.secondary.pointing.menu .text.item {
-  box-shadow: none ;
+  -webkit-box-shadow: none ;
+          box-shadow: none ;
 }
 .ui.secondary.pointing.menu .item:after {
   display: none;
@@ -932,7 +968,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu .link.item:hover,
 .ui.secondary.pointing.menu a.item:hover {
   background-color: transparent;
-  color: @secondaryPointingHoverTextColor;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Pressed */
@@ -940,77 +976,76 @@ Floated Menu / Item
 .ui.secondary.pointing.menu .link.item:active,
 .ui.secondary.pointing.menu a.item:active {
   background-color: transparent;
-  border-color: @secondaryPointingBorderColor;
+  border-color: rgba(34, 36, 38, 0.15);
 }
 
 /* Active */
 .ui.secondary.pointing.menu .active.item {
   background-color: transparent;
-  box-shadow: none;
-  border-color: @secondaryPointingActiveBorderColor;
-  font-weight: @secondaryPointingActiveFontWeight;
-  color: @secondaryPointingActiveTextColor;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: #1B1C1D;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Active Hover */
 .ui.secondary.pointing.menu .active.item:hover {
-  border-color: @secondaryPointingActiveHoverBorderColor;
-  color: @secondaryPointingActiveHoverTextColor;
+  border-color: #1B1C1D;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /* Active Dropdown */
 .ui.secondary.pointing.menu .active.dropdown.item {
-  border-color: @secondaryPointingActiveDropdownBorderColor;
+  border-color: transparent;
 }
 
 /* Vertical Pointing */
 .ui.secondary.vertical.pointing.menu {
   border-bottom-width: 0px;
-  border-right-width: @secondaryPointingBorderWidth;
+  border-right-width: 2px;
   border-right-style: solid;
-  border-right-color: @secondaryPointingBorderColor;
+  border-right-color: rgba(34, 36, 38, 0.15);
 }
 .ui.secondary.vertical.pointing.menu .item {
   border-bottom: none;
   border-right-style: solid;
   border-right-color: transparent;
   border-radius: 0em ;
-  margin: @secondaryVerticalPointingItemMargin;
-  border-right-width: @secondaryPointingBorderWidth;
+  margin: 0em -2px 0em 0em;
+  border-right-width: 2px;
 }
 
 /* Vertical Active */
 .ui.secondary.vertical.pointing.menu .active.item {
-  border-color: @secondaryPointingActiveBorderColor;
+  border-color: #1B1C1D;
 }
 
 /* Inverted */
 .ui.secondary.inverted.pointing.menu {
-  border-color: @secondaryPointingInvertedBorderColor;
+  border-color: rgba(255, 255, 255, 0.1);
 }
-
 .ui.secondary.inverted.pointing.menu {
-  border-width: @secondaryPointingBorderWidth;
-  border-color: @secondaryPointingBorderColor;
+  border-width: 2px;
+  border-color: rgba(34, 36, 38, 0.15);
 }
 .ui.secondary.inverted.pointing.menu .item {
-  color: @secondaryPointingInvertedItemTextColor;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.secondary.inverted.pointing.menu .header.item {
-  color: @secondaryPointingInvertedItemHeaderColor ;
+  color: #FFFFFF;
 }
 
 /* Hover */
 .ui.secondary.inverted.pointing.menu .link.item:hover,
 .ui.secondary.inverted.pointing.menu a.item:hover {
-  color: @secondaryPointingInvertedItemHoverTextColor;
+  color: rgba(0, 0, 0, 0.95);
 }
-
 
 /* Active */
 .ui.secondary.inverted.pointing.menu .active.item {
-  border-color: @secondaryPointingInvertedActiveBorderColor;
-  color: @secondaryPointingInvertedActiveColor;
+  border-color: #FFFFFF;
+  color: #ffffff;
 }
 
 /*--------------
@@ -1020,20 +1055,23 @@ Floated Menu / Item
 .ui.text.menu {
   background: none transparent;
   border-radius: 0px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: none;
-
-  margin: @textMenuMargin;
+  margin: 1em -0.5em;
 }
 .ui.text.menu .item {
   border-radius: 0px;
-  box-shadow: none;
-  align-self: center;
-  margin: @textMenuItemMargin;
-  padding: @textMenuItemPadding;
-  font-weight: @textMenuItemFontWeight;
-  color: @textMenuItemColor;
-  transition: @textMenuItemTransition;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 0em 0em;
+  padding: 0.35714286em 0.5em;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 /* Border */
@@ -1046,10 +1084,10 @@ Floated Menu / Item
 .ui.text.menu .header.item {
   background-color: transparent;
   opacity: 1;
-  color: @textMenuHeaderColor;
-  font-size: @textMenuHeaderSize;
-  text-transform: @textMenuHeaderTextTransform;
-  font-weight: @textMenuHeaderFontWeight;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 0.92857143em;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 /* Image */
@@ -1058,13 +1096,15 @@ Floated Menu / Item
 }
 
 /*--- fluid text ---*/
+
 .ui.text.item.menu .item {
   margin: 0em;
 }
 
 /*--- vertical text ---*/
+
 .ui.vertical.text.menu {
-  margin: @textVerticalMenuMargin;
+  margin: 1em 0em;
 }
 .ui.vertical.text.menu:first-child {
   margin-top: 0rem;
@@ -1073,53 +1113,59 @@ Floated Menu / Item
   margin-bottom: 0rem;
 }
 .ui.vertical.text.menu .item {
-  margin: @textVerticalMenuItemMargin;
+  margin: 0.57142857em 0em;
   padding-left: 0em;
   padding-right: 0em;
 }
 .ui.vertical.text.menu .item > i.icon {
-  float: @textVerticalMenuIconFloat;
-  margin: @iconMargin;
+  float: none;
+  margin: 0em 0.35714286em 0em 0em;
 }
 .ui.vertical.text.menu .header.item {
-  margin: @textVerticalMenuHeaderMargin;
+  margin: 0.57142857em 0em 0.71428571em;
 }
 
 /* Vertical Sub Menu */
 .ui.vertical.text.menu .item:not(.dropdown) > .menu {
-  margin: @textMenuSubMenuMargin;
+  margin: 0em;
 }
 .ui.vertical.text.menu .item:not(.dropdown) > .menu > .item {
-  margin: @textMenuSubMenuItemMargin;
-  padding: @textMenuSubMenuItemPadding;
+  margin: 0em;
+  padding: 0.5em 0em;
 }
 
 /*--- hover ---*/
+
 .ui.text.menu .item:hover {
   opacity: 1;
   background-color: transparent;
 }
 
 /*--- active ---*/
+
 .ui.text.menu .active.item {
   background-color: transparent;
   border: none;
-  box-shadow: none;
-  font-weight: @textMenuActiveItemFontWeight;
-  color: @textMenuActiveItemColor;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--- active hover ---*/
+
 .ui.text.menu .active.item:hover {
   background-color: transparent;
 }
 
 /* Disable Bariations */
 .ui.text.pointing.menu .active.item:after {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.text.attached.menu {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Inverted */
@@ -1140,6 +1186,7 @@ Floated Menu / Item
     Icon Only
 ---------------*/
 
+
 /* Vertical Menu */
 .ui.vertical.icon.menu {
   display: inline-block;
@@ -1149,8 +1196,8 @@ Floated Menu / Item
 /* Item */
 .ui.icon.menu .item {
   height: auto;
-  text-align: @iconMenuTextAlign;
-  color: @iconMenuItemColor;
+  text-align: center;
+  color: #1B1C1D;
 }
 
 /* Icon */
@@ -1180,12 +1227,13 @@ Floated Menu / Item
 
 /* Inverted */
 .ui.inverted.icon.menu .item {
-  color: @iconMenuInvertedItemColor;
+  color: #FFFFFF;
 }
 
 /*--------------
    Labeled Icon
 ---------------*/
+
 
 /* Menu */
 .ui.labeled.icon.menu {
@@ -1194,16 +1242,19 @@ Floated Menu / Item
 
 /* Item */
 .ui.labeled.icon.menu .item {
-  min-width: @labeledIconMinWidth;
-  flex-direction: column;
+  min-width: 6em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 /* Icon */
 .ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
-  font-size: @labeledIconSize ;
-  margin: 0em auto @labeledIconTextMargin ;
+  font-size: 1.71428571em;
+  margin: 0em auto 0.5rem;
 }
 
 /* Fluid */
@@ -1216,13 +1267,17 @@ Floated Menu / Item
            Variations
 *******************************/
 
+
 /*--------------
     Stackable
 ---------------*/
 
-@media only screen and (max-width: @largestMobileScreen) {
+@media only screen and (max-width: 767px) {
   .ui.stackable.menu {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .ui.stackable.menu .item {
     width: 100% ;
@@ -1234,10 +1289,9 @@ Floated Menu / Item
     bottom: 0px;
     left: 0px;
     width: 100%;
-    height: @dividerSize;
-    background: @verticalDividerBackground;
+    height: 1px;
+    background: rgba(34, 36, 38, 0.1);
   }
-
   .ui.stackable.menu .left.menu,
   .ui.stackable.menu .left.item {
     margin-right: 0 ;
@@ -1246,10 +1300,12 @@ Floated Menu / Item
   .ui.stackable.menu .right.item {
     margin-left: 0 ;
   }
-
   .ui.stackable.menu .right.menu,
   .ui.stackable.menu .left.menu {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -1257,162 +1313,170 @@ Floated Menu / Item
      Colors
 ---------------*/
 
+
 /*--- Standard Colors  ---*/
+
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
-  border-color: @red ;
-  color: @red ;
+  border-color: #DB2828;
+  color: #DB2828;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
-  border-color: @orange ;
-  color: @orange ;
+  border-color: #F2711C;
+  color: #F2711C;
 }
 .ui.menu .yellow.active.item,
 .ui.yellow.menu .active.item {
-  border-color: @yellow ;
-  color: @yellow ;
+  border-color: #FBBD08;
+  color: #FBBD08;
 }
 .ui.menu .olive.active.item,
 .ui.olive.menu .active.item {
-  border-color: @olive ;
-  color: @olive ;
+  border-color: #B5CC18;
+  color: #B5CC18;
 }
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
-  border-color: @green ;
-  color: @green ;
+  border-color: #21BA45;
+  color: #21BA45;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
-  border-color: @teal ;
-  color: @teal ;
+  border-color: #00B5AD;
+  color: #00B5AD;
 }
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
-  border-color: @blue ;
-  color: @blue ;
+  border-color: #2185D0;
+  color: #2185D0;
 }
 .ui.menu .violet.active.item,
 .ui.violet.menu .active.item {
-  border-color: @violet ;
-  color: @violet ;
+  border-color: #6435C9;
+  color: #6435C9;
 }
 .ui.menu .purple.active.item,
 .ui.purple.menu .active.item {
-  border-color: @purple ;
-  color: @purple ;
+  border-color: #A333C8;
+  color: #A333C8;
 }
 .ui.menu .pink.active.item,
 .ui.pink.menu .active.item {
-  border-color: @pink ;
-  color: @pink ;
+  border-color: #E03997;
+  color: #E03997;
 }
 .ui.menu .brown.active.item,
 .ui.brown.menu .active.item {
-  border-color: @brown ;
-  color: @brown ;
+  border-color: #A5673F;
+  color: #A5673F;
 }
 .ui.menu .grey.active.item,
 .ui.grey.menu .active.item {
-  border-color: @grey ;
-  color: @grey ;
+  border-color: #767676;
+  color: #767676;
 }
-
 
 /*--------------
     Inverted
 ---------------*/
 
 .ui.inverted.menu {
-  border: @invertedBorder;
-  background: @invertedBackground;
-  box-shadow: @invertedBoxShadow;
+  border: 0px solid transparent;
+  background: #1B1C1D;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Menu Item */
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a:not(.ui) {
-  background: @invertedItemBackground;
-  color: @invertedItemTextColor;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
 }
 .ui.inverted.menu .item.menu {
-  background: @invertedSubMenuBackground;
+  background: transparent;
 }
 
 /*--- Border ---*/
+
 .ui.inverted.menu .item:before {
-  background: @invertedDividerBackground;
+  background: rgba(255, 255, 255, 0.08);
 }
 .ui.vertical.inverted.menu .item:before {
-  background: @invertedVerticalDividerBackground;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Sub Menu */
 .ui.vertical.inverted.menu .menu .item,
 .ui.vertical.inverted.menu .menu .item a:not(.ui) {
-  color: @invertedSubMenuColor;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Header */
 .ui.inverted.menu .header.item {
   margin: 0em;
-  background: @invertedHeaderBackground;
-  box-shadow: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Disabled */
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
-  color: @invertedDisabledTextColor;
+  color: rgba(225, 225, 225, 0.3);
 }
 
 /*--- Hover ---*/
+
 .ui.link.inverted.menu .item:hover,
 .ui.inverted.menu .dropdown.item:hover,
 .ui.inverted.menu .link.item:hover,
 .ui.inverted.menu a.item:hover {
-  background: @invertedHoverBackground;
-  color: @invertedHoverColor;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 .ui.vertical.inverted.menu .item .menu a.item:hover,
 .ui.vertical.inverted.menu .item .menu .link.item:hover {
-  background: @invertedSubMenuBackground;
-  color: @invertedSubMenuHoverColor;
+  background: transparent;
+  color: #ffffff;
 }
 
 /*--- Pressed ---*/
+
 .ui.inverted.menu a.item:active,
-.ui.inverted.menu .link.item:active{
-  background: @invertedMenuPressedBackground;
-  color: @invertedMenuPressedColor;
+.ui.inverted.menu .link.item:active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
 /*--- Active ---*/
+
 .ui.inverted.menu .active.item {
-  background: @invertedActiveBackground;
-  color: @invertedActiveColor ;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
 }
 .ui.inverted.vertical.menu .item .menu .active.item {
-  background: @invertedSubMenuActiveBackground;
-  color: @invertedSubMenuActiveColor;
+  background: transparent;
+  color: #FFFFFF;
 }
 .ui.inverted.pointing.menu .active.item:after {
-  background: @invertedArrowActiveColor ;
+  background: #3D3E3F;
   margin: 0em ;
-  box-shadow: none ;
+  -webkit-box-shadow: none ;
+          box-shadow: none ;
   border: none ;
 }
 
 /*--- Active Hover ---*/
+
 .ui.inverted.menu .active.item:hover {
-  background: @invertedActiveHoverBackground;
-  color: @invertedActiveHoverColor ;
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
 }
 .ui.inverted.pointing.menu .active.item:hover:after {
-  background: @invertedArrowActiveHoverColor ;
+  background: #3D3E3F;
 }
-
 
 /*--------------
      Floated
@@ -1420,166 +1484,164 @@ Floated Menu / Item
 
 .ui.floated.menu {
   float: left;
-  margin: 0rem @floatedDistance 0rem 0rem;
+  margin: 0rem 0.5rem 0rem 0rem;
 }
 .ui.floated.menu .item:last-child:before {
   display: none;
 }
-
 .ui.right.floated.menu {
   float: right;
-  margin: 0rem 0rem 0rem @floatedDistance;
+  margin: 0rem 0rem 0rem 0.5rem;
 }
-
 
 /*--------------
     Inverted
 ---------------*/
 
+
 /* Red */
 .ui.inverted.menu .red.active.item,
 .ui.inverted.red.menu {
-  background-color: @red;
+  background-color: #DB2828;
 }
 .ui.inverted.red.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.red.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Orange */
 .ui.inverted.menu .orange.active.item,
 .ui.inverted.orange.menu {
-  background-color: @orange;
+  background-color: #F2711C;
 }
 .ui.inverted.orange.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.orange.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Yellow */
 .ui.inverted.menu .yellow.active.item,
 .ui.inverted.yellow.menu {
-  background-color: @yellow;
+  background-color: #FBBD08;
 }
 .ui.inverted.yellow.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.yellow.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Olive */
 .ui.inverted.menu .olive.active.item,
 .ui.inverted.olive.menu {
-  background-color: @olive;
+  background-color: #B5CC18;
 }
 .ui.inverted.olive.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.olive.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Green */
 .ui.inverted.menu .green.active.item,
 .ui.inverted.green.menu {
-  background-color: @green;
+  background-color: #21BA45;
 }
 .ui.inverted.green.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.green.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Teal */
 .ui.inverted.menu .teal.active.item,
 .ui.inverted.teal.menu {
-  background-color: @teal;
+  background-color: #00B5AD;
 }
 .ui.inverted.teal.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.teal.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Blue */
 .ui.inverted.menu .blue.active.item,
 .ui.inverted.blue.menu {
-  background-color: @blue;
+  background-color: #2185D0;
 }
 .ui.inverted.blue.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.blue.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Violet */
 .ui.inverted.menu .violet.active.item,
 .ui.inverted.violet.menu {
-  background-color: @violet;
+  background-color: #6435C9;
 }
 .ui.inverted.violet.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.violet.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Purple */
 .ui.inverted.menu .purple.active.item,
 .ui.inverted.purple.menu {
-  background-color: @purple;
+  background-color: #A333C8;
 }
 .ui.inverted.purple.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.purple.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Pink */
 .ui.inverted.menu .pink.active.item,
 .ui.inverted.pink.menu {
-  background-color: @pink;
+  background-color: #E03997;
 }
 .ui.inverted.pink.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.pink.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Brown */
 .ui.inverted.menu .brown.active.item,
 .ui.inverted.brown.menu {
-  background-color: @brown;
+  background-color: #A5673F;
 }
 .ui.inverted.brown.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.brown.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Grey */
 .ui.inverted.menu .grey.active.item,
 .ui.inverted.grey.menu {
-  background-color: @grey;
+  background-color: #767676;
 }
 .ui.inverted.grey.menu .item:before {
-  background-color: @invertedColoredDividerBackground;
+  background-color: rgba(34, 36, 38, 0.1);
 }
 .ui.inverted.grey.menu .active.item {
-  background-color: @invertedColoredActiveBackground ;
+  background-color: rgba(0, 0, 0, 0.1);
 }
-
 
 /*--------------
      Fitted
@@ -1593,14 +1655,14 @@ Floated Menu / Item
 .ui.horizontally.fitted.menu .item,
 .ui.horizontally.fitted.menu .item .menu .item,
 .ui.menu .horizontally.fitted.item {
-  padding-top: @itemVerticalPadding;
-  padding-bottom: @itemVerticalPadding;
+  padding-top: 0.92857143em;
+  padding-bottom: 0.92857143em;
 }
 .ui.vertically.fitted.menu .item,
 .ui.vertically.fitted.menu .item .menu .item,
 .ui.menu .vertically.fitted.item {
-  padding-left: @itemHorizontalPadding;
-  padding-right: @itemHorizontalPadding;
+  padding-left: 1.14285714em;
+  padding-right: 1.14285714em;
 }
 
 /*--------------
@@ -1618,6 +1680,8 @@ Floated Menu / Item
 --------------------*/
 
 .ui.compact.menu {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   margin: 0em;
   vertical-align: middle;
@@ -1626,7 +1690,7 @@ Floated Menu / Item
   display: inline-block;
 }
 .ui.compact.menu .item:last-child {
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 .ui.compact.menu .item:last-child:before {
   display: none;
@@ -1647,7 +1711,6 @@ Floated Menu / Item
   width: 100% ;
 }
 
-
 /*-------------------
       Evenly Sized
 --------------------*/
@@ -1660,16 +1723,16 @@ Floated Menu / Item
   margin-left: 0em ;
   margin-right: 0em ;
   text-align: center;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .ui.attached.item.menu {
-  margin: 0em @attachedHorizontalOffset ;
+  margin: 0em -1px;
 }
-
 .ui.item.menu .item:last-child:before {
   display: none;
 }
-
 .ui.menu.two.item .item {
   width: 50%;
 }
@@ -1689,13 +1752,13 @@ Floated Menu / Item
   width: 14.285%;
 }
 .ui.menu.eight.item .item {
-  width: 12.500%;
+  width: 12.5%;
 }
 .ui.menu.nine.item .item {
   width: 11.11%;
 }
 .ui.menu.ten.item .item {
-  width: 10.0%;
+  width: 10%;
 }
 .ui.menu.eleven.item .item {
   width: 9.09%;
@@ -1719,7 +1782,6 @@ Floated Menu / Item
 .ui.menu.fixed .item:last-child {
   border-radius: 0px ;
 }
-
 .ui.fixed.menu,
 .ui[class*="top fixed"].menu {
   top: 0px;
@@ -1766,9 +1828,8 @@ Floated Menu / Item
 
 /* Coupling with Grid */
 .ui.fixed.menu + .ui.grid {
-  padding-top: @fixedPrecedingGridMargin;
+  padding-top: 2.75rem;
 }
-
 
 /*-------------------
        Pointing
@@ -1780,19 +1841,18 @@ Floated Menu / Item
   content: '';
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
   background: none;
-
-  margin: (@arrowBorderWidth / 2) 0em 0em;
-  width: @arrowSize;
-  height: @arrowSize;
-
+  margin: 0.5px 0em 0em;
+  width: 0.57142857em;
+  height: 0.57142857em;
   border: none;
-  border-bottom: @arrowBorder;
-  border-right: @arrowBorder;
-
-  z-index: @arrowZIndex;
-  transition: @arrowTransition;
+  border-bottom: 1px solid #D4D4D5;
+  border-right: 1px solid #D4D4D5;
+  z-index: 2;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 .ui.vertical.pointing.menu .item:after {
   position: absolute;
@@ -1800,13 +1860,12 @@ Floated Menu / Item
   right: 0%;
   bottom: auto;
   left: auto;
-
-  transform: translateX(50%) translateY(-50%) rotate(45deg);
-  margin: 0em -(@arrowBorderWidth / 2) 0em 0em;
-
+  -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+          transform: translateX(50%) translateY(-50%) rotate(45deg);
+  margin: 0em -0.5px 0em 0em;
   border: none;
-  border-top: @arrowBorder;
-  border-right: @arrowBorder;
+  border-top: 1px solid #D4D4D5;
+  border-right: 1px solid #D4D4D5;
 }
 
 /* Active */
@@ -1825,40 +1884,39 @@ Floated Menu / Item
 
 /* Colors */
 .ui.pointing.menu .active.item:hover:after {
-  background-color: @arrowHoverColor;
+  background-color: #F2F2F2;
 }
 .ui.pointing.menu .active.item:after {
-  background-color: @arrowActiveColor;
+  background-color: #F2F2F2;
 }
 .ui.pointing.menu .active.item:hover:after {
-  background-color: @arrowActiveHoverColor;
+  background-color: #F2F2F2;
 }
-
 .ui.vertical.pointing.menu .active.item:hover:after {
-  background-color: @arrowVerticalHoverColor;
+  background-color: #F2F2F2;
 }
 .ui.vertical.pointing.menu .active.item:after {
-  background-color: @arrowVerticalActiveColor;
+  background-color: #F2F2F2;
 }
 .ui.vertical.pointing.menu .menu .active.item:after {
-  background-color: @arrowVerticalSubMenuColor;
+  background-color: #FFFFFF;
 }
-
-
 
 /*--------------
     Attached
 ---------------*/
+
 
 /* Middle */
 .ui.attached.menu {
   top: 0px;
   bottom: 0px;
   border-radius: 0px;
-  margin: 0em @attachedHorizontalOffset;
-  width: @attachedWidth;
-  max-width: @attachedWidth;
-  box-shadow: @attachedBoxShadow;
+  margin: 0em -1px;
+  width: calc(100% - (-1px * 2));
+  max-width: calc(100% - (-1px * 2));
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.attached + .ui.attached.menu:not(.top) {
   border-top: none;
@@ -1868,9 +1926,9 @@ Floated Menu / Item
 .ui[class*="top attached"].menu {
   bottom: 0px;
   margin-bottom: 0em;
-  top: @attachedTopOffset;
-  margin-top: @verticalMargin;
-  border-radius: @borderRadius @borderRadius 0em 0em;
+  top: 0px;
+  margin-top: 1rem;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.menu[class*="top attached"]:first-child {
   margin-top: 0em;
@@ -1880,10 +1938,11 @@ Floated Menu / Item
 .ui[class*="bottom attached"].menu {
   bottom: 0px;
   margin-top: 0em;
-  top: @attachedBottomOffset;
-  margin-bottom: @verticalMargin;
-  box-shadow: @attachedBottomBoxShadow;
-  border-radius: 0em 0em @borderRadius @borderRadius;
+  top: 0px;
+  margin-bottom: 1rem;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
+          box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui[class*="bottom attached"].menu:last-child {
   margin-bottom: 0em;
@@ -1891,15 +1950,15 @@ Floated Menu / Item
 
 /* Attached Menu Item */
 .ui.top.attached.menu > .item:first-child {
-  border-radius: @borderRadius 0em 0em 0em;
+  border-radius: 0.28571429rem 0em 0em 0em;
 }
 .ui.bottom.attached.menu > .item:first-child {
-  border-radius: 0em 0em 0em @borderRadius;
+  border-radius: 0em 0em 0em 0.28571429rem;
 }
 
 /* Tabular Attached */
 .ui.attached.menu:not(.tabular) {
-  border: @attachedBorder;
+  border: 1px solid #D4D4D5;
 }
 .ui.attached.inverted.menu {
   border: none;
@@ -1914,68 +1973,82 @@ Floated Menu / Item
      Sizes
 ---------------*/
 
+
 /* Mini */
 .ui.mini.menu {
-  font-size: @mini;
+  font-size: 0.78571429rem;
 }
 .ui.mini.vertical.menu {
-  width: @miniWidth;
+  width: 9rem;
 }
 
 /* Tiny */
 .ui.tiny.menu {
-  font-size: @tiny;
+  font-size: 0.85714286rem;
 }
 .ui.tiny.vertical.menu {
-  width: @tinyWidth;
+  width: 11rem;
 }
 
 /* Small */
 .ui.small.menu {
-  font-size: @small;
+  font-size: 0.92857143rem;
 }
 .ui.small.vertical.menu {
-  width: @smallWidth;
+  width: 13rem;
 }
 
 /* Medium */
 .ui.menu {
-  font-size: @medium;
+  font-size: 1rem;
 }
 .ui.vertical.menu {
-  width: @mediumWidth;
+  width: 15rem;
 }
 
 /* Large */
 .ui.large.menu {
-  font-size: @large;
+  font-size: 1.07142857rem;
 }
 .ui.large.vertical.menu {
-  width: @largeWidth;
+  width: 18rem;
 }
 
 /* Huge */
 .ui.huge.menu {
-  font-size: @huge;
+  font-size: 1.21428571rem;
 }
 .ui.huge.vertical.menu {
-  width: @hugeWidth;
+  width: 22rem;
 }
 
 /* Big */
 .ui.big.menu {
-  font-size: @big;
+  font-size: 1.14285714rem;
 }
 .ui.big.vertical.menu {
-  width: @bigWidth;
+  width: 20rem;
 }
 
 /* Massive */
 .ui.massive.menu {
-  font-size: @massive;
+  font-size: 1.28571429rem;
 }
 .ui.massive.vertical.menu {
-  width: @massiveWidth;
+  width: 25rem;
 }
 
-.loadUIOverrides();
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.menu:not(.vertical) .right.menu {
+  margin-left: 0;
+}

@@ -32,19 +32,19 @@ class Navbar extends Component {
         console.log(this.props);
         
         return (
-            <div className="ui secondary  menu">
-                <div className="right menu">
+            <div className="ui secondary  menu" id="container">
+                <div className="right menu" id="menu">
                 {loggedIn ? [
                         <Link to="#" className="ui item" onClick={this.logout}>
                         Logout</Link> 
                 ] : [
                             <Link to="/" className="active item">Home</Link>,
-                            <Link to="/login" className="item">Login</Link>,
+                            <Link to="/login" className="item">Log in</Link>,
                             <Link to="/signup" className="item">Sign Up</Link>
                        
                 ]}
-                 <div className="item">
-                        <div className="ui icon input">
+                 <div className="item" >
+                        <div className="ui icon input" id="search">
                             <input type="text" placeholder="Search..." />
                             <i className="search link icon" />
                         </div>
