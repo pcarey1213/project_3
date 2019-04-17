@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Categories from "../components/Categories";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
-import API from '../utils/API'
+import API from '../utils/API';
+import { Link } from "react-router-dom";
 
 class Home extends Component {
     constructor() {
@@ -11,23 +12,29 @@ class Home extends Component {
             categories : [],
             categoryName: ""
         }
-    }
-    // componentDidMount() {
-    //     this.getCategories();
-    // }
+        this.loadCategories = this.loadCategories.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleFormSubmit = this.handleAddFormSubmit.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
+    };
+    componentDidMount() {
+        this.loadCategories();
+    };
 
-    // getCategories() {
-    //     axios.get('/api/categories').then(res => {
-    //       console.log(res.data);
-          
-            
-    
-    //         this.setState({
-    //             categories: res.data
-    //         })
-          
-    //     })
-    // }
+    loadCategories() {
+        API.getCategories()
+        .then(res => {
+            this.setState({categories: res.data})
+            console.log(res.data)
+        })
+        .catch(err => console.log(err)); 
+    };
+
+    deleteCategory = id => {
+        API.deleteCategory(id)
+          .then(res => this.getCategories())
+          .catch(err => console.log(err));
+    };
 
     handleInputChange (event){
         event.preventDefault();
@@ -36,9 +43,10 @@ class Home extends Component {
             [name] : value
         })
     }
-    handleFormSubmit = (event) => {
+    handleAddFormSubmit = (event) => {
         event.preventDefault();
-        API.saveCategory(this.state.title)
+        API.addCategory({
+            category:this.state.categoryName})
             .then(res => console.log(res))
             .catch(err => console.log(err));
     }
@@ -48,29 +56,27 @@ class Home extends Component {
             width: 400
         }
         return (
+
             <Container>
                 <div>
                     <p>It's good to be home</p>
                     {/* <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" /> */}
                 </div>
-                                 
-                <Categories>
-                    Category 1
-                </Categories>             
-                <Categories>
-                    Category 2
-                </Categories>                    
-                <Categories>
-                    Category 3
-                </Categories>
-
-                <Row>
-                    
-                        <AddCategory />
-                    
+                {this.state.categories.map(category => (
+                    <Categories key={category._id}>
+                        {category.category}
+                    </Categories>
+                ))}     
+                <Row>                    
+                    <AddCategory 
+                        value = {this.state.categoryName}
+                        handleInputChange = {this.handleInputChange}
+                        handleFormSubmit = {this.handleFormSubmit}
+                    />
                 </Row>
             </Container>
             
+
         )
 
     }

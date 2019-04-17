@@ -8,8 +8,7 @@ const passport = require('./passport');
 const app = express()
 const PORT = process.env.PORT || 3001
 // Route requires
-const user = require('./routes/user')
-const category = require('./routes/category')
+const routes = require("./routes");
 
 // Define middleware here
 app.use(morgan('dev'))
@@ -34,13 +33,8 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-// Routes
-app.use('/user', user)
-app.use('/category', category)
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// Add routes, both API and user
+app.use(routes);
 
 // Starting Server 
 app.listen(PORT, () => {

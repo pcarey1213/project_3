@@ -2,12 +2,13 @@
   "name": "project_3",
   "version": "0.1.0",
   "description": "A user-friendly, tiered, react-based chat app",
-  "main": "server.js",
+  "main": ".server/server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node ./server/server.js",
     "start:dev": "concurrently \"nodemon server/server.js --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
+    "seed": "node ./server/scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
@@ -30,6 +31,5 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0"
-  },
-  "proxy" : "http://localhost:3000/"
+  }
 }
