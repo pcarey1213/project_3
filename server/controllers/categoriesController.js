@@ -1,13 +1,45 @@
-const db = require("../database/models/bubble");
+const dbBubble = require("../database/models/bubble");
+const dbSecondBubble = require("../database/models/secondBubble");
 
 // Defining methods for the booksController
 module.exports = {
     findAll : function(req, res){
-        db
+        dbBubble
         .find(req.query)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+    }, 
+    findOne : function(req, res){
+        dbBubble
+        .findById({ _id: req.params.id })
+        .populate("subCategory")
+          .then(dbModel => {
+            //   console.log("dd")
+            res.json(dbModel);
+          })
+          .catch(err => {
+            res.status(422).json(err)
+          });
+    },
+    createSub : function(req, res){
+        dbSecondBubble.create(req.body)
+        .then(function(dbSecondModel){
+            return dbBubble.findOneAndUpdate({
+                _id : req.params.id
+            }, {
+                $push : {subCategory : dbSecondModel._id}
+            }, {
+                new: true
+            })
+        })
+        .then(function(dbModel){
+            res.json(dbModel);
+        })
+        .catch(function(err){
+            res.json(err);
+        })
     }
+
     // create : function (req, res){
     //     db.Book
     //     .create(req.body)

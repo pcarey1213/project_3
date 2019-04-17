@@ -6,6 +6,12 @@ const categoriesController = require("../controllers/categoriesController");
 router.route("/")
 .get(categoriesController.findAll);
 
+router.route("/:id")
+.get(categoriesController.findOne);
+// /category/5cb62e10b7e34a3a98a666de
+router.route("/:id")
+.post(categoriesController.createSub);
+
 router
 .post('/', (req, res) => {
     console.log('Category signup');
