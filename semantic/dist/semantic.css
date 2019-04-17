@@ -497,6 +497,7 @@ textarea {
 details,
 menu {
   display: block;
+  margin-left: 0;
 }
 
 /*

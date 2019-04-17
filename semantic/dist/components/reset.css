@@ -446,6 +446,7 @@ textarea {
 details,
 menu {
   display: block;
+  margin-left: 0;
 }
 /*
  * Add the correct display in all browsers.
