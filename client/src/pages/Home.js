@@ -4,6 +4,7 @@ import Categories from "../components/Categories";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API'
+import Chat from '../components/Chat'
 
 
 class Home extends Component {
@@ -65,7 +66,10 @@ class Home extends Component {
                     <Categories>
                         {category.category}
                     </Categories>
-                ))}     
+                ))}  
+                <Row>
+                    <Chat></Chat>
+                </Row>   
                 <Row>                    
                     <AddCategory 
                         value = {this.state.categoryName}
