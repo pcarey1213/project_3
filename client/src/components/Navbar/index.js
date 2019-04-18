@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
+import { Image } from 'semantic-ui-react'
 class Navbar extends Component {
     constructor() {
         super()
@@ -28,12 +29,15 @@ class Navbar extends Component {
 
     render() {
         const loggedIn = this.props.loggedIn;
+        const username =this.props.username;
         console.log('navbar render, props: ')
         console.log(this.props);
         
         return (
             <div className="ui secondary  menu" id="container">
                 <div className="right menu" id="menu">
+                <Link to="/">
+                <Image src='../bubble.png' id="logo"/></Link> 
                 {loggedIn ? [
                         <Link to="#" className="ui item" onClick={this.logout}>
                         Logout</Link> 

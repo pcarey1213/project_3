@@ -55,7 +55,7 @@ render() {
 		<Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle' id="form">
 			  <Grid.Column style={{ maxWidth: 450 }}>
 				<Header as='h2' color='blue' id="header">
-				  <Image src='' /> Sign Up With Us!
+				<Image src='../bubble.png' /> Sign Up With Us!
 				</Header>
 				<Form size='large'>
 				  <Segment stacked>

@@ -1,0 +1,182 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-size: 16px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    background-color:#f5f8fa;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .container {
+    width: 98%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .h1, p {
+    color: #333;
+    text-align: left;
+  }
+  
+  h1 {
+    font-size: 1em;
+    line-height: 1em;
+  }
+  
+  p {
+    font-size: 1em;
+    line-height: 1em;
+    color: white;
+  }
+  
+  a {
+    color: inherit;
+  }
+  a:hover {
+    color: white;
+  }
+  
+  /* the blue add with only one line of text, centered vertically */
+  .oneline:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background: #4897D8;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+  .oneline:hover:after {
+    background-color: goldenrod;
+  }
+  .oneline div {
+    float: left;
+    width: 100%;
+    padding-top: 50%;
+    line-height: 1em;
+    margin-top: -1.7em;
+    text-align: center;
+    color: white;
+  }
+  .oneline p {
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
+  @media only screen and (min-width: 350px) {
+    .con {
+      display: inline-block;
+      position: relative;
+      width: 30%;
+      margin: 4% 0 5% 3%;
+      padding: 0;
+      background-color: transparent;
+      border-top: none;
+    }
+    .con .spacer {
+      position: relative;
+      padding-top: 100%;
+    }
+    .con:nth-child(3n+1) {
+      /* margin-left: 1%; */
+    }
+  
+    .add {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #ffff;
+      color: #333;
+      border-radius: 50%;
+      box-sizing: border-box;
+      text-align: center;
+      display: block;
+      padding: 5px;
+      border: 5px solid #7eb6e3;
+      -webkit-transition: all 1s ease-out;
+      -moz-transition: all 1s ease-out;
+      -o-transition: all 1s ease-out;
+      transition: all 1s ease-out;
+    }
+    .add:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -2%;
+    }
+    .add:hover {
+      border: 5px solid #fabc88;
+      vertical-align: middle;
+    }
+  
+    .outline {
+      border: 5px solid grey;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+  
+    .add h1 {
+      color: white;
+      font-size: 0.9em;
+      line-height: 1em;
+    }
+    .add p {
+      font-size: 0.8em;
+      line-height: 1em;
+      color: white;
+      text-align: center;
+    }
+    .add a {
+      color: inherit;
+    }
+    .add > p, .add > h1, .add > .wrapcontent {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .add > p > p, .add > p > h1, .add > h1 > p, .add > h1 > h1, .add > .wrapcontent > p, .add > .wrapcontent > h1 {
+      display: block;
+    }
+  }
+  @media only screen and (min-width: 481px) {
+    .add h1 {
+      font-size: 1.2em;
+      line-height: 1em;
+    }
+    .add p {
+      font-size: 1em;
+      line-height: 1em;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .add h1 {
+      font-size: 1.6em;
+      line-height: 1em;
+    }
+    .add p {
+      font-size: 1.2em;
+      line-height: 1em;
+    }
+  }
+  .input{
+    width:150px;
+  }
+
+  
