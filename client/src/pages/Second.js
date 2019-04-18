@@ -7,6 +7,7 @@ import Jumbotron from '../components/Jumbotron';
 import { Route, Link } from 'react-router-dom'
 
 
+
 class Second extends Component {
     constructor() {
         super()
@@ -81,6 +82,7 @@ class Second extends Component {
                                 {sub.categoryTitle}
                             </SecondCategory>
                         </Link>
+
                     ))}
                     </div>
                 ): (
