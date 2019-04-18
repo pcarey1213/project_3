@@ -2,7 +2,7 @@
   "name": "project_3",
   "version": "0.1.0",
   "description": "A user-friendly, tiered, react-based chat app",
-  "main": "server.js",
+  "main": "./server/server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node ./server/server.js",
@@ -26,6 +26,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "if-env": "^1.0.4",
+    "moment": "^2.24.0",
     "mongoose": "^5.0.2",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
