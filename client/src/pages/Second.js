@@ -5,36 +5,39 @@ import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 
+
 class Second extends Component {
     constructor() {
         super()
         this.state = {
-            categories : [],
-            categoryName: "",
-            id : ""
+            category : "",
+            subCategory: [],
+            id : "",
+            categoryName: ""
         }
         this.getOneCategory = this.getOneCategory.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
-    
+        
     }
     componentDidMount() {
-        const url = window.location.pathname
-        this.getOneCategory(url);
+        this.getOneCategory();
         // console.log("url------------------")
         // console.log(this.state.id);
         this.setState({
-            id : url.slice(10)
+            id : this.props.match.params.id
         })
     }
 
-    getOneCategory(url) {
+    getOneCategory() {
+        const url = this.props.location.pathname
         API.getOneCategory(url)
         .then(res => {
             console.log(res.data)
             this.setState({
-                categories : res.data
+                category : res.data.category,
+                subCategory : res.data.subCategory
             })
         })
         .catch(err => console.log(err));
@@ -65,12 +68,12 @@ class Second extends Component {
             <Container>  
                 <Row>
                     <Jumbotron>
-                    {this.state.categories.category}
+                    {this.state.category}
                     </Jumbotron>
                 </Row> 
-                {this.state.categories.subCategory ? (
+                {this.state.subCategory ? (
                     <div>
-                    {this.state.categories.subCategory.map(sub =>(
+                    {this.state.subCategory.map(sub =>(
                         <SecondCategory
                             key={sub._id}
                         >
