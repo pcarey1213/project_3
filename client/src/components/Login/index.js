@@ -63,7 +63,7 @@ class LoginForm extends Component {
             <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'id="form">
                   <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as='h2' color='blue' id="header">
-                      <Image src='' /> Log-in to your account
+                      <Image src='../bubble.png' /> Log-in to your account
                     </Header>
                     <Form size='large'>
                       <Segment stacked>
