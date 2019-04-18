@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3001
 // Route requires
 const user = require('./routes/user')
 const category = require('./routes/category')
+const category2 = require('./routes/category2')
 
 // Define middleware here
 app.use(morgan('dev'))
@@ -35,8 +36,9 @@ app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
 // Routes
-app.use('/user', user)
-app.use('/category', category)
+app.use('/user', user);
+app.use('/category', category);
+app.use('/category2', category2);
 
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"));

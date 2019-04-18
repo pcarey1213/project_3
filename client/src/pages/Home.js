@@ -49,7 +49,7 @@ class Home extends Component {
     handleAddFormSubmit = (event) => {
         event.preventDefault();
         API.addCategory({
-            category : this.state.categoryName
+            categoryTitle : this.state.categoryName
         })
             .then(res => this.getCategories())
             .catch(err => console.log(err));
@@ -74,7 +74,7 @@ class Home extends Component {
                         <Categories
                             key={category._id}
                         >
-                            {category.category}
+                            {category.categoryTitle}
                         </Categories>
                     </Link>
                 ))}

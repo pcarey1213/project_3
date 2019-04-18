@@ -1,16 +1,16 @@
 const express = require('express')
 const router = express.Router()
 const Category = require('../database/models/bubble');
-const categoriesController = require("../controllers/categoriesController");
+const secondCategoriesController = require("../controllers/secondCategoriesController");
 
 router.route("/")
-.get(categoriesController.findAll);
+.get(secondCategoriesController.findAll);
 
 router.route("/:id")
-.get(categoriesController.findOne);
+.get(secondCategoriesController.findOne);
 // /category/5cb62e10b7e34a3a98a666de
 router.route("/:id")
-.post(categoriesController.createSub);
+.post(secondCategoriesController.createSub);
 
 router
 .post('/', (req, res) => {

@@ -4,10 +4,8 @@ import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
-import { Route, Link } from 'react-router-dom'
 
-
-class Second extends Component {
+class Third extends Component { 
     constructor() {
         super()
         this.state = {
@@ -16,8 +14,8 @@ class Second extends Component {
             categoryName: ""
         }
         this.getOneCategory = this.getOneCategory.bind(this)
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
+        // this.handleInputChange = this.handleInputChange.bind(this)
+        // this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
         
     }
@@ -74,13 +72,11 @@ class Second extends Component {
                 {this.state.subCategory ? (
                     <div>
                     {this.state.subCategory.map(sub =>(
-                        <Link to={`/category2/${sub._id}`}>
-                            <SecondCategory
-                                key={sub._id}
-                            >
-                                {sub.categoryTitle}
-                            </SecondCategory>
-                        </Link>
+                        <SecondCategory
+                            key={sub._id}
+                        >
+                            {sub.categoryTitle}
+                        </SecondCategory>
                     ))}
                     </div>
                 ): (
@@ -94,11 +90,9 @@ class Second extends Component {
                         handleAddFormSubmit = {this.handleAddFormSubmit}
                     />                    
                 </Row>
-            </Container>
-            
+            </Container>   
         )
-
     }
 }
 
-export default Second;
+export default Third;
