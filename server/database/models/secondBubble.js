@@ -7,7 +7,13 @@ const SecondBubbleSchema = new Schema({
     higherCategory: {
         type: Schema.Types.ObjectId,
         ref: "Bubble"
-    }
+    },
+    subCategory : [
+        {
+            type : Schema.Types.ObjectId,
+            ref: "SecondBubble"
+        }
+    ]
 });
 
 const SecondBubble = mongoose.model("SecondBubble", SecondBubbleSchema)

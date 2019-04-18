@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import Category from './components/category'
 import 'semantic-ui/dist/semantic.min.css'
 import Second from './pages/Second';
+import Third from './pages/Third';
 
 
 
@@ -85,6 +86,9 @@ class App extends Component {
         <Route
             path = "/category/:id"
             component={Second} />
+          <Route
+            path = "/category2/:id"
+            component={Third} />
           
 
       </div>

@@ -1,0 +1,49 @@
+const dbSecondBubble = require("../database/models/secondBubble");
+const dbThirdBubble = require("../database/models/thirdBubble");
+
+// Defining methods for the booksController
+module.exports = {
+    findAll : function(req, res){
+        dbSecondBubble
+        .find(req.query)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    }, 
+    findOne : function(req, res){
+        dbSecondBubble
+        .findById({ _id: req.params.id })
+        .populate("subCategory")
+          .then(dbModel => {
+            //   console.log("dd")
+            res.json(dbModel);
+          })
+          .catch(err => {
+            res.status(422).json(err)
+          });
+    },
+    createSub : function(req, res){
+        dbThirdBubble.create(req.body)
+        .then(function(dbThirdModel){
+            return dbBubble.findOneAndUpdate({
+                _id : req.params.id
+            }, {
+                $push : {subCategory : dbThirdModel._id}
+            }, {
+                new: true
+            })
+        })
+        .then(function(dbModel){
+            res.json(dbModel);
+        })
+        .catch(function(err){
+            res.json(err);
+        })
+    }
+
+    // create : function (req, res){
+    //     db.Book
+    //     .create(req.body)
+    //     .then(dbModel => res.json(dbModel))
+    //     .catch(err => res.status(422).json(err));
+    // }
+};

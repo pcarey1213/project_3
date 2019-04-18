@@ -12,8 +12,11 @@ export default {
         return axios.get(data);
         //data format example /category/5cb62e10b7e34a3a98a666de
     },
-    addSubCategory: function(id, data){
+    addSecondSubCategory: function(id, data){
         return axios.post('/category/'+id, data)
+    },
+    addThirdSubCategory: function(id, data){
+        return axios.post('/category2/'+id, data)
     }
 
 }
