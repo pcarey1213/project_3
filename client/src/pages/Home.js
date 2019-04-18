@@ -5,9 +5,7 @@ import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API'
 import Chat from '../components/Chat'
-import Second from '../pages/Second'
-import SecondCategory from '../components/SecondCategory';
-import test from '../pages/test';
+
 
 
 class Home extends Component {
@@ -86,9 +84,7 @@ class Home extends Component {
                     exact path = "/category/:id"
                     component={Second} />
                 />     */}
-                <Row>
-                    <Chat></Chat>
-                </Row>   
+                  
                 <Row>                    
                     <AddCategory 
                         value = {this.state.categoryName}

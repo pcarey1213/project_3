@@ -4,9 +4,12 @@ import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
+import { Route, Link } from 'react-router-dom'
 import Chat from '../components/Chat'
 
-class Third extends Component { 
+
+
+class First extends Component {
     constructor() {
         super()
         this.state = {
@@ -15,8 +18,8 @@ class Third extends Component {
             categoryName: ""
         }
         this.getOneCategory = this.getOneCategory.bind(this)
-        // this.handleInputChange = this.handleInputChange.bind(this)
-        // this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
         
     }
@@ -73,11 +76,14 @@ class Third extends Component {
                 {this.state.subCategory ? (
                     <div>
                     {this.state.subCategory.map(sub =>(
-                        <SecondCategory
-                            key={sub._id}
-                        >
-                            {sub.categoryTitle}
-                        </SecondCategory>
+                        <Link to={`/category2/${sub._id}`}>
+                            <SecondCategory
+                                key={sub._id}
+                            >
+                                {sub.categoryTitle}
+                            </SecondCategory>
+                        </Link>
+
                     ))}
                     </div>
                 ): (
@@ -93,9 +99,11 @@ class Third extends Component {
                         handleAddFormSubmit = {this.handleAddFormSubmit}
                     />                    
                 </Row>
-            </Container>   
+            </Container>
+            
         )
+
     }
 }
 
-export default Third;
+export default First;
