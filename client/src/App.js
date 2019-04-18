@@ -10,8 +10,8 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Category from './components/category'
 import 'semantic-ui/dist/semantic.min.css'
+import First from './pages/First';
 import Second from './pages/Second';
-import Third from './pages/Third';
 
 
 
@@ -85,10 +85,10 @@ class App extends Component {
 
         <Route
             path = "/category/:id"
-            component={Second} />
+            component={First} />
           <Route
             path = "/category2/:id"
-            component={Third} />
+            component={Second} />
           
 
       </div>
