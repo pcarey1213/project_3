@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import SecondCategory from "../components/SecondCategory";
+import ThirdCategory from "../components/ThirdCategory";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
-import Chat from '../components/Chat'
+import Chat from '../components/Chat';
+import { Route, Link } from 'react-router-dom'
 
-class Third extends Component { 
+class Second extends Component { 
     constructor() {
         super()
         this.state = {
@@ -15,8 +16,8 @@ class Third extends Component {
             categoryName: ""
         }
         this.getOneCategory = this.getOneCategory.bind(this)
-        // this.handleInputChange = this.handleInputChange.bind(this)
-        // this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
         
     }
@@ -36,7 +37,8 @@ class Third extends Component {
             console.log(res.data)
             this.setState({
                 category : res.data.categoryTitle,
-                subCategory : res.data.subCategory
+                subCategory : res.data.subCategory,
+                categoryName : ""
             })
         })
         .catch(err => console.log(err));
@@ -51,7 +53,7 @@ class Third extends Component {
     }
     handleAddFormSubmit = (event) => {
         event.preventDefault();
-        API.addSecondSubCategory(this.state.id, {
+        API.addThirdSubCategory(this.state.id, {
             categoryTitle : this.state.categoryName,
             higherCategory : this.state.id
         })
@@ -73,11 +75,13 @@ class Third extends Component {
                 {this.state.subCategory ? (
                     <div>
                     {this.state.subCategory.map(sub =>(
-                        <SecondCategory
-                            key={sub._id}
-                        >
-                            {sub.categoryTitle}
-                        </SecondCategory>
+                        <Link to={`/category3/${sub._id}`}>
+                            <ThirdCategory
+                                key={sub._id}
+                            >
+                                {sub.categoryTitle}
+                            </ThirdCategory>
+                        </Link>
                     ))}
                     </div>
                 ): (
@@ -98,4 +102,4 @@ class Third extends Component {
     }
 }
 
-export default Third;
+export default Second;

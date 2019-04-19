@@ -4,14 +4,12 @@ import { Route, Link } from 'react-router-dom'
 // components
 import Signup from './components/Sign-up'
 import LoginForm from './components/Login'
-
 import Navbar from './components/Navbar'
-
 import Home from './pages/Home'
-import Category from './components/category'
 import 'semantic-ui/dist/semantic.min.css'
 import First from './pages/First';
 import Second from './pages/Second';
+import Third from './pages/Third';
 
 
 
@@ -86,10 +84,12 @@ class App extends Component {
         <Route
             path = "/category/:id"
             component={First} />
-          <Route
-            path = "/category2/:id"
-            component={Second} />
-          
+        <Route
+          path = "/category2/:id"
+          component={Second} />
+        <Route
+            path = "/category3/:id"
+            component={Third} />
 
       </div>
     );

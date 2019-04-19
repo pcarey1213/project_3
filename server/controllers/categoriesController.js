@@ -22,22 +22,33 @@ module.exports = {
           });
     },
     createSub : function(req, res){
-        dbSecondBubble.create(req.body)
-        .then(function(dbSecondModel){
-            return dbBubble.findOneAndUpdate({
-                _id : req.params.id
-            }, {
-                $push : {subCategory : dbSecondModel._id}
-            }, {
-                new: true
-            })
+        dbSecondBubble.findOne(req.body, (err, cate)=> {
+            if(err) { 
+                console.log("Category post error : "+ err)
+            } else if(cate){
+                res.json({
+                    error: `Sorry, already a Category with the Categoryname`
+                })
+            } else {
+                dbSecondBubble.create(req.body)
+                .then(function(dbSecondModel){
+                    return dbBubble.findOneAndUpdate({
+                        _id : req.params.id
+                    }, {
+                        $push : {subCategory : dbSecondModel._id}
+                    }, {
+                        new: true
+                    })
+                })
+                .then(function(dbModel){
+                    res.json(dbModel);
+                })
+                .catch(function(err){
+                    res.json(err);
+                })
+            }
         })
-        .then(function(dbModel){
-            res.json(dbModel);
-        })
-        .catch(function(err){
-            res.json(err);
-        })
+        
     }
 
     // create : function (req, res){
