@@ -4,7 +4,7 @@
 }
 #menu{
     margin-left: 0 !important;
-    float: left !important;
+    float: left;
     padding-left: 100px;
 }
 
@@ -39,4 +39,17 @@
     #search {
         width: 80px;
     }
+}
+
+#label{
+    margin-top: 3px;
+    padding-top: 13px;
+    height: 38px;
+    width: 140px !important;
+}
+
+#pic{
+    margin-right: 15px;
+    height: 34px !important;
+    margin-top:-11px;
 }
