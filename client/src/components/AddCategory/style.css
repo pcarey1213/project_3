@@ -105,10 +105,10 @@
       display: block;
       padding: 5px;
       border: 5px solid #7eb6e3;
-      -webkit-transition: all 1s ease-out;
+      /* -webkit-transition: all 1s ease-out;
       -moz-transition: all 1s ease-out;
       -o-transition: all 1s ease-out;
-      transition: all 1s ease-out;
+      transition: all 1s ease-out; */
     }
     .add:before {
       content: '';
@@ -118,10 +118,14 @@
       margin-right: -2%;
     }
     .add:hover {
-      border: 5px solid #fabc88;
-      vertical-align: middle;
-    }
+      animation:myfirst 5s;
+      -webkit-animation:myfirst 5s infinite;
+      vertical-align: middle; 
   
+    }
+    .title, #icon{
+    transition: all 1s ease-in-out;
+    }
     .outline {
       border: 5px solid grey;
       position: absolute;
@@ -174,9 +178,206 @@
       font-size: 1.2em;
       line-height: 1em;
     }
+
   }
-  .input{
-    width:150px;
+  @media only screen and (max-width: 1199px) {
+    .title{
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      color: #3897f0;
+    }
+    .plus{
+     position: absolute;
+     bottom: 30px;
+     left: 0;
+     right: 0;
+    }
+     #icon{
+      font-size:80px;
+      color: #3897f0;
+     }
+     #input{
+      left:7px;
+      width: 240px;
+     }
+  }
+  @media only screen and (min-width: 1200px) {
+    .title{
+      position: absolute;
+      top: 100px;
+      left: 0;
+      right: 0;
+      color: #3897f0;
+    }
+    .plus{
+     position: absolute;
+     bottom: 40px;
+     left: 0;
+     right: 0;
+    }
+     #icon{
+      font-size:80px;
+      color: #3897f0;
+     }
+     #input{
+      left:7px;
+      width: 240px;
+     }
   }
 
+
+  @media only screen and (max-width: 992px) {
+    .title{
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      color: #3897f0;
+    }
+    #icon{
+      font-size:35px;
+      color: #3897f0;
+     }
+     .plus{
+      position: absolute;
+      bottom: 21px;
+      left: 0;
+      right: 0;
+     }
+     #input{
+      top: 7px;
+      width: 165px;
+     }
+
+  } 
+  @media only screen and (max-width: 767px) {
+    .title{
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      color: #3897f0;
+      font-size: 17px;
+    }
+    #icon{
+      font-size:35px;
+      color: #3897f0;
+     }
+     .plus{
+      position: absolute;
+      bottom: 13px;
+      left: 0;
+     }
+     #input{
+      height: 35px;
+      width: 135px;
+      top: 7px;
+     }
+
+  } 
+
+  @media only screen and (max-width: 400px) {
+    .title{
+      position: absolute;
+      top: 25px;
+      left: 0;
+      color: #3897f0;
+      font-size: 12px;
+    }
+    #icon{
+      font-size:20px;
+      color: #3897f0;
+     }
+     .plus{
+      position: absolute;
+      bottom: 7px;
+      left: 0;
+     }
+     #input{
+      height: 28px;
+      width: 75px;
+      bottom:15px;
+     }
+  }
+  @media only screen and (max-width: 515px) {
+    .title{
+      position: absolute;
+      top: 28px;
+      left: 0;
+      color: #3897f0;
+      font-size: 17px;
+    }
+    #icon{
+      font-size:26px;
+      color: #3897f0;
+     }
+     .plus{
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      right: 0;
+     }
+     #input{
+      height: 30px;
+      width: 105px;
+      bottom:15px;
+     }
+  }
+  @media only screen and (max-width: 484px) {
+    #input{
+      height: 30px;
+      width: 97px;
+      bottom:15px;
+     }
+     .plus{
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+     }
+     .title{
+      position: absolute;
+      top: 22px;
+      left: 0;
+      right: 0;
+      color: #3897f0;
+      font-size: 13px;
+    }
+  }
+  @media only screen and (max-width: 419px) {}
+
+
+  .submit {     
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;        
+}
+.add:hover .title{
+  animation:letter 5s;
+  -webkit-animation:letter 5s infinite;
   
+
+}
+.add:hover #icon{
+  animation:letter 5s;
+  -webkit-animation:letter 5s infinite;
+}
+.con {
+  margin-right: auto; 
+  margin-left: auto;
+}
+
+
+@-webkit-keyframes myfirst {
+  0% {border: 5px solid #7eb6e3;}
+  50% {border:5px solid #fabc88;}
+  100% {border:5px solid #ffdb5c;}
+}
+@-webkit-keyframes letter {
+  0% {color: #7eb6e3;}
+  50% {color:#fabc88;}
+  100% {color: #ffdb5c;}
+}
