@@ -11,7 +11,7 @@ const SecondBubbleSchema = new Schema({
     subCategory : [
         {
             type : Schema.Types.ObjectId,
-            ref: "SecondBubble"
+            ref: "ThirdBubble"
         }
     ]
 });

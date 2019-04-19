@@ -13,37 +13,41 @@ module.exports = {
         dbSecondBubble
         .findById({ _id: req.params.id })
         .populate("subCategory")
-          .then(dbModel => {
-            //   console.log("dd")
-            res.json(dbModel);
-          })
-          .catch(err => {
-            res.status(422).json(err)
-          });
+        .then(dbModel => {
+        //   console.log("dd")
+        res.json(dbModel);
+        })
+        .catch(err => {
+        res.status(422).json(err)
+        });
     },
     createSub : function(req, res){
-        dbThirdBubble.create(req.body)
-        .then(function(dbThirdModel){
-            return dbBubble.findOneAndUpdate({
-                _id : req.params.id
-            }, {
-                $push : {subCategory : dbThirdModel._id}
-            }, {
-                new: true
-            })
-        })
-        .then(function(dbModel){
-            res.json(dbModel);
-        })
-        .catch(function(err){
-            res.json(err);
+
+        dbThirdBubble.findOne(req.body, (err, cate)=> {
+            if(err) { 
+                console.log("Category post error : "+ err)
+            } else if(cate){
+                res.json({
+                    error: `Sorry, already a Category with the Categoryname`
+                })
+            } else {            
+                dbThirdBubble.create(req.body)
+                .then(function(dbThirdModel){
+                    return dbSecondBubble.findOneAndUpdate({
+                        _id : req.params.id
+                    }, {
+                        $push : {subCategory : dbThirdModel._id}
+                    }, {
+                        new: true
+                    })
+                })
+                .then(function(dbModel){
+                    res.json(dbModel);
+                })
+                .catch(function(err){
+                    res.json(err);
+                })
+            }
         })
     }
-
-    // create : function (req, res){
-    //     db.Book
-    //     .create(req.body)
-    //     .then(dbModel => res.json(dbModel))
-    //     .catch(err => res.status(422).json(err));
-    // }
 };

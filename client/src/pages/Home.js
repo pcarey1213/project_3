@@ -30,7 +30,8 @@ class Home extends Component {
         API.getCategory()
         .then(res => {
             this.setState({
-                categories : res.data
+                categories : res.data,
+                categoryName : ""
             })
         })
         .catch(err => console.log(err));
@@ -49,8 +50,9 @@ class Home extends Component {
         API.addCategory({
             categoryTitle : this.state.categoryName
         })
-            .then(res => this.getCategories())
-            .catch(err => console.log(err));
+        .then(res => this.getCategories())
+        .catch(err => console.log(err));
+        
     }
 
     handleToSecondCategories = () => {
@@ -68,10 +70,8 @@ class Home extends Component {
                     {/* <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" /> */}
                 </div>
                 {this.state.categories.map(category => (
-                    <Link to={`/category/${category._id}`}>
-                        <Categories
-                            key={category._id}
-                        >
+                    <Link to={`/category/${category._id}`} key={category._id}>
+                        <Categories>
                             {category.categoryTitle}
                         </Categories>
                     </Link>
