@@ -119,9 +119,12 @@
     }
     .add:hover {
       border: 5px solid #fabc88;
-      vertical-align: middle;
-    }
+      vertical-align: middle; 
   
+    }
+    .title, #icon{
+    transition: all 1s ease-in-out;
+    }
     .outline {
       border: 5px solid grey;
       position: absolute;
@@ -350,4 +353,14 @@
     border: none;
     cursor:pointer;
     overflow: hidden;        
+}
+.add:hover .title{
+  color: #fabc88;
+  transition: all 1s ease-in-out;
+  
+
+}
+.add:hover #icon{
+  color: #fabc88;
+  transition: all 1s ease-in-out;
 }
