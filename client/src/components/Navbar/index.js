@@ -40,7 +40,9 @@ class Navbar extends Component {
                 <Image src='../bubble.png' id="logo"/></Link> 
                 {loggedIn ? [
                         <Link to="#" className="ui item" onClick={this.logout}>
-                        Logout</Link> 
+                        Logout</Link>,
+                        <Link to="/" className="ui item">
+                        {username}</Link>  
                 ] : [
                             <Link to="/" className="active item">Home</Link>,
                             <Link to="/login" className="item">Log in</Link>,
