@@ -176,6 +176,29 @@
     }
 
   }
+  @media only screen and (max-width: 1199px) {
+    .title{
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      color: #3897f0;
+    }
+    .plus{
+     position: absolute;
+     bottom: 30px;
+     left: 0;
+     right: 0;
+    }
+     #icon{
+      font-size:80px;
+      color: #3897f0;
+     }
+     #input{
+      left:7px;
+      width: 240px;
+     }
+  }
   @media only screen and (min-width: 1200px) {
     .title{
       position: absolute;
