@@ -67,6 +67,7 @@ class App extends Component {
         {/* Routes to different components */}
         <Route
           exact path="/"
+          username={this.state.username}
           component={Home} />
         <Route
           path="/login"
@@ -82,14 +83,17 @@ class App extends Component {
         />
 
         <Route
-            path = "/category/:id"
-            component={First} />
+          path = "/category/:id"
+          username={this.state.username}
+          component={First} />
         <Route
           path = "/category2/:id"
+          username={this.state.username}
           component={Second} />
         <Route
-            path = "/category3/:id"
-            component={Third} />
+          path = "/category3/:id"
+          username={this.state.username}
+          component={Third} />
 
       </div>
     );

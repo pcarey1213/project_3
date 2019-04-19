@@ -46,7 +46,9 @@ class Navbar extends Component {
                           {this.username}
                         </Label>,
                         <Link to="#" className="ui item" onClick={this.logout}>
-                        Logout</Link> 
+                        Logout</Link>,
+                        <Link to="/" className="ui item">
+                        {username}</Link>  
                 ] : [
                             <Link to="/" className="active item">Home</Link>,
                             <Link to="/login" className="item">Log in</Link>,
