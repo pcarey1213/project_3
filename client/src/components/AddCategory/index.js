@@ -22,8 +22,7 @@ const AddCategory = (props) => {
                    </button>   
                     </div> 
                 </div>
-        </div>
-        
+            </div>
     )
 }
 

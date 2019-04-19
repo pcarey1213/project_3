@@ -4,7 +4,9 @@ import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
-import { Image } from 'semantic-ui-react'
+import { Image, Label } from 'semantic-ui-react'
+// import App from '.../utils/App'
+
 class Navbar extends Component {
     constructor() {
         super()
@@ -39,6 +41,10 @@ class Navbar extends Component {
                 <Link to="/">
                 <Image src='../bubble.png' id="logo"/></Link> 
                 {loggedIn ? [
+                          <Label as='a' image>
+                          <img src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
+                          {this.username}
+                        </Label>,
                         <Link to="#" className="ui item" onClick={this.logout}>
                         Logout</Link> 
                 ] : [

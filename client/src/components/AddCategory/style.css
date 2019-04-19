@@ -105,10 +105,10 @@
       display: block;
       padding: 5px;
       border: 5px solid #7eb6e3;
-      -webkit-transition: all 1s ease-out;
+      /* -webkit-transition: all 1s ease-out;
       -moz-transition: all 1s ease-out;
       -o-transition: all 1s ease-out;
-      transition: all 1s ease-out;
+      transition: all 1s ease-out; */
     }
     .add:before {
       content: '';
@@ -118,7 +118,8 @@
       margin-right: -2%;
     }
     .add:hover {
-      border: 5px solid #fabc88;
+      animation:myfirst 5s;
+      -webkit-animation:myfirst 5s infinite;
       vertical-align: middle; 
   
     }
@@ -355,12 +356,28 @@
     overflow: hidden;        
 }
 .add:hover .title{
-  color: #fabc88;
-  transition: all 1s ease-in-out;
+  animation:letter 5s;
+  -webkit-animation:letter 5s infinite;
   
 
 }
 .add:hover #icon{
-  color: #fabc88;
-  transition: all 1s ease-in-out;
+  animation:letter 5s;
+  -webkit-animation:letter 5s infinite;
+}
+.con {
+  margin-right: auto; 
+  margin-left: auto;
+}
+
+
+@-webkit-keyframes myfirst {
+  0% {border: 5px solid #7eb6e3;}
+  50% {border:5px solid #fabc88;}
+  100% {border:5px solid #ffdb5c;}
+}
+@-webkit-keyframes letter {
+  0% {color: #7eb6e3;}
+  50% {color:#fabc88;}
+  100% {color: #ffdb5c;}
 }
