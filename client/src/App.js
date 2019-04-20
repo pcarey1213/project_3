@@ -19,6 +19,7 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       username: null,
+      userId: ""
     }
 
     this.getUser = this.getUser.bind(this)
@@ -85,20 +86,32 @@ class App extends Component {
 
         <Route
           path = "/category/:id"
-          username={this.state.username}
-          userId={this.state.userId}
-          component={First} />
+          render={(props) =>
+            <First
+            {...props}
+            userId={this.state.userId}
+            username={this.state.username}
+            />}
+          // component={First} 
+          />
         <Route
           path = "/category2/:id"
-          username={this.state.username}
-          userId={this.state.userId}
-          component={Second} />
+          render={(props) =>
+            <Second
+            {...props}
+            userId={this.state.userId}
+            username={this.state.username}
+            />}
+          />
         <Route
           path = "/category3/:id"
-          username={this.state.username}
-          userId={this.state.userId}
-          component={Third} />
-
+          render={(props) =>
+            <Third
+            {...props}
+            userId={this.state.userId}
+            username={this.state.username}
+            />}
+          />
       </div>
     );
   }
