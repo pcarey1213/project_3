@@ -4,14 +4,15 @@
 }
 #menu{
     margin-left: 0 !important;
-    float: left !important;
+    float: left;
     padding-left: 100px;
 }
 
 #logo{
     height: 45px;
     width: auto;
-    padding-right: 8px
+    padding-right: 8px;
+    padding-top: 2px;
 }
 
 @media only screen and (max-width: 595px) {
@@ -39,4 +40,25 @@
     #search {
         width: 80px;
     }
+}
+
+
+#label{
+    margin-top: 16px;
+    padding-top: 13px;
+    height: 38px;
+    width: 140px !important;
+}
+#pic{
+    margin-right: 15px;
+    height: 34px !important;
+    margin-top:-11px;
+}
+#bubbles{
+    color: #fa6e59;
+    font-family: 'Sigmar One', cursive;
+    font-size: 20px;
+    margin-left: -20px;
+    padding-bottom: 3px;
+    margin-top:0;
 }

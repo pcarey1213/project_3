@@ -2,24 +2,29 @@ import React, {Component } from 'react';
 import './style.css';
 import { Input } from 'semantic-ui-react'
 
+
 const AddCategory = (props) => {
     return (
-        <article className="con">
+        <div className="con">
             <div className="spacer"></div>
             <div className="add" id="cir">
-                        <label>Add Category</label>
-                        <div className="ui input"><input type="text" className="input" 
+                        <h2 className="title">Add Category</h2>
+                        <div className="ui input" id="input" ><input type="text" 
                             id="addCategory" 
                             placeholder="Add Category" 
                             onChange={props.handleInputChange}
                             value={props.value}
                             name="categoryName"/>
-                        </div>            
-                    <i className="fas fa-plus"type="submit" id="plus" onClick={props.handleAddFormSubmit}></i>
+                        </div>    
+                    <div className="plus">  
+                   <button className="submit" type="submit" onClick={props.handleAddFormSubmit}>
+                       <i class="fas fa-plus" id="icon"></i> 
+                   </button>   
+                    </div> 
                 </div>
-        </article>
-        
+            </div>
     )
 }
 
 export default AddCategory;
+
