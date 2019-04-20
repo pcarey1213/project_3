@@ -121,6 +121,7 @@ class First extends Component {
                     <div></div>
                 )}                              
                 <Row>
+
                     <Comment.Group>
                         <Header as='h3' dividing>
                             Chat
@@ -136,6 +137,7 @@ class First extends Component {
 
 
                     </Comment.Group>
+
                 </Row> 
                 <Row>                    
                     <AddCategory 

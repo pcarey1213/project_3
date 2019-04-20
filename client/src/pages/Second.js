@@ -92,7 +92,7 @@ class Second extends Component {
                     <div></div>
                 )}                              
                 <Row>
-                    <Chat></Chat>
+                    {/* <Chat></Chat> */}
                 </Row> 
                 <Row>                    
                     <AddCategory 
