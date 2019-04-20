@@ -31,8 +31,6 @@ class First extends Component {
         console.log("-------------------------this.props")
         console.log(this.props);
         this.getOneCategory();
-        // console.log("url------------------")
-        // console.log(this.state.id);
         this.setState({
             id : this.props.match.params.id
         })
