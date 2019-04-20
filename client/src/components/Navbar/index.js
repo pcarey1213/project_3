@@ -36,7 +36,6 @@ class Navbar extends Component {
         return (
             <div className="ui secondary  menu" id="container">
                 <div className="right menu" id="menu">
-                  
                     <Link to="/">
                     <Image src='../bubble.png' id="logo"/></Link> 
                     {loggedIn ? [
@@ -57,6 +56,7 @@ class Navbar extends Component {
                                 <input type="text" placeholder="Search..." />
                                 <i className="search link icon" />
                             </div>
+
                         </div>
                   </div>
               </div>
