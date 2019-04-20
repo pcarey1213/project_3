@@ -1,8 +1,8 @@
-import React, {Component } from 'react';
-import { Redirect } from 'react-router-dom'
-import axios from 'axios'
-import "./style.css";
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+// import React, {Component } from 'react';
+// import { Redirect } from 'react-router-dom'
+// import axios from 'axios'
+// import "./style.css";
+// import { Button, Comment, Form, Header } from 'semantic-ui-react'
 
 // class Chat extends Component {
 //   constructor() {
@@ -174,4 +174,4 @@ import { Button, Comment, Form, Header } from 'semantic-ui-react'
 //   }
 // }
 
-export default Chat
+// export default Chat
