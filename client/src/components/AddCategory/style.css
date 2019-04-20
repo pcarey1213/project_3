@@ -355,6 +355,10 @@
     cursor:pointer;
     overflow: hidden;        
 }
+.submit:focus { 
+  outline:none; 
+}
+
 .add:hover .title{
   animation:letter 5s;
   -webkit-animation:letter 5s infinite;
