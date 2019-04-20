@@ -37,7 +37,9 @@ class Navbar extends Component {
             <div className="ui secondary  menu" id="container">
                 <div className="right menu" id="menu">
                     <Link to="/">
-                    <Image src='../bubble.png' id="logo"/></Link> 
+                        <Image src='../bubble.png' id="logo" />
+                        <h1 id="bubbles" >Bubbles</h1>
+                    </Link> 
                     {loggedIn ? [
                             <Link to="#" className="ui item" onClick={this.logout}>
                             Logout</Link>, 
