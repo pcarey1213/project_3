@@ -4,51 +4,55 @@
 // import "./style.css";
 // import { Button, Comment, Form, Header } from 'semantic-ui-react'
 
-// class Chat extends Component {
-//   constructor() {
-//       super()
-//       this.state = {
-//           comments: [],
-//           comment:''
-//       }
-//       this.getComments = this.getComments.bind(this)
-//       this.handleCommentSubmit = this.handleSubmit.bind(this)
-//       this.handleChange = this.handleChange.bind(this)
+
+class Chat extends Component {
+  constructor() {
+      super()
+      this.state = {
+          comments: [],
+          comment:''
+      }
+      // this.getComments = this.getComments.bind(this)
+      // this.handleCommentSubmit = this.handleSubmit.bind(this)
+      // this.handleChange = this.handleChange.bind(this)
+
 
 //   }
 
-//   componentDidMount() {
-//     this.getComments();
-//   }
 
-//   getComments() {
-//     const url = this.props.location.pathname
-//     API.getComments(url)
-//     .then(res => {
-//         this.setState({
-//             comments : res.data
-//         })
-//     })
-//     .catch(err => console.log(err));
-//   }
+  // componentDidMount() {
+  //   this.getComments();
+  // }
 
-//   handleChange(event) {
-//     this.setState({
-//         [event.target.name]: event.target.value
-//     })
-//   }
+  // getComments() {
+  //   const url = this.props.location.pathname
+  //   API.getComments(url)
+  //   .then(res => {
+  //       this.setState({
+  //           comments : res.data
+  //       })
+  //   })
+  //   .catch(err => console.log(err));
+  // }
 
-//   handleCommentSubmit(event) {
-//     event.preventDefault()
-//     console.log('post')
-//     event.preventDefault();
-//       API.addComment({
-//           author : this.props.username,
-//           comment : this.state.comment
-//       })
-//         .then(res => this.getComments())
-//         .catch(err => console.log(err));
-//   }
+  // handleChange(event) {
+  //   this.setState({
+  //       [event.target.name]: event.target.value
+  //   })
+  // }
+
+  // handleCommentSubmit(event) {
+  //   event.preventDefault()
+  //   console.log('post')
+  //   event.preventDefault();
+  //     API.addComment({
+  //         author : this.props.username,
+  //         comment : this.state.comment
+  //     })
+  //       .then(res => this.getComments())
+  //       .catch(err => console.log(err));
+  // }
+
 
 //   render() {
 //     console.log('chat render, props: ')

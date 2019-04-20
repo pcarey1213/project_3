@@ -13,7 +13,13 @@ const SecondBubbleSchema = new Schema({
             type : Schema.Types.ObjectId,
             ref: "ThirdBubble"
         }
-    ]
+    ],
+    comment : [
+		{
+            type : Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+	]
 });
 
 const SecondBubble = mongoose.model("SecondBubble", SecondBubbleSchema)

@@ -13,12 +13,15 @@ class Second extends Component {
         this.state = {
             category : "",
             subCategory: [],
-            categoryName: ""
+            categoryName: "",
+            commentText : ""
         }
         this.getOneCategory = this.getOneCategory.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
+        this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this)
+        this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
         
     }
     componentDidMount() {
@@ -38,7 +41,8 @@ class Second extends Component {
             this.setState({
                 category : res.data.categoryTitle,
                 subCategory : res.data.subCategory,
-                categoryName : ""
+                categoryName : "",
+                commentText : ""
             })
         })
         .catch(err => console.log(err));

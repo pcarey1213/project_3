@@ -12,6 +12,7 @@ const user = require('./routes/user')
 const category = require('./routes/category')
 const category2 = require('./routes/category2')
 const category3 = require('./routes/category3')
+const comment = require('./routes/comment')
 
 // Define middleware here
 app.use(morgan('dev'))
@@ -42,6 +43,8 @@ app.use('/user-page', userPage);
 app.use('/category', category);
 app.use('/category2', category2);
 app.use('/category3', category3);
+app.use('/comment', comment);
+// app.use('/comment', comment);
 
 
 // app.get("*", (req, res) => {

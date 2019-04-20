@@ -9,7 +9,13 @@ const BubbleSchema = new Schema({
             type : Schema.Types.ObjectId,
             ref: "SecondBubble"
         }
-    ]
+    ],
+    comment : [
+		{
+            type : Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+	]
 });
 
 const Bubble = mongoose.model("Bubble", BubbleSchema)

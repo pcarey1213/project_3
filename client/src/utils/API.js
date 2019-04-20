@@ -17,6 +17,15 @@ export default {
     },
     addThirdSubCategory: function(id, data){
         return axios.post('/category2/'+id, data)
+    },
+    addCommentToFirst : function(id, data){
+        return axios.post('/comment/1/'+id, data)
+    },
+    addCommentToSecond : function(id, data){
+        return axios.post('/comment/2/'+id, data)
+    },
+    addCommentToThird : function(id, data){
+        return axios.post('/comment/3/'+id, data)
     }
 
 }

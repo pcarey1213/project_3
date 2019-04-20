@@ -43,7 +43,8 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          username: response.data.user.username,
+          userId : response.data.user._id
         })
       } else {
         console.log('Get user: no user');
@@ -59,7 +60,9 @@ class App extends Component {
     return (
       <div className="App">
    
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} username={this.state.username} />
+        <Navbar updateUser={this.updateUser} 
+          loggedIn={this.state.loggedIn} 
+          username={this.state.username} />
         {/* greet user if logged in: */}
         {this.state.loggedIn}
         {/* Routes to different components */}
@@ -83,14 +86,17 @@ class App extends Component {
         <Route
           path = "/category/:id"
           username={this.state.username}
+          userId={this.state.userId}
           component={First} />
         <Route
           path = "/category2/:id"
           username={this.state.username}
+          userId={this.state.userId}
           component={Second} />
         <Route
           path = "/category3/:id"
           username={this.state.username}
+          userId={this.state.userId}
           component={Third} />
 
       </div>

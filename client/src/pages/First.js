@@ -5,7 +5,9 @@ import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 import { Route, Link } from 'react-router-dom'
-import Chat from '../components/Chat'
+import ChatReply from '../components/ChatReply'
+import CommentLine from '../components/CommentLine'
+import { Button, Comment, Form, Header } from 'semantic-ui-react'
 
 
 
@@ -15,15 +17,19 @@ class First extends Component {
         this.state = {
             category : "",
             subCategory: [],
-            categoryName: ""
+            categoryName: "",
+            commentText : ""
         }
         this.getOneCategory = this.getOneCategory.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
-        
+        this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this)
+        this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
     }
     componentDidMount() {
+        console.log("-------------------------this.props")
+        console.log(this.props);
         this.getOneCategory();
         // console.log("url------------------")
         // console.log(this.state.id);
@@ -39,13 +45,22 @@ class First extends Component {
             console.log(res.data)
             this.setState({
                 category : res.data.categoryTitle,
-                subCategory : res.data.subCategory
+                subCategory : res.data.subCategory,
+                categoryName : "",
+                commentText : ""
             })
         })
         .catch(err => console.log(err));
     }
 
     handleInputChange (event){
+        event.preventDefault();
+        const { name, value } = event.target;
+        this.setState({
+            [name] : value
+        })
+    }
+    handleTextAreaChange (event){
         event.preventDefault();
         const { name, value } = event.target;
         this.setState({
@@ -62,6 +77,22 @@ class First extends Component {
             .catch(err => {
                 console.log(err)
             });
+    }
+    handleCommentFormSubmit = (event) => {
+        event.preventDefault();
+        console.log("-------------------this.props.userId");
+        console.log(this.props.userId);
+        API.addCommentToFirst(this.state.id, {
+            content : this.state.commentText,
+            dates : new Date(),
+            firstCategory : this.state.id,
+            user : this.props.userId
+
+        })
+        .then(res => this.getOneCategory())
+        .catch(err => {
+            console.log(err)
+        });
     }
 
     render() {
@@ -90,7 +121,23 @@ class First extends Component {
                     <div></div>
                 )}                              
                 <Row>
-                    {/* <Chat></Chat> */}
+
+                    <Comment.Group>
+                        <Header as='h3' dividing>
+                            Chat
+                        </Header>
+                        <CommentLine
+                        
+                        ></CommentLine>
+                        <ChatReply
+                            value = {this.state.commentText}
+                            handleTextAreaChange = {this.handleTextAreaChange}
+                            handleCommentFormSubmit = {this.handleCommentFormSubmit}
+                        ></ChatReply>
+
+
+                    </Comment.Group>
+
                 </Row> 
                 <Row>                    
                     <AddCategory 
