@@ -9,15 +9,17 @@ const AddCategory = (props) => {
             <div className="spacer"></div>
             <div className="add" id="cir">
                         <h2 className="title">Add Category</h2>
-                        <div className="ui input" id="input" ><input type="text" 
-                            id="addCategory" 
-                            placeholder="Add Category" 
-                            onChange={props.handleInputChange}
-                            value={props.value}
-                            name="categoryName"/>
+                        <div className="ui input" id="input" >
+                            <input type="text" 
+                                id="addCategory" 
+                                placeholder="Add Category" 
+                                onChange={props.handleInputChange}
+                                value={props.value}
+                                name="categoryName"/>
                         </div>    
                     <div className="plus">  
-                   <button className="submit" type="submit" onClick={props.handleAddFormSubmit}>
+                   <button className="submit" type="submit" 
+                   onClick={props.handleAddFormSubmit}>
                        <i class="fas fa-plus" id="icon"></i> 
                    </button>   
                     </div> 

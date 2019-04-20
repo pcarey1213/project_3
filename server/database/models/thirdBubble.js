@@ -4,10 +4,18 @@ mongoose.promise = Promise
 
 const ThirdBubbleSchema = new Schema({
     categoryTitle: {type: String, unique: false, required: false},
-    higherCategory: {
-        type: Schema.Types.ObjectId,
-        ref: "SecondBubble"
-    }
+    higherCategory: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "SecondBubble"
+        }
+    ],
+    comment : [
+		{
+            type : Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 });
 
 const ThirdBubble = mongoose.model("ThirdBubble", ThirdBubbleSchema)
