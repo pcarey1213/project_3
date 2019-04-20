@@ -4,6 +4,7 @@ import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import { Route, Link } from 'react-router-dom'
 import Chat from '../components/Chat'
+import UserPage from '/..components/UserPage';
 
 class User extends Component {
 
