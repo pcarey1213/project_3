@@ -4,7 +4,7 @@ mongoose.promise = Promise
 
 const CommentSchema = new Schema({
     content: {type: String, unique: false, required: false},
-    likes: {type: Number},
+    likes: {type: Number, default: 0},
     dates: {type: Date},
     firstCategory : [
         {
