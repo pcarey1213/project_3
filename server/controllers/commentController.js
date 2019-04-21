@@ -4,23 +4,16 @@ const secondBubble = require("../database/models/secondBubble");
 const thirdBubble = require("../database/models/thirdBubble");
 const dbUser = require("../database/models/user");
 
-// Defining methods for the booksController
+// Defining methods for the commentController
 module.exports = {
-    // findOne : function(req, res){
-    //     dbComment
-    //     .findById({ _id: req.params.id })
-    //     .populate("subCategory")
-    //       .then(dbModel => {
-    //         //   console.log("dd")
-    //         res.json(dbModel);
-    //       })
-    //       .catch(err => {
-    //         res.status(422).json(err)
-    //       });
-    // },
+    
     createToFirst : function(req, res){
+        console.log(" : createToFirst : ")
+        console.log("req.body.user")
+        console.log(req.body.user)
         dbComment.create(req.body)
         .then(function(dbCommentModel){
+            console.log("dbCommentModel")
             dbBubble.findOneAndUpdate({
                 _id : req.params.id
             }, {
@@ -28,21 +21,26 @@ module.exports = {
             }, {
                 new: true
             })
-            console.log("----------------------req.body.user");
-            console.log(req.body.user);
-            dbUser.findOneAndUpdate({
-                _id : req.body.user
-            }, {
-                $push : {comment : dbCommentModel._id}
-            }, {
-                new: true
+            .then(function(dbModel){
+                if(req.body.user){
+                    dbUser.findOneAndUpdate({
+                        _id : req.body.user
+                    }, {
+                        $push : {comment : dbCommentModel._id}
+                    }, {
+                        new: true
+                    })
+                    .then(function(dbModel){
+                        res.json(dbModel);
+                    })
+                    .catch(function(err){
+                        res.json(err);
+                    })
+                }  
             })
-        })
-        .then(function(dbModel){
-            res.json(dbModel);
-        })
-        .catch(function(err){
-            res.json(err);
+            .catch(function(err){
+                res.json(err);
+            })            
         })
     },
     createToSecond : function(req, res){

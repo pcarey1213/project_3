@@ -18,7 +18,8 @@ class First extends Component {
             category : "",
             subCategory: [],
             categoryName: "",
-            commentText : ""
+            commentText : "", 
+            comment :[]
         }
         this.getOneCategory = this.getOneCategory.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -30,6 +31,8 @@ class First extends Component {
     componentDidMount() {
         console.log("-------------------------this.props")
         console.log(this.props);
+        // console.log("-------------------------this.state.subCategory")
+        // console.log(this.state.subCategory);
         this.getOneCategory();
         this.setState({
             id : this.props.match.params.id
@@ -40,10 +43,12 @@ class First extends Component {
         const url = this.props.location.pathname
         API.getOneCategory(url)
         .then(res => {
+            console.log("--------------------------res.data")
             console.log(res.data)
             this.setState({
                 category : res.data.categoryTitle,
                 subCategory : res.data.subCategory,
+                comment : res.data.comment,
                 categoryName : "",
                 commentText : ""
             })
@@ -124,9 +129,21 @@ class First extends Component {
                         <Header as='h3' dividing>
                             Chat
                         </Header>
-                        <CommentLine
-                        
-                        ></CommentLine>
+                        {this.state.comment ? (
+                            <div>
+                                {this.state.comment.map(com => (
+                                    <CommentLine
+                                        key = {com._id}
+                                        user = {com.user._id}
+                                        date = {com.dates}
+                                        content = {com.content}
+                                    >
+                                    </CommentLine>
+                                ))}
+                            </div>
+                        ): (
+                            <CommentLine></CommentLine>
+                        )}
                         <ChatReply
                             value = {this.state.commentText}
                             handleTextAreaChange = {this.handleTextAreaChange}

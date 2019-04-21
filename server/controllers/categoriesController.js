@@ -13,13 +13,13 @@ module.exports = {
         dbBubble
         .findById({ _id: req.params.id })
         .populate("subCategory")
-          .then(dbModel => {
-            //   console.log("dd")
-            res.json(dbModel);
-          })
-          .catch(err => {
-            res.status(422).json(err)
-          });
+        .populate("comment")
+        .then(dbModel => {
+        res.json(dbModel);
+        })
+        .catch(err => {
+        res.status(422).json(err)
+        });
     },
     createSub : function(req, res){
         dbSecondBubble.findOne(req.body, (err, cate)=> {
