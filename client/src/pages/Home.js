@@ -4,7 +4,7 @@ import Categories from "../components/Categories";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API'
-import Chat from '../components/Chat'
+
 
 
 
