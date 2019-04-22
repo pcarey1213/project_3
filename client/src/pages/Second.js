@@ -4,7 +4,6 @@ import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
-import Chat from '../components/Chat';
 import { Route, Link } from 'react-router-dom'
 import ChatReply from '../components/ChatReply'
 import CommentLine from '../components/CommentLine'
