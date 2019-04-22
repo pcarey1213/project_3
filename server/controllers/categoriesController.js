@@ -1,5 +1,6 @@
 const dbBubble = require("../database/models/bubble");
 const dbSecondBubble = require("../database/models/secondBubble");
+const dbComment = require("../database/models/comment");
 
 // Defining methods for the booksController
 module.exports = {
@@ -15,7 +16,10 @@ module.exports = {
         .populate("subCategory")
         .populate("comment")
         .then(dbModel => {
-        res.json(dbModel);
+            console.log("--------------------------------dbModel")
+            console.log(dbModel)
+            // dbComment.findById({ id: dbModel.comment })
+            res.json(dbModel);
         })
         .catch(err => {
         res.status(422).json(err)

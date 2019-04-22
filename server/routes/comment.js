@@ -13,4 +13,7 @@ router.route("/2/:id")
 router.route("/3/:id")
 .post(commentController.createToThird);
 
+router.route("/:id")
+.put(commentController.updateLikes);
+
 module.exports = router

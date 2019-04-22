@@ -20,7 +20,7 @@ const AddCategory = (props) => {
                     <div className="plus">  
                    <button className="submit" type="submit" 
                    onClick={props.handleAddFormSubmit}>
-                       <i class="fas fa-plus" id="icon"></i> 
+                       <i className="fas fa-plus" id="icon"></i> 
                    </button>   
                     </div> 
                 </div>

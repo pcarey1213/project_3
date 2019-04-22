@@ -26,7 +26,10 @@ export default {
     },
     addCommentToThird : function(id, data){
         return axios.post('/comment/3/'+id, data)
+    },
+    updateLikes : function(id, data){
+        return axios.put('/comment/'+id, data)
     }
 
 }
-
+ 

@@ -19,7 +19,8 @@ class First extends Component {
             subCategory: [],
             categoryName: "",
             commentText : "", 
-            comment :[]
+            comment :[],
+            likes: ""
         }
         this.getOneCategory = this.getOneCategory.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -27,12 +28,11 @@ class First extends Component {
         this.componentDidMount = this.componentDidMount.bind(this)
         this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this)
         this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
+        // this.handleLikeChange = this.handleLikeChange.bind(this)
     }
     componentDidMount() {
         console.log("-------------------------this.props")
         console.log(this.props);
-        // console.log("-------------------------this.state.subCategory")
-        // console.log(this.state.subCategory);
         this.getOneCategory();
         this.setState({
             id : this.props.match.params.id
@@ -43,8 +43,8 @@ class First extends Component {
         const url = this.props.location.pathname
         API.getOneCategory(url)
         .then(res => {
-            console.log("--------------------------res.data")
-            console.log(res.data)
+            // console.log("--------------------------res.data")
+            // console.log(res.data)
             this.setState({
                 category : res.data.categoryTitle,
                 subCategory : res.data.subCategory,
@@ -82,9 +82,8 @@ class First extends Component {
             });
     }
     handleCommentFormSubmit = (event) => {
+        console.log(": handleCommentFormSubmit :")
         event.preventDefault();
-        console.log("-------------------this.props.userId");
-        console.log(this.props.userId);
         API.addCommentToFirst(this.state.id, {
             content : this.state.commentText,
             dates : new Date(),
@@ -96,6 +95,30 @@ class First extends Component {
         .catch(err => {
             console.log(err)
         });
+    }
+    handleLikeChange = i => {
+        console.log("--------------handleLikeChange");
+        console.log(" I : ", i);
+        this.setState(state => {
+            state.comment.map((com,j) => {
+                if(j===i){
+                    console.log("com._id : "+com._id)
+                    console.log("where : "+i)
+                    console.log("com.likes : "+com.likes)
+                    API.updateLikes(com._id, {
+                        likes : com.likes + 1
+                    })
+                    .then(res => this.getOneCategory())
+                    .catch(err => {
+                        console.log(err)
+        });
+                    
+                } 
+            });
+            // return {
+            //     comment
+            // }
+        })
     }
 
     render() {
@@ -110,7 +133,8 @@ class First extends Component {
                 {this.state.subCategory ? (
                     <div>
                     {this.state.subCategory.map(sub =>(
-                        <Link to={`/category2/${sub._id}`}>
+                        <Link to={`/category2/${sub._id}`}
+                            key={sub._id}>
                             <SecondCategory
                                 key={sub._id}
                             >
@@ -130,15 +154,39 @@ class First extends Component {
                         </Header>
                         {this.state.comment ? (
                             <div>
-                                {this.state.comment.map(com => (
+                                {this.state.comment.map((com, index) => (
                                     <CommentLine
                                         key = {com._id}
                                         user = {com.user._id}
                                         date = {com.dates}
                                         content = {com.content}
+                                        likes = {com.likes}
                                     >
+                                        <div className="ui labeled button" id="like" tabIndex={0}
+                                            onClick = {() => {
+                                                this.handleLikeChange(index)
+                                            }} 
+                                        >
+                                            <div className="ui red button" id="red">
+                                                <i className="heart icon" /> Like
+                                            </div>
+                                            <p className="ui basic red left pointing label" id="white">
+                                                {com.likes}
+                                            </p>
+                                        </div>
                                     </CommentLine>
                                 ))}
+                                {/* {this.state.comment.map((com, index) => (
+                                    <CommentLine
+                                        key = {com._id}
+                                        user = {com.user._id}
+                                        date = {com.dates}
+                                        content = {com.content}
+                                        likes = {com.likes}
+                                        handleLikeChange = {this.handleLikeChange(index)}
+                                    >
+                                    </CommentLine>
+                                ))} */}
                             </div>
                         ): (
                             <CommentLine></CommentLine>

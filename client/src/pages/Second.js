@@ -20,8 +20,8 @@ class Second extends Component {
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
-        this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this)
-        this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
+        // this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this)
+        // this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
         
     }
     componentDidMount() {
@@ -92,7 +92,7 @@ class Second extends Component {
                     <div></div>
                 )}                              
                 <Row>
-                    <Chat></Chat>
+                    {/* <Chat></Chat> */}
                 </Row> 
                 <Row>                    
                     <AddCategory 

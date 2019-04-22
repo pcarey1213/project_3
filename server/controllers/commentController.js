@@ -78,6 +78,19 @@ module.exports = {
         .catch(function(err){
             res.json(err);
         })
+    },
+    updateLikes : function(req, res){
+        dbComment.updateOne({
+            _id : req.params.id
+        }, {
+            $set : req.body
+        })
+        .then(function(dbModel){
+            res.json(dbModel);
+        })
+        .catch(function(err){
+            res.json(err);
+        })
     }
   
 };
