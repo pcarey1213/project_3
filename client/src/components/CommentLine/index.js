@@ -8,7 +8,7 @@ const CommentLine = props => {
         <Comment>
             <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
             <Comment.Content>
-                <Comment.Author as='a'>unknown{props.user}</Comment.Author>
+                <Comment.Author as='a'>{props.user}</Comment.Author>
                 <Comment.Metadata>
                     <div>{props.date}</div>
                 </Comment.Metadata>

@@ -41,8 +41,8 @@ class First extends Component {
         const url = this.props.location.pathname
         API.getOneCategory(url)
         .then(res => {
-            // console.log("--------------------------res.data")
-            // console.log(res.data)
+            console.log("--------------------------wanna check")
+            console.log(res.data)
             this.setState({
                 category : res.data.categoryTitle,
                 subCategory : res.data.subCategory,
@@ -146,7 +146,8 @@ class First extends Component {
                                 {this.state.comment.map((com, index) => (
                                     <CommentLine
                                         key = {com._id}
-                                        user = {com.user._id}
+                                        user={com.user ? [com.user[0].username] : ["Unknown"]}
+                                        // user = {com.user[0].username}
                                         date = {com.dates}
                                         content = {com.content}
                                         likes = {com.likes}

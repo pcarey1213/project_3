@@ -10,7 +10,7 @@ import 'semantic-ui/dist/semantic.min.css'
 import First from './pages/First';
 import Second from './pages/Second';
 import Third from './pages/Third';
-
+import User from './pages/User';
 
 
 class App extends Component {
@@ -64,7 +64,9 @@ class App extends Component {
    
         <Navbar updateUser={this.updateUser} 
           loggedIn={this.state.loggedIn} 
-          username={this.state.username} />
+          username={this.state.username} 
+          userId = {this.state.userId}
+        />
         {/* greet user if logged in: */}
         {this.state.loggedIn}
         {/* Routes to different components */}
@@ -112,6 +114,10 @@ class App extends Component {
             userId={this.state.userId}
             username={this.state.username}
             />}
+          />
+          <Route 
+            path = "/user/:id"
+            component={User} 
           />
       </div>
     );
