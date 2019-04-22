@@ -11,7 +11,7 @@ module.exports = {
     findOne : function(req, res){
         dbThirdBubble
         .findById({ _id: req.params.id })
-        .populate("subCategory")
+        .populate("comment")
           .then(dbModel => {
             //   console.log("dd")
             res.json(dbModel);

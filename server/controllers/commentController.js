@@ -8,12 +8,8 @@ const dbUser = require("../database/models/user");
 module.exports = {
     
     createToFirst : function(req, res){
-        console.log(" : createToFirst : ")
-        console.log("req.body.user")
-        console.log(req.body.user)
         dbComment.create(req.body)
         .then(function(dbCommentModel){
-            console.log("dbCommentModel")
             dbBubble.findOneAndUpdate({
                 _id : req.params.id
             }, {
@@ -46,38 +42,66 @@ module.exports = {
     createToSecond : function(req, res){
         dbComment.create(req.body)
         .then(function(dbCommentModel){
-            return secondBubble.findOneAndUpdate({
+            secondBubble.findOneAndUpdate({
                 _id : req.params.id
             }, {
                 $push : {comment : dbCommentModel._id}
             }, {
                 new: true
             })
-        })
-        .then(function(dbModel){
-            res.json(dbModel);
-        })
-        .catch(function(err){
-            res.json(err);
-        })
+            .then(function(dbModel){
+                if(req.body.user){
+                    dbUser.findOneAndUpdate({
+                        _id : req.body.user
+                    }, {
+                        $push : {comment : dbCommentModel._id}
+                    }, {
+                        new: true
+                    })
+                    .then(function(dbModel){
+                        res.json(dbModel);
+                    })
+                    .catch(function(err){
+                        res.json(err);
+                    })
+                }  
+            })
+            .catch(function(err){
+                res.json(err);
+            }) 
+        }) 
     },
     createToThird : function(req, res){
         dbComment.create(req.body)
         .then(function(dbCommentModel){
-            return thirdBubble.findOneAndUpdate({
+            thirdBubble.findOneAndUpdate({
                 _id : req.params.id
             }, {
                 $push : {comment : dbCommentModel._id}
             }, {
                 new: true
             })
-        })
-        .then(function(dbModel){
-            res.json(dbModel);
-        })
-        .catch(function(err){
-            res.json(err);
-        })
+            .then(function(dbModel){
+                if(req.body.user){
+                    dbUser.findOneAndUpdate({
+                        _id : req.body.user
+                    }, {
+                        $push : {comment : dbCommentModel._id}
+                    }, {
+                        new: true
+                    })
+                    .then(function(dbModel){
+                        res.json(dbModel);
+                    })
+                    .catch(function(err){
+                        res.json(err);
+                    })
+                }  
+            })
+            .catch(function(err){
+                res.json(err);
+            }) 
+        }) 
     },
     updateLikes : function(req, res){
         dbComment.updateOne({

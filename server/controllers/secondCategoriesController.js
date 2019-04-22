@@ -13,6 +13,7 @@ module.exports = {
         dbSecondBubble
         .findById({ _id: req.params.id })
         .populate("subCategory")
+        .populate("comment")
         .then(dbModel => {
         //   console.log("dd")
         res.json(dbModel);
