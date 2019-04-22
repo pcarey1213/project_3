@@ -4,7 +4,10 @@ import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
-import Chat from '../components/Chat'
+import Chat from '../components/Chat';
+import ChatReply from '../components/ChatReply';
+import CommentLine from '../components/CommentLine';
+import { Button, Comment, Form, Header } from 'semantic-ui-react';
 
 class Third extends Component { 
     constructor() {
@@ -12,18 +15,17 @@ class Third extends Component {
         this.state = {
             category : "",
             subCategory: [],
-            categoryName: ""
+            categoryName: "",
+            commentText : "",
+            comment :[]
         }
-        // this.getOneCategory = this.getOneCategory.bind(this)
-        // this.handleInputChange = this.handleInputChange.bind(this)
-        // this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this)
-        // this.componentDidMount = this.componentDidMount.bind(this)
-        
+        this.getOneCategory = this.getOneCategory.bind(this)
+        this.componentDidMount = this.componentDidMount.bind(this)
+        this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this)
+        this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
     }
     componentDidMount() {
         this.getOneCategory();
-        // console.log("url------------------")
-        // console.log(this.state.id);
         this.setState({
             id : this.props.match.params.id
         })
@@ -33,11 +35,11 @@ class Third extends Component {
         const url = this.props.location.pathname
         API.getOneCategory(url)
         .then(res => {
-            console.log(res.data)
             this.setState({
                 category : res.data.categoryTitle,
-                subCategory : res.data.subCategory,
-                categoryName : ""
+                comment : res.data.comment,
+                categoryName : "",
+                commentText : ""
             })
         })
         .catch(err => console.log(err));
@@ -50,6 +52,43 @@ class Third extends Component {
             [name] : value
         })
     }
+    handleCommentFormSubmit = (event) => {
+        event.preventDefault();
+        API.addCommentToThird(this.state.id, {
+            content : this.state.commentText,
+            dates : new Date(),
+            thirdCategory : this.state.id,
+            user : this.props.userId
+
+        })
+        .then(res => this.getOneCategory())
+        .catch(err => {
+            console.log(err)
+        });
+    }
+    handleTextAreaChange (event){
+        event.preventDefault();
+        const { name, value } = event.target;
+        this.setState({
+            [name] : value
+        })
+    }
+
+    handleLikeChange = i => {
+        this.setState(state => {
+            state.comment.map((com,j) => {
+                if(j===i){
+                    API.updateLikes(com._id, {
+                        likes : com.likes + 1
+                    })
+                    .then(res => this.getOneCategory())
+                    .catch(err => {
+                        console.log(err)
+                    });  
+                } 
+            });
+        })
+    }
 
     render() {
         
@@ -59,22 +98,47 @@ class Third extends Component {
                     <Jumbotron>
                     {this.state.category}
                     </Jumbotron>
-                </Row> 
-                {this.state.subCategory ? (
-                    <div>
-                    {this.state.subCategory.map(sub =>(
-                        <SecondCategory
-                            key={sub._id}
-                        >
-                            {sub.categoryTitle}
-                        </SecondCategory>
-                    ))}
-                    </div>
-                ): (
-                    <div></div>
-                )}                              
+                </Row>                              
                 <Row>
-                    <Chat></Chat>
+                    <Comment.Group>
+                        <Header as='h3' dividing>
+                            Chat
+                        </Header>
+                        {this.state.comment ? (
+                            <div>
+                                {this.state.comment.map((com, index) => (
+                                    <CommentLine
+                                        key = {com._id}
+                                        user = {com.user._id}
+                                        date = {com.dates}
+                                        content = {com.content}
+                                        likes = {com.likes}
+                                    >
+                                        <div className="ui labeled button" id="like" tabIndex={0}
+                                            onClick = {() => {
+                                                this.handleLikeChange(index)
+                                            }}>
+                                            <div className="ui red button" id="red">
+                                                <i className="heart icon" /> Like
+                                            </div>
+                                            <p className="ui basic red left pointing label" id="white">
+                                                {com.likes}
+                                            </p>
+                                        </div>
+                                    </CommentLine>
+                                ))}
+                            </div>
+                        ): (
+                            <CommentLine></CommentLine>
+                        )}
+                        <ChatReply
+                            value = {this.state.commentText}
+                            handleTextAreaChange = {this.handleTextAreaChange}
+                            handleCommentFormSubmit = {this.handleCommentFormSubmit}
+                        ></ChatReply>
+
+
+                    </Comment.Group>
                 </Row> 
             </Container>   
         )
