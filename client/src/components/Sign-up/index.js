@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
@@ -10,6 +11,7 @@ class Signup extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
+			redirectTo: null
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -32,10 +34,14 @@ class Signup extends Component {
 		})
 			.then(response => {
 				console.log(response)
+				//route to the homepage
+				alert("You are now signed up!");
+
+
 				if (!response.data.errmsg) {
 					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirectTo: '/login'
+					this.setState({
+						redirectTo: '/'
 					})
 				} else {
 					console.log('username already taken')
@@ -48,40 +54,44 @@ class Signup extends Component {
 	}
 
 
-render() {
-	return (
-		<div className='SignupForm'>
+	render() {
+		if (this.state.redirectTo) {
+			return <Redirect to={{ pathname: this.state.redirectTo }} />
+		} else {
+			return (
+				<div className='SignupForm'>
 
-		<Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle' id="form">
-			  <Grid.Column style={{ maxWidth: 450 }}>
-				<Header as='h2' color='blue' id="header">
-				<Image src='../bubble.png' /> Sign Up With Us!
+					<Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle' id="form">
+						<Grid.Column style={{ maxWidth: 450 }}>
+							<Header as='h2' color='blue' id="header">
+								<Image src='../bubble.png' /> Sign Up With Us!
 				</Header>
-				<Form size='large'>
-				  <Segment stacked>
-					<Form.Input fluid icon='user' iconPosition='left' placeholder='username' name="username" type="text" id="username" value={this.state.username} onChange={this.handleChange}/>
-					<Form.Input
-					  fluid
-					  icon='lock'
-					  iconPosition='left'
-					  placeholder='Password'
-					  name="password"
-					  type='password'
-					  value={this.state.password}
-					  onChange={this.handleChange}
-					/>
-		
-					<Button color='blue' fluid size='large' onClick={this.handleSubmit} id="button">
-					  Sign Up
+							<Form size='large'>
+								<Segment stacked>
+									<Form.Input fluid icon='user' iconPosition='left' placeholder='username' name="username" type="text" id="username" value={this.state.username} onChange={this.handleChange} />
+									<Form.Input
+										fluid
+										icon='lock'
+										iconPosition='left'
+										placeholder='Password'
+										name="password"
+										type='password'
+										value={this.state.password}
+										onChange={this.handleChange}
+									/>
+
+									<Button color='blue' fluid size='large' onClick={this.handleSubmit} id="button">
+										Sign Up
 					</Button>
-				  </Segment>
-				</Form>
-			  </Grid.Column>
-			</Grid>
-		  </div>
-		)
+								</Segment>
+							</Form>
+						</Grid.Column>
+					</Grid>
+				</div>
+			)
 		}
-		}
+	}
+}
 
 export default Signup
 

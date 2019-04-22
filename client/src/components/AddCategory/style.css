@@ -118,8 +118,8 @@
       margin-right: -2%;
     }
     .add:hover {
-      animation:myfirst 5s;
-      -webkit-animation:myfirst 5s infinite;
+      animation:myfirst 3s;
+      -webkit-animation:myfirst 3s infinite;
       vertical-align: middle; 
   
     }
@@ -360,14 +360,14 @@
 }
 
 .add:hover .title{
-  animation:letter 5s;
-  -webkit-animation:letter 5s infinite;
+  animation:letter 3s;
+  -webkit-animation:letter 3s infinite;
   
 
 }
 .add:hover #icon{
-  animation:letter 5s;
-  -webkit-animation:letter 5s infinite;
+  animation:letter 3s;
+  -webkit-animation:letter 3s infinite;
 }
 .con {
   margin-right: auto; 

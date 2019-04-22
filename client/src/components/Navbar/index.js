@@ -37,14 +37,18 @@ class Navbar extends Component {
             <div className="ui secondary  menu" id="container">
                 <div className="right menu" id="menu">
                     <Link to="/">
-                    <Image src='../bubble.png' id="logo"/></Link> 
+                        <Image src='../bubble.png' id="logo" />
+                        <h1 id="bubbles" >Bubbles</h1>
+                    </Link> 
                     {loggedIn ? [
                             <Link to="#" className="ui item" onClick={this.logout}>
                             Logout</Link>, 
-                            <Label as='a' image id="label">
-                            <img  id= "pic" src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
-                            {this.props.username}
-                          </Label>
+                            // <Link to="/user-page" onClink={}>
+                              <Label as='a' image id="label">
+                              <img  id= "pic" src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
+                              {this.props.username}
+                              </Label>
+                            // </Link>
                     ] : [
                                 <Link to="/" className="active item">Home</Link>,
                                 <Link to="/login" className="item">Log in</Link>,
