@@ -14,7 +14,10 @@ module.exports = {
         dbBubble
         .findById({ _id: req.params.id })
         .populate("subCategory")
-        .populate("comment")
+        .populate({
+            path : "comment", 
+            populate : { path : "user"}
+        })
         .then(dbModel => {
             console.log("--------------------------------dbModel")
             console.log(dbModel)

@@ -32,7 +32,9 @@ module.exports = {
                     .catch(function(err){
                         res.json(err);
                     })
-                }  
+                } else {
+                    res.json(dbModel)
+                } 
             })
             .catch(function(err){
                 res.json(err);
