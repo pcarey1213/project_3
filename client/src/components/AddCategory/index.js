@@ -7,17 +7,17 @@ const AddCategory = (props) => {
     return (
         <div className="con">
             <div className="spacer"></div>
-            <form className="add" id="cir" onSubmit={props.handleAddFormSubmit}>
-                <h2 className="title">Add Category</h2>
-                    <div className="ui input" id="input" >
-                    <input type="text" 
+                <form className="add" id="cir" onSubmit={props.handleAddFormSubmit}>
+                    <h2 className="title">Add Bubble</h2>
+                     <div className="ui input" id="input" >
+                        <input type="text" 
                                 id="addCategory" 
-                                placeholder="Add Category" 
+                                placeholder="Bubble Name" 
                                 onChange={props.handleInputChange}
                                 value={props.value}
                                 name="categoryName"/>
-                    </div>    
-                    <div className="plus">  
+                        </div>    
+                     <div className="plus">  
                         <button className="submit" type="submit">
                                 <i className="fas fa-plus" id="icon"></i> 
                         </button>   
