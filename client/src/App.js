@@ -86,7 +86,7 @@ class App extends Component {
           render={() =>
             <Signup   
               updateUser={this.updateUser}
-            />}/>}
+            />}
         />
 
         <Route
