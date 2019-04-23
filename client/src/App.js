@@ -84,7 +84,9 @@ class App extends Component {
         <Route
           path="/signup"
           render={() =>
-            <Signup/>}
+            <Signup   
+              updateUser={this.updateUser}
+            />}/>}
         />
 
         <Route
@@ -117,8 +119,14 @@ class App extends Component {
           />
           <Route 
             path = "/user/:id"
-            component={User} 
-          />
+            render={(props) =>
+              <User
+              {...props}
+              userId={this.state.userId}
+              username={this.state.username}
+              />}
+            />
+            
       </div>
     );
   }

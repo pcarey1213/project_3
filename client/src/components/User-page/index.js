@@ -65,6 +65,7 @@ const UserPage = props => {
                 </div>
                 </Col>
             </Row>
+
             </div>
       )
 

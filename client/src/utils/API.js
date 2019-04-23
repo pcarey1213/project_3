@@ -29,6 +29,9 @@ export default {
     },
     updateLikes : function(id, data){
         return axios.put('/comment/'+id, data)
+    },
+    getOneUser : function(data){
+        return axios.get(data)
     }
 
 }
