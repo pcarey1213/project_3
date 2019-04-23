@@ -117,8 +117,14 @@ class App extends Component {
           />
           <Route 
             path = "/user/:id"
-            component={User} 
-          />
+            render={(props) =>
+              <User
+              {...props}
+              userId={this.state.userId}
+              username={this.state.username}
+              />}
+            />
+            
       </div>
     );
   }

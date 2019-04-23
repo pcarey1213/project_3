@@ -69,4 +69,15 @@ router.post('/logout', (req, res) => {
     }
 })
 
+router.get('/:id', (req, res) => {
+    User.findById({ _id: req.params.id })
+    .populate("comment")
+    .then(dbModel => {
+        res.json(dbModel);
+    })
+    .catch(err => {
+    res.status(422).json(err)
+    });
+})
+
 module.exports = router
