@@ -36,12 +36,28 @@ class Signup extends Component {
 				console.log(response)
 				//route to the homepage
 				alert("You are now signed up!");
-
-
 				if (!response.data.errmsg) {
 					console.log('successful signup')
-					this.setState({
-						redirectTo: '/'
+					axios
+					.post('/user/login', {
+							username: this.state.username,
+							password: this.state.password
+					})
+					.then(response => {
+							console.log('login response: ')
+							console.log(response)
+							if (response.status === 200) {
+									// update App.js state
+									this.props.updateUser({
+											loggedIn: true,
+											username: response.data.username,
+											userId: response.data.userId
+									})
+									// update the state to redirect to home
+									this.setState({
+											redirectTo: '/'
+									})
+							}
 					})
 				} else {
 					console.log('username already taken')
