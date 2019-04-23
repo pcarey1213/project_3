@@ -18,11 +18,13 @@ const UserPage = props => {
                     <Card>
                         <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
                         <Card.Content>
-                        <Card.Header>Matthew</Card.Header>
+                        <Card.Header>
+                            {props.username}
+                        </Card.Header>
                         <Card.Meta>
-                            <span className='date'>Joined in 2015</span>
+                            {/* <span className='date'>Joined in 2015</span> */}
                         </Card.Meta>
-                        <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
+                        <Card.Description></Card.Description>
                         </Card.Content>
                     </Card>
                 </div>
@@ -42,21 +44,6 @@ const UserPage = props => {
                                 <Feed.Summary>
                                 You added <a>Jenny Hess</a> to your <a>coworker</a> group.
                                 </Feed.Summary>
-                            </Feed.Content>
-                            </Feed.Event>
-
-                            <Feed.Event>
-                            <Feed.Content>
-                                <Feed.Date content='3 days ago' />
-                                <Feed.Summary>
-                                You added <a>Molly Malone</a> as a friend.
-                                </Feed.Summary>
-                            </Feed.Content>
-                            </Feed.Event>
-
-                            <Feed.Event>
-                            <Feed.Content>
-                                <Feed.Date content='4 days ago' />
                             </Feed.Content>
                             </Feed.Event>
                         </Feed>
