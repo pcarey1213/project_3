@@ -37,16 +37,7 @@ const UserPage = props => {
                         <Card.Header>Activity</Card.Header>
                         </Card.Content>
                         <Card.Content>
-                        <Feed>
-                            <Feed.Event>
-                            <Feed.Content>
-                                <Feed.Date content='1 day ago' />
-                                <Feed.Summary>
-                                You added <a>Jenny Hess</a> to your <a>coworker</a> group.
-                                </Feed.Summary>
-                            </Feed.Content>
-                            </Feed.Event>
-                        </Feed>
+                        {props.children}
                         </Card.Content>
                     </Card>
                 </div>
