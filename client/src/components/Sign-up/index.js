@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Message, Segment, Modal } from 'semantic-ui-react'
+import ModalExampleShorthand from './Modal';
 
 class Signup extends Component {
 	constructor() {
@@ -26,7 +27,6 @@ class Signup extends Component {
 		console.log('sign-up handleSubmit, username: ')
 		console.log(this.state.username)
 		event.preventDefault()
-
 		//request to server to add a new username/password
 		axios.post('/user/', {
 			username: this.state.username,
@@ -35,7 +35,7 @@ class Signup extends Component {
 			.then(response => {
 				console.log(response)
 				//route to the homepage
-				alert("You are now signed up!");
+				// alert("You are now signed up!");
 				if (!response.data.errmsg) {
 					console.log('successful signup')
 					axios
@@ -97,8 +97,10 @@ class Signup extends Component {
 									/>
 
 									<Button color='blue' fluid size='large' onClick={this.handleSubmit} id="button">
-										Sign Up
+										<ModalExampleShorthand />            
 					</Button>
+
+
 								</Segment>
 							</Form>
 						</Grid.Column>

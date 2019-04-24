@@ -1,0 +1,20 @@
+.ui.page.modals.dimmer.transition.visible.active {
+    height: 30%;
+    margin-top: 15%;
+    margin-left: 30%;
+    width: 50%;
+}
+
+div.actions {
+    content: url(bubble.png);
+    height: 50%;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+.ui.positive.button {
+    margin-bottom: 50%;
+    margin-right:-400%;
+    height: 100px;
+}
+
