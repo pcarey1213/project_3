@@ -44,7 +44,7 @@ class Navbar extends Component {
                             <Link to="#" className="ui item" onClick={this.logout}>
                             Logout</Link>, 
                               <Link to={/user/+this.props.userId}>
-                                <Label as='a' image id="label">
+                                <Label image id="label">
                                 <img  id= "pic" src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
                                 {this.props.username}
                                 </Label>

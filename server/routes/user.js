@@ -71,7 +71,18 @@ router.post('/logout', (req, res) => {
 
 router.get('/:id', (req, res) => {
     User.findById({ _id: req.params.id })
-    .populate("comment")
+    .populate({
+        path : "comment", 
+        populate : { path : "firstCategory"}
+    })
+    .populate({
+        path : "comment", 
+        populate : { path : "secondCategory"}
+    })
+    .populate({
+        path : "comment", 
+        populate : { path : "thirdCategory"}
+    })
     .then(dbModel => {
         res.json(dbModel);
     })
