@@ -52,6 +52,7 @@ class User extends Component {
                             {this.state.comment.map(com => (
                                 <UserFeed
                                     key = {com._id}
+                                    dates = {com.dates}
                                     content = {com.content}
                                     likes = {com.likes}
                                     categoryName = {com.firstCategory.length ===1
