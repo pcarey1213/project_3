@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
 
-const ModalModalExample = props => (
+const SignupModal = props => (
   <Modal trigger={<Button  onClick={props.submit}>Sign Up</Button>}>
     <Modal.Header>You're Signed In!</Modal.Header>
     <Modal.Content>
@@ -17,4 +17,4 @@ const ModalModalExample = props => (
   </Modal>
 )
 
-export default ModalModalExample
+export default SignupModal

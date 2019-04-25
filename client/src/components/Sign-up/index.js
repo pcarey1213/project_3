@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import { Button, Form, Grid, Header, Image, Message, Segment, Modal } from 'semantic-ui-react'
-import ModalModalExample from './Modal';
+import SignupModal from './Modal';
 
 class Signup extends Component {
 	constructor() {
@@ -42,7 +42,7 @@ class Signup extends Component {
 				console.log(response)
 				//route to the homepage
 				// alert("You are now signed up!");
-				if (!response.data.errmsg) {
+				if (!response.data.error) {
 					console.log('successful signup')
 					axios
 					.post('/user/login', {
@@ -57,7 +57,7 @@ class Signup extends Component {
 									this.props.updateUser({
 											loggedIn: true,
 											username: response.data.username,
-											userId: response.data.userId
+											userId: response.data._id
 									})
 							}
 					})
@@ -102,7 +102,7 @@ class Signup extends Component {
 										<ModalExampleShorthand />            
 									</Button> */}
 
-									<ModalModalExample  redirect={this.handleRedirect} submit={this.handleSubmit}></ModalModalExample>
+									<SignupModal  redirect={this.handleRedirect} submit={this.handleSubmit}></SignupModal>
 
 
 								</Segment>
