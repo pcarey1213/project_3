@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
+import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
-import { Card, Icon, Image, Feed } from 'semantic-ui-react'
+import { Feed, Label } from 'semantic-ui-react'
+import Timestamp from 'react-timestamp'
 
 const UserFeed = props => {
 
@@ -12,9 +14,14 @@ const UserFeed = props => {
         <Feed>
             <Feed.Event>
             <Feed.Content>
-                <Feed.Date content='1 day ago' />
+                <Feed.Date>
+                <div><Timestamp relative date={props.dates}/></div>
+                </Feed.Date>
                 <Feed.Summary>
-                Added comment <span>{props.content}</span> to category {props.categoryName} get {props.likes} Likes
+                
+                <div class="ui left pointing label" id='content'><span>{props.content}</span></div>
+                <div className='likes'><span>{props.likes} Likes</span></div>
+                <Link to = {`/${props.categoryTier}`} className='category'>#{props.categoryName}</Link>
                 </Feed.Summary>
             </Feed.Content>
             </Feed.Event>

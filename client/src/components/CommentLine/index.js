@@ -15,11 +15,6 @@ const CommentLine = props => {
                 </Comment.Metadata>
                 <Comment.Text>{props.content}</Comment.Text>
                     {props.children}
-                <Comment.Actions>
-                    <Comment.Action>
-                    
-                    </Comment.Action>
-                </Comment.Actions>
             </Comment.Content>
         </Comment>
     )
