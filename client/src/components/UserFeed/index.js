@@ -17,9 +17,8 @@ const UserFeed = props => {
                 <Feed.Date>
                 <div><Timestamp relative date={props.dates}/></div>
                 </Feed.Date>
-                <Feed.Summary>
-                
-                <div class="ui left pointing label" id='content'><span>{props.content}</span></div>
+                <Feed.Summary>            
+                <div className="ui left pointing label" id='content'><span>{props.content}</span></div>
                 <div className='likes'><span>{props.likes} Likes</span></div>
                 <Link to = {`/${props.categoryTier}`} className='category'>#{props.categoryName}</Link>
                 </Feed.Summary>

@@ -66,6 +66,9 @@ module.exports = {
                     .catch(function(err){
                         res.json(err);
                     })
+                    
+                } else {
+                    res.json(dbModel)
                 }  
             })
             .catch(function(err){
@@ -98,6 +101,9 @@ module.exports = {
                     .catch(function(err){
                         res.json(err);
                     })
+                } 
+                git else {
+                    res.json(dbModel)
                 }  
             })
             .catch(function(err){

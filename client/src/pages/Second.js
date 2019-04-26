@@ -118,7 +118,8 @@ class Second extends Component {
                 {this.state.subCategory ? (
                     <div>
                     {this.state.subCategory.map(sub =>(
-                        <Link to={`/category3/${sub._id}`}>
+                        <Link to={`/category3/${sub._id}`}
+                            key={sub._id}>
                             <ThirdCategory
                                 key={sub._id}
                             >
@@ -140,7 +141,7 @@ class Second extends Component {
                                 {this.state.comment.map((com, index) => (
                                     <CommentLine
                                         key = {com._id}
-                                        user = {com.user._id}
+                                        user = {com.user ? [com.user[0].username] : ["Unknown"]}
                                         date = {com.dates}
                                         content = {com.content}
                                         likes = {com.likes}
