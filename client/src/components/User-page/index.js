@@ -4,12 +4,13 @@ import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
-import { Card, Icon, Image, Feed } from 'semantic-ui-react'
+import { Card, Button, Image, Modal } from 'semantic-ui-react'
 import { Col, Row, Container } from '../Grid'
+import ModalExampleShorthand from './Modal';
 
-const UserPage = props => {
+class UserPage extends Component {
 
-        
+    render(){
         return (
             <div className="container">
             <Row>
@@ -19,10 +20,10 @@ const UserPage = props => {
                         <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
                         <Card.Content>
                         <Card.Header>
-                            {props.username}
+                            {this.props.username}
                         </Card.Header>
-                        <Card.Meta>
-                            {/* <span className='date'>Joined in 2015</span> */}
+                        <Card.Meta>        
+                            <ModalExampleShorthand />            
                         </Card.Meta>
                         <Card.Description></Card.Description>
                         </Card.Content>
@@ -37,7 +38,7 @@ const UserPage = props => {
                         <Card.Header>Activity</Card.Header>
                         </Card.Content>
                         <Card.Content>
-                        {props.children}
+                        {this.props.children}
                         </Card.Content>
                     </Card>
                 </div>
@@ -46,6 +47,8 @@ const UserPage = props => {
 
             </div>
       )
+    }
+        
 
 }
 

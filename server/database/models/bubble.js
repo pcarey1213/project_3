@@ -17,6 +17,7 @@ const BubbleSchema = new Schema({
         }
 	]
 });
+BubbleSchema.index({categoryTitle: 'text'});
 
 const Bubble = mongoose.model("Bubble", BubbleSchema)
 module.exports = Bubble;

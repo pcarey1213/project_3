@@ -21,6 +21,7 @@ const SecondBubbleSchema = new Schema({
         }
 	]
 });
+SecondBubbleSchema.index({categoryTitle: 'text'});
 
 const SecondBubble = mongoose.model("SecondBubble", SecondBubbleSchema)
 module.exports = SecondBubble;

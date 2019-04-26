@@ -32,6 +32,10 @@ export default {
     },
     getOneUser : function(data){
         return axios.get(data)
+    },
+    searchCategory : function(data){
+        return axios.get(data)
+        //data format example /search/ddd
     }
 
 }

@@ -52,8 +52,17 @@ class User extends Component {
                             {this.state.comment.map(com => (
                                 <UserFeed
                                     key = {com._id}
+                                    dates = {com.dates}
                                     content = {com.content}
                                     likes = {com.likes}
+                                    categoryTier = {com.firstCategory.length ===1
+                                        ? `category/${com.firstCategory[0]._id}`
+                                        : com.secondCategory.length ===1 
+                                        ? `category2/${com.secondCategory[0]._id}`
+                                        : com.thirdCategory.length ===1 
+                                        ? `category3/${com.thirdCategory[0]._id}`
+                                        : ""
+                                    }
                                     categoryName = {com.firstCategory.length ===1
                                         ? [com.firstCategory[0].categoryTitle]
                                         : com.secondCategory.length ===1 
