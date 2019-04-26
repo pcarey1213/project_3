@@ -1,0 +1,16 @@
+#content{
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+}
+.likes {
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+}
+.category {
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+    color:#4897D8;
+}

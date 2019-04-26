@@ -19,6 +19,7 @@ class Navbar extends Component {
   }
     
 
+
   handleInputChange (event){
     event.preventDefault();
     const { name, value } = event.target;
@@ -90,6 +91,7 @@ class Navbar extends Component {
                         </Link>
                         
                     </div>
+
 
                   </form>
                 </div>

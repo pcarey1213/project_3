@@ -12,12 +12,16 @@ module.exports = {
         dbThirdBubble
         .findById({ _id: req.params.id })
         .populate("comment")
-          .then(dbModel => {
+        .populate({
+          path : "comment", 
+          populate : { path : "user"}
+        })
+        .then(dbModel => {
             //   console.log("dd")
             res.json(dbModel);
-          })
-          .catch(err => {
+        })
+        .catch(err => {
             res.status(422).json(err)
-          });
+        });
     }
 };

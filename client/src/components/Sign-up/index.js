@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import { Button, Form, Grid, Header, Image, Message, Segment, Modal } from 'semantic-ui-react'
-import ModalExampleShorthand from './Modal';
+import SignupModal from './Modal';
 
 class Signup extends Component {
 	constructor() {
@@ -17,10 +17,16 @@ class Signup extends Component {
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
+		this.handleRedirect= this.handleRedirect.bind(this)
 	}
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
+		})
+	}
+	handleRedirect (){
+		this.setState({
+			redirectTo: '/'
 		})
 	}
 	handleSubmit(event) {
@@ -36,7 +42,7 @@ class Signup extends Component {
 				console.log(response)
 				//route to the homepage
 				// alert("You are now signed up!");
-				if (!response.data.errmsg) {
+				if (!response.data.error) {
 					console.log('successful signup')
 					axios
 					.post('/user/login', {
@@ -51,11 +57,7 @@ class Signup extends Component {
 									this.props.updateUser({
 											loggedIn: true,
 											username: response.data.username,
-											userId: response.data.userId
-									})
-									// update the state to redirect to home
-									this.setState({
-											redirectTo: '/'
+											userId: response.data._id
 									})
 							}
 					})
@@ -96,9 +98,11 @@ class Signup extends Component {
 										onChange={this.handleChange}
 									/>
 
-									<Button color='blue' fluid size='large' onClick={this.handleSubmit} id="button">
+									{/* <Button color='blue' fluid size='large' onClick={this.handleSubmit} id="button">
 										<ModalExampleShorthand />            
-					</Button>
+									</Button> */}
+
+									<SignupModal  redirect={this.handleRedirect} submit={this.handleSubmit}></SignupModal>
 
 
 								</Segment>
