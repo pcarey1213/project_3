@@ -20,7 +20,8 @@ class Navbar extends Component {
           if (response.status === 200) {
             this.props.updateUser({
               loggedIn: false,
-              username: null
+              username: null,
+              userId: null
             })
           }
         }).catch(error => {
@@ -51,7 +52,7 @@ class Navbar extends Component {
                               </Link>
                     ] : [
                                 <Link to="/" className="active item">Home</Link>,
-                                <Link to="/login" className="item">Log in</Link>,
+                                <Link to="/login" className="item">Log In</Link>,
                                 <Link to="/signup" className="item">Sign Up</Link>
                           
                     ]}
