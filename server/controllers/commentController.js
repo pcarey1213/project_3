@@ -102,7 +102,7 @@ module.exports = {
                         res.json(err);
                     })
                 } 
-                git else {
+                else {
                     res.json(dbModel)
                 }  
             })
