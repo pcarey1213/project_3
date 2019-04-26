@@ -108,7 +108,7 @@ class Third extends Component {
                                 {this.state.comment.map((com, index) => (
                                     <CommentLine
                                         key = {com._id}
-                                        user = {com.user._id}
+                                        user = {com.user ? [com.user[0].username] : ["Unknown"]}
                                         date = {com.dates}
                                         content = {com.content}
                                         likes = {com.likes}
