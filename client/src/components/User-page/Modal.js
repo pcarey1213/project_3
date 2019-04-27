@@ -1,8 +1,9 @@
 import React from 'react'
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import './style.css'
 
 const ModalExampleScrollingContent = () => (
-  <Modal trigger={<Button>Show Modal</Button>} closeIcon>
+  <Modal id='looks' trigger={<Button id='show' color='blue'>Edit Image</Button>} closeIcon>
     <Header icon='archive' content='Archive Old Messages' />
     <Modal.Content>
       <p>
