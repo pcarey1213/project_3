@@ -5,7 +5,7 @@ import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
-import { Feed, Label, Card, Icon, Image, Feed  } from 'semantic-ui-react'
+import { Feed  } from 'semantic-ui-react'
 import Timestamp from 'react-timestamp'
 
 
