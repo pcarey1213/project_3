@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button, Header, Icon, Modal } from 'semantic-ui-react'
+import { Button, Icon, Modal } from 'semantic-ui-react'
+import './style.css'
 
 const SignupModal = props => (
-  <Modal trigger={<Button  onClick={props.submit}>Sign Up</Button>}>
+  <Modal id='modal' trigger={<Button color='blue' fluid size='large' onClick={props.submit}>Sign Up</Button>}>
     <Modal.Header>You're Signed In!</Modal.Header>
     <Modal.Content>
       <Modal.Description>

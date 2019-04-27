@@ -4,3 +4,16 @@
 #form {
     margin-top: 150px;
 }
+#modal{
+    height: 40% !important;
+    width: 30% !important;
+    position: fixed;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+    top:50% !important;
+    left: 35% !important;
+}
+
+
