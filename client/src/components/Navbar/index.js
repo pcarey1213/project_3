@@ -63,32 +63,31 @@ class Navbar extends Component {
                       <h1 id="bubbles" >Bubbles</h1>
                   </Link> 
                   {loggedIn ? [
-                          <Link to="#" className="ui item" onClick={this.logout}>
-                          Logout</Link>, 
-                            <Link to={/user/+this.props.userId}>
-                              <Label image id="label">
-                              <img  id= "pic" src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
-                              {this.props.username}
-                              </Label>
-                            </Link>
+                        <Link to="#" className="ui item" onClick={this.logout}>
+                        Logout
+                        </Link>, 
+                        <Link to={/user/+this.props.userId}>
+                          <Label image id="label">
+                          <img  id= "pic" src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
+                          {this.props.username}
+                          </Label>
+                        </Link>
                   ] : [
-                              <Link to="/" className="active item">Home</Link>,
-                              <Link to="/login" className="item">Log in</Link>,
-                              <Link to="/signup" className="item">Sign Up</Link>
+                        <Link to="/" className="active item">Home</Link>,
+                        <Link to="/login" className="item">Log in</Link>,
+                        <Link to="/signup" className="item">Sign Up</Link>
                         
                   ]}
                   <form className="item" id="item" >
                     <div className="ui icon input" id="search" >
-                        <input type="text" 
-                          placeholder="Search..." 
-                          onChange={(e)=>this.handleInputChange(e)}
-                          name="searchText"
-                        />
-                        <Link to ={`/search/${this.state.searchText}`}>
-                          <i className="search link icon"
-                            onClick={(e)=>this.handleSearchSubmit(e)}
-                          />
-                        </Link>
+                      <input type="text" 
+                        placeholder="Search..." 
+                        onChange={(e)=>this.handleInputChange(e)}
+                        name="searchText"
+                      />
+                      <Link to ={`/search/${this.state.searchText}`}>
+                        <i className="search link icon" />
+                      </Link>
                         
                     </div>
 

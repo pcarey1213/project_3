@@ -19,15 +19,17 @@ class SearchResult extends Component {
         this.state = {
             results : {}
         }
+        this.componentDidMount = this.componentDidMount.bind(this)
+        this.searchCategory = this.searchCategory.bind(this)
         
     }
     componentDidMount() {
         console.log("-------------------------this.props")
         console.log(this.props);
         this.searchCategory();
-        this.setState({
-            id : this.props.match.params.id
-        })
+        // this.setState({
+        //     id : this.props.match.params.id
+        // })
     }
 
     searchCategory() {
@@ -39,6 +41,7 @@ class SearchResult extends Component {
             this.setState({
                 results : res.data
             })
+            // window.location.reload();
         })
         .catch(err => console.log(err));
     }
