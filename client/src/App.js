@@ -11,6 +11,7 @@ import First from './pages/First';
 import Second from './pages/Second';
 import Third from './pages/Third';
 import User from './pages/User';
+import SearchResult from './pages/SearchResult'
 
 
 class App extends Component {
@@ -126,6 +127,8 @@ class App extends Component {
               username={this.state.username}
               />}
             />
+          <Route path = "/search/:id"
+          component={SearchResult} />
             
       </div>
     );

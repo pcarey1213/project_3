@@ -17,6 +17,6 @@ const ThirdBubbleSchema = new Schema({
         }
     ]
 });
-
+ThirdBubbleSchema.index({categoryTitle: 'text'});
 const ThirdBubble = mongoose.model("ThirdBubble", ThirdBubbleSchema)
 module.exports = ThirdBubble;

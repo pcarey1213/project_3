@@ -146,8 +146,8 @@ class First extends Component {
                                 {this.state.comment.map((com, index) => (
                                     <CommentLine
                                         key = {com._id}
-                                        user={com.user ? [com.user[0].username] : ["Unknown"]}
-                                        // user = {com.user[0].username}
+                                        user= {com.user ? [com.user[0].username] : ["Unknown"]}
+                                        userID = {com.user ? [com.user[0]._id] : null}
                                         date = {com.dates}
                                         content = {com.content}
                                         likes = {com.likes}
