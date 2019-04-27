@@ -94,9 +94,22 @@ class Third extends Component {
         return (
             <Container>  
                 <Row>
-                    <Jumbotron>
+                    <div className="content" style={{width: "100%"}}>
+                        <div className="panel-group">
+                            <div className={`panel`}>
+                                <div className="panel-heading">
+                                    <div className="ui raised segment mt-5 mb-5">
+                                        <div style={{backgroundColor:"#FFDB5C", color:"white"}} 
+                                            className="ui ribbon massive label">BUBBLE</div>
+                                        <span style={{fontSize:"24px"}}>{this.state.category}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <Jumbotron>
                     {this.state.category}
-                    </Jumbotron>
+                    </Jumbotron> */}
                 </Row>                              
                 <Row>
                     <Comment.Group>

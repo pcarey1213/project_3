@@ -62,3 +62,18 @@
     padding-bottom: 3px;
     margin-top:0;
 }
+
+
+.panel .panel-heading {
+    cursor: pointer;
+}
+.panel .panel-collapse {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+}
+.panel .panel-body {
+    border: none !important;
+}
+.panel h2 {
+    margin-top: 5px !important;
+}

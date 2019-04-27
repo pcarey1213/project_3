@@ -17,7 +17,8 @@ class Second extends Component {
             subCategory: [],
             categoryName: "",
             commentText : "",
-            comment :[]
+            comment :[],
+            isExpanded: false
         }
         this.getOneCategory = this.getOneCategory.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -25,7 +26,7 @@ class Second extends Component {
         this.componentDidMount = this.componentDidMount.bind(this)
         this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this)
         this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
-        
+        this.handleToggle = this.handleToggle.bind(this)
     }
     componentDidMount() {
         this.getOneCategory();
@@ -104,33 +105,61 @@ class Second extends Component {
             });
         })
     }
-
+    handleToggle(e){
+        e.preventDefault();
+        this.setState({
+            isExpanded: !this.state.isExpanded,
+            height: this.refs.inner.clientHeight
+        })
+    }
 
     render() {
-        
+        const {isExpanded, height} = this.state;
+        const currentHeight = isExpanded ? height : 0;
+        const title = this.state.category
         return (
             <Container>  
                 <Row>
-                    <Jumbotron>
-                    {this.state.category}
-                    </Jumbotron>
-                </Row> 
-                {this.state.subCategory ? (
-                    <div>
-                    {this.state.subCategory.map(sub =>(
-                        <Link to={`/category3/${sub._id}`}
-                            key={sub._id}>
-                            <ThirdCategory
-                                key={sub._id}
-                            >
-                                {sub.categoryTitle}
-                            </ThirdCategory>
-                        </Link>
-                    ))}
+                    <div className="content" style={{width: "100%"}}>
+                        <div className="panel-group">
+                            <div className={`panel ${isExpanded ? 'is-expanded' : ''}`} onClick={(e) => this.handleToggle(e)}>
+                                <div className="panel-heading">
+                                    <div className="ui raised segment mt-5 mb-5">
+                                        <div style={{backgroundColor:"#FA6E59", color:"white"}} 
+                                            className="ui ribbon massive label">BUBBLE</div>
+                                        <span style={{fontSize:"24px"}}>{title}</span>
+                                        <p className="mt-3" style={{fontSize:"16px", color:"grey"}}>click to categories drop down</p>
+                                    </div>
+                                </div>
+                                <div className="panel-collapse" style={{height: currentHeight+'px'}}>
+                                    <div className="panel-body" ref="inner">
+                                    {/* <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute.</p> */}
+                                    {this.state.subCategory ? (
+                                        <div>
+                                        {this.state.subCategory.map(sub =>(
+                                            <Link to={`/category3/${sub._id}`}
+                                                key={sub._id}>
+                                                <ThirdCategory
+                                                    key={sub._id}
+                                                >
+                                                    {sub.categoryTitle}
+                                                </ThirdCategory>
+                                            </Link>
+                                        ))}
+                                        </div>
+                                    ): (
+                                        <div></div>
+                                    )}   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                ): (
-                    <div></div>
-                )}                              
+                    {/* <Jumbotron>
+                    {this.state.category}
+                    </Jumbotron> */}
+                </Row> 
+                                           
                 <Row>
                     <Comment.Group>
                         <Header as='h3' dividing>
