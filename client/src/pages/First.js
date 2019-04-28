@@ -211,12 +211,15 @@ class First extends Component {
                     </Comment.Group>
 
                 </Row> 
-                <Row>                    
-                    <AddCategory 
+                <Row>      
+                    {this.props.loggedIn ? (
+                        <AddCategory 
                         value = {this.state.categoryName}
                         handleInputChange = {this.handleInputChange}
                         handleAddFormSubmit = {this.handleAddFormSubmit}
-                    />                    
+                    />
+                    ) : (null)}              
+                    
                 </Row>
             </Container>
             

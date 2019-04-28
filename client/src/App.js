@@ -20,12 +20,14 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       username: null,
-      userId: null
+      userId: null,
+      searchText : ""
     }
 
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     this.updateUser = this.updateUser.bind(this)
+    this.updateSearch = this.updateSearch.bind(this)
   }
 
   componentDidMount() {
@@ -34,6 +36,9 @@ class App extends Component {
 
   updateUser (userObject) {
     this.setState(userObject)
+  }
+  updateSearch(searchObject) {
+    this.setState(searchObject)
   }
 
   getUser() {
@@ -64,6 +69,7 @@ class App extends Component {
       <div className="App">
    
         <Navbar updateUser={this.updateUser} 
+          updateSearch = {this.updateSearch}
           loggedIn={this.state.loggedIn} 
           username={this.state.username} 
           userId = {this.state.userId}
@@ -71,10 +77,21 @@ class App extends Component {
         {/* greet user if logged in: */}
         {this.state.loggedIn}
         {/* Routes to different components */}
-        <Route
+        {/* <Route
           exact path="/"
           username={this.state.username}
-          component={Home} />
+          loggedIn={this.state.loggedIn} 
+          component={Home} /> */}
+        <Route
+        exact path = "/"
+        render={(props) =>
+          <Home
+          {...props}
+          userId={this.state.userId}
+          username={this.state.username}
+          loggedIn={this.state.loggedIn} 
+          />}
+        />
         <Route
           path="/login"
           render={() =>
@@ -97,6 +114,7 @@ class App extends Component {
             {...props}
             userId={this.state.userId}
             username={this.state.username}
+            loggedIn={this.state.loggedIn} 
             />}
           // component={First} 
           />
@@ -107,6 +125,7 @@ class App extends Component {
             {...props}
             userId={this.state.userId}
             username={this.state.username}
+            loggedIn={this.state.loggedIn} 
             />}
           />
         <Route
@@ -128,7 +147,15 @@ class App extends Component {
               />}
             />
           <Route path = "/search/:id"
-          component={SearchResult} />
+          // component={SearchResult} 
+          render={(props) =>
+            <SearchResult
+            {...props}
+            userId={this.state.userId}
+            username={this.state.username}
+            searchText = {this.state.searchText}
+            />}
+          />
             
       </div>
     );
