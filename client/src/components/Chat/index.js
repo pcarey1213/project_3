@@ -66,7 +66,7 @@ class Chat extends Component {
                     <CommentLine
                         key = {com._id}
                         user={com.user ? [com.user[0].username] : ["Unknown"]}
-                        // user = {com.user[0].username}
+                        userID = {com.user ? [com.user[0]._id] : null}
                         date = {com.dates}
                         content = {com.content}
                         likes = {com.likes}
