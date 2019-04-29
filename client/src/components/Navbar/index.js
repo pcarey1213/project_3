@@ -13,36 +13,10 @@ class Navbar extends Component {
   constructor() {
       super()
       this.state = {
-        searchText : ""
     }
       this.logout = this.logout.bind(this)
-      this.handleInputChange = this.handleInputChange.bind(this)
-      this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
   }
-    
-
-
-  handleInputChange (event){
-    event.preventDefault();
-    const { name, value } = event.target;
-    this.setState({
-        [name] : value
-    })
-  }
-  handleSearchSubmit (event){
-    // console.log("handleSearchSubmit-------------------------")
-    event.preventDefault();
-    this.props.updateSearch({
-      searchText : this.state.searchText
-    });
-    console.log("handleSearchSubmit-------------------------")
-    // return (<Redirect
-    //   to={{
-    //     pathname: "/search"
-    //     // state: { searchText: this.state.searchText }
-    //   }}
-    // />)
-  }
+ 
   logout(event) {
       event.preventDefault()
       console.log('logging out')
@@ -61,9 +35,9 @@ class Navbar extends Component {
 
   render() {
       const loggedIn = this.props.loggedIn;
-      // console.log('navbar render, props: ')
-      // console.log(this.props);
-      
+      console.log('navbar render, props: ')
+      console.log(this.props);
+     
       return (
           <div className="ui secondary  menu" id="container">
               <div className="right menu" id="menu">
@@ -89,38 +63,19 @@ class Navbar extends Component {
                   ]}
                   <form className="item" id="item" >
                     <div className="ui icon input" id="search" >
-                      <input type="text" 
-                        placeholder="Search..." 
-                        onChange={(e)=>this.handleInputChange(e)}
-                        name="searchText"
-                      />
-                      {/* <Route render ={}
-                        onClick = {(e)=>this.handleSearchSubmit(e)}>
-                        <i className="search link icon" 
-                          // onClick = {(e)=>this.handleSearchSubmit(e)}
-                        />
-                      </Route> */}
-                      <Route render ={ ({history}) => (
-                        <i className="search link icon" 
-                        onClick = {() => { history.push(`/search/${this.state.searchText}`) }}
-                      />
-                      )}/>
-                      {/* <Route render={({ history}) => (
-                        <button
-                          type='button'
-                          onClick={() => { history.push('/new-location') }}
-                        >
-                          Click Me!
-                        </button>
-                      )} /> */}
+                      <Link to={{ pathname: `/search`  }}>
+                        <i className="search link icon" />
+                      </Link>
                     </div>
-
-
                   </form>
+                  <Link to="/">
+                    <i className="ui question icon item" />
+                  </Link>
                 </div>
             </div>
 
         );
+        // }
 
       }
     }
