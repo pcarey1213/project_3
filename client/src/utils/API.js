@@ -34,7 +34,7 @@ export default {
         return axios.get(data)
     },
     searchCategory : function(data){
-        return axios.get(data)
+        return axios.get('/search/'+data)
         //data format example /search/ddd
     }
 

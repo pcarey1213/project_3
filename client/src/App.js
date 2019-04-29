@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Redirect, Switch } from 'react-router-dom'
 // components
 import Signup from './components/Sign-up'
 import LoginForm from './components/Login'
@@ -27,20 +27,18 @@ class App extends Component {
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     this.updateUser = this.updateUser.bind(this)
-    this.updateSearch = this.updateSearch.bind(this)
   }
 
   componentDidMount() {
+    console.log("this.state.searchText");
+    console.log(this.state.searchText);
     this.getUser()
   }
 
   updateUser (userObject) {
+    console.log(" function : updateUser")
     this.setState(userObject)
   }
-  updateSearch(searchObject) {
-    this.setState(searchObject)
-  }
-
   getUser() {
     axios.get('/user/').then(response => {
       console.log('Get user response: ')
@@ -65,23 +63,20 @@ class App extends Component {
   }
 
   render() {
+    console.log("------------------------this.props")
+    console.log(this.props)
     return (
       <div className="App">
-   
-        <Navbar updateUser={this.updateUser} 
-          updateSearch = {this.updateSearch}
+      
+        <Navbar 
+        // history = {this.props.history}
+          updateUser={this.updateUser} 
           loggedIn={this.state.loggedIn} 
           username={this.state.username} 
           userId = {this.state.userId}
+          searchText = {this.state.searchText}
         />
-        {/* greet user if logged in: */}
-        {this.state.loggedIn}
-        {/* Routes to different components */}
-        {/* <Route
-          exact path="/"
-          username={this.state.username}
-          loggedIn={this.state.loggedIn} 
-          component={Home} /> */}
+        <Switch>
         <Route
         exact path = "/"
         render={(props) =>
@@ -146,7 +141,8 @@ class App extends Component {
               username={this.state.username}
               />}
             />
-          <Route path = "/search/:id"
+          <Route 
+           path = "/search"
           // component={SearchResult} 
           render={(props) =>
             <SearchResult
@@ -156,9 +152,10 @@ class App extends Component {
             searchText = {this.state.searchText}
             />}
           />
-            
+            </Switch>
       </div>
     );
+    
   }
 }
 
