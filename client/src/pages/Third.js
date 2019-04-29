@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import SecondCategory from "../components/SecondCategory";
 import { Col, Row, Container } from "../components/Grid";
-import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
 import { Route, Link } from 'react-router-dom';
