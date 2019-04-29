@@ -6,6 +6,8 @@ import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
 import { Image, Label } from 'semantic-ui-react'
 import API from '../../utils/API';
+import SearchResult from '../../pages/SearchResult'
+// ./pages/SearchResult'
 
 class Navbar extends Component {
   constructor() {
@@ -28,11 +30,18 @@ class Navbar extends Component {
     })
   }
   handleSearchSubmit (event){
-    console.log("handleSearchSubmit-------------------------")
+    // console.log("handleSearchSubmit-------------------------")
     event.preventDefault();
-    this.setState({
-      searchText : ""
-    })
+    this.props.updateSearch({
+      searchText : this.state.searchText
+    });
+    console.log("handleSearchSubmit-------------------------")
+    // return (<Redirect
+    //   to={{
+    //     pathname: "/search"
+    //     // state: { searchText: this.state.searchText }
+    //   }}
+    // />)
   }
   logout(event) {
       event.preventDefault()
@@ -85,10 +94,25 @@ class Navbar extends Component {
                         onChange={(e)=>this.handleInputChange(e)}
                         name="searchText"
                       />
-                      <Link to ={`/search/${this.state.searchText}`}>
-                        <i className="search link icon" />
-                      </Link>
-                        
+                      {/* <Route render ={}
+                        onClick = {(e)=>this.handleSearchSubmit(e)}>
+                        <i className="search link icon" 
+                          // onClick = {(e)=>this.handleSearchSubmit(e)}
+                        />
+                      </Route> */}
+                      <Route render ={ ({history}) => (
+                        <i className="search link icon" 
+                        onClick = {() => { history.push(`/search/${this.state.searchText}`) }}
+                      />
+                      )}/>
+                      {/* <Route render={({ history}) => (
+                        <button
+                          type='button'
+                          onClick={() => { history.push('/new-location') }}
+                        >
+                          Click Me!
+                        </button>
+                      )} /> */}
                     </div>
 
 

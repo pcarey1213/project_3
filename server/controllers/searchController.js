@@ -24,8 +24,7 @@ module.exports = {
                 .find( { $text: { $search: req.params.id } } )
                 .then(dbThirdBubbleModel => {
                     dbModel.third = dbThirdBubbleModel
-                    res.json(dbModel)
-                
+                    res.json(dbModel)                
                 })
                 .catch(err => res.json(err))
             })

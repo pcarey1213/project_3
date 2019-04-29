@@ -23,6 +23,8 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        console.log("-------------------------this.props")
+        console.log(this.props);
         this.getCategories();
     }
 
@@ -85,12 +87,15 @@ class Home extends Component {
                     component={Second} />
                 />     */}
                   
-                <Row>                    
-                    <AddCategory 
+                <Row>      
+                    {this.props.loggedIn ? (
+                        <AddCategory 
                         value = {this.state.categoryName}
                         handleInputChange = {this.handleInputChange}
                         handleAddFormSubmit = {this.handleAddFormSubmit}
                     />
+                    ) : (null)}              
+                    
                 </Row>
             </Container>
             

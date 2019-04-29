@@ -17,7 +17,8 @@ class SearchResult extends Component {
     constructor() {
         super()
         this.state = {
-            results : {}
+            results : {},
+            searchText : ""
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.searchCategory = this.searchCategory.bind(this)
@@ -27,9 +28,9 @@ class SearchResult extends Component {
         console.log("-------------------------this.props")
         console.log(this.props);
         this.searchCategory();
-        // this.setState({
-        //     id : this.props.match.params.id
-        // })
+        this.setState({
+            searchText : this.props.searchText
+        })
     }
 
     searchCategory() {
@@ -51,6 +52,7 @@ class SearchResult extends Component {
         
         return (
             <Container>  
+                <p>{this.props.searchText}</p>
                 <div className="ui raised segment mt-5">
                     <div className="ui blue ribbon label">Results</div>
                     <span>Search Categories</span>
