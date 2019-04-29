@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SecondCategory from "../components/SecondCategory";
+import ThirdCategory from "../components/ThirdCategory";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
