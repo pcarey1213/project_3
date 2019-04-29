@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import SecondCategory from "../components/SecondCategory";
 import { Col, Row, Container } from "../components/Grid";
-import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
+import { Route, Link } from 'react-router-dom';
+import Chat from '../components/Chat';
 import ChatReply from '../components/ChatReply';
-import CommentLine from '../components/CommentLine';
 import { Button, Comment, Form, Header } from 'semantic-ui-react';
 
 class Third extends Component { 
@@ -113,46 +112,19 @@ class Third extends Component {
                 </Row>                              
                 <Row>
                     <Comment.Group>
-                        <Header as='h3' dividing>
-                            Chat
-                        </Header>
-                        {this.state.comment ? (
-                            <div>
-                                {this.state.comment.map((com, index) => (
-                                    <CommentLine
-                                        key = {com._id}
-                                        user = {com.user ? [com.user[0].username] : ["Unknown"]}
-                                        date = {com.dates}
-                                        content = {com.content}
-                                        likes = {com.likes}
-                                    >
-                                        <div className="ui labeled button" id="like" tabIndex={0}
-                                            onClick = {() => {
-                                                this.handleLikeChange(index)
-                                            }}>
-                                            <div className="ui red button" id="red">
-                                                <i className="heart icon" /> Like
-                                            </div>
-                                            <p className="ui basic red left pointing label" id="white">
-                                                {com.likes}
-                                            </p>
-                                        </div>
-                                    </CommentLine>
-                                ))}
-                            </div>
-                        ): (
-                            <CommentLine></CommentLine>
-                        )}
+                    <Header as='h3' dividing>
+                        Chat
+                    </Header>
+                    <Chat handleLikeChange = {this.handleLikeChange} getOneCategory = {this.getOneCategory} comment={this.state.comment}>
+                    </Chat>
                         <ChatReply
                             value = {this.state.commentText}
                             handleTextAreaChange = {this.handleTextAreaChange}
                             handleCommentFormSubmit = {this.handleCommentFormSubmit}
                         ></ChatReply>
-
-
                     </Comment.Group>
-
                 </Row> 
+
             </Container>   
         )
     }
