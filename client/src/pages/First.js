@@ -5,7 +5,7 @@ import AddCategory from '../components/AddCategory'
 import API from '../utils/API'
 import { Route, Link } from 'react-router-dom'
 import ChatReply from '../components/ChatReply'
-import CommentLine from '../components/CommentLine'
+import Chat from '../components/Chat'
 import { Comment, Header } from 'semantic-ui-react'
 
 
@@ -176,9 +176,14 @@ class First extends Component {
             
                 <Row>
                     <Comment.Group>
-                    <Header as='h3' dividing>
-                        Chat
-                    </Header>
+                        <Header as='h3' dividing>
+                            Chat
+                        </Header>
+                        <Chat 
+                            handleLikeChange = {this.handleLikeChange} 
+                            getOneCategory = {this.getOneCategory} 
+                            comment={this.state.comment}
+                        ></Chat>
                         <ChatReply
                             value = {this.state.commentText}
                             handleTextAreaChange = {this.handleTextAreaChange}

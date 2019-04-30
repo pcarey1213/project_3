@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
-import { Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
-import SignupModal from './Modal';
+import { Form, Grid, Header, Image, Message, Button} from 'semantic-ui-react'
+import SignUpForm from '../SignUpForm'
 
 class Signup extends Component {
 	constructor() {
@@ -12,8 +12,10 @@ class Signup extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
-			redirectTo: null
-
+			redirectTo: null,
+			success: false,
+      warning: false,
+      error: false
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
@@ -44,6 +46,11 @@ class Signup extends Component {
 				// alert("You are now signed up!");
 				if (!response.data.error) {
 					console.log('successful signup')
+					this.setState({
+						success: true,
+						warning:false,
+						error:false
+					})
 					axios
 					.post('/user/login', {
 							username: this.state.username,
@@ -63,11 +70,20 @@ class Signup extends Component {
 					})
 				} else {
 					console.log('username already taken')
+					this.setState({
+						success: false,
+						warning: true,
+						error:false
+					})
 				}
 			}).catch(error => {
 				console.log('signup error: ')
 				console.log(error)
-
+				this.setState({
+					success: false,
+					warning: false,
+					error:true
+				})
 			})
 	}
 
@@ -78,35 +94,20 @@ class Signup extends Component {
 		} else {
 			return (
 				<div className='SignupForm'>
-
 					<Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle' id="form">
 						<Grid.Column style={{ maxWidth: 450 }}>
 							<Header as='h2' color='blue' id="header">
 								<Image src='../bubble.png' /> Sign Up With Us!
-				</Header>
-							<Form size='large'>
-								<Segment stacked>
-									<Form.Input fluid icon='user' iconPosition='left' placeholder='username' name="username" type="text" id="username" value={this.state.username} onChange={this.handleChange} />
-									<Form.Input
-										fluid
-										icon='lock'
-										iconPosition='left'
-										placeholder='Password'
-										name="password"
-										type='password'
-										value={this.state.password}
-										onChange={this.handleChange}
-									/>
-
-									{/* <Button color='blue' fluid size='large' onClick={this.handleSubmit} id="button">
-										<ModalExampleShorthand />            
-									</Button> */}
-
-									<SignupModal  redirect={this.handleRedirect} submit={this.handleSubmit}></SignupModal>
-
-
-								</Segment>
-							</Form>
+							</Header>
+							<SignUpForm 
+								success={this.state.success} 
+								warning={this.state.warning} 
+								error={this.state.error} 
+								handleSubmit={this.handleSubmit} 
+								username={this.state.username} 
+								password={this.state.password} 
+								handleChange={this.handleChange}>
+							</SignUpForm>
 						</Grid.Column>
 					</Grid>
 				</div>
