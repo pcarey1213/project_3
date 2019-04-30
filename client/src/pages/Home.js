@@ -4,6 +4,7 @@ import Categories from "../components/Categories";
 import { Col, Row, Container } from "../components/Grid";
 import AddCategory from '../components/AddCategory';
 import API from '../utils/API'
+import { Label } from 'semantic-ui-react'
 
 
 
@@ -83,7 +84,13 @@ class Home extends Component {
                         handleInputChange = {this.handleInputChange}
                         handleAddFormSubmit = {this.handleAddFormSubmit}
                     />
-                    ) : (null)}              
+                    ) : (
+                        <div className="mx-auto mt-5 mb-5">
+                            <Label circular color="grey">
+                                <p className="p-2">You can add bubble and do a lot more once you sign up</p>
+                            </Label>
+                        </div>
+                    )}              
                     
                 </Row>
             </Container>
