@@ -6,6 +6,11 @@ const CommentSchema = new Schema({
     content: {type: String, unique: false, required: false},
     likes: {type: Number, default: 0},
     dates: {type: Date},
+    whoLiked : [
+        {
+            type : String
+        }
+    ],
     firstCategory : [
         {
             type : Schema.Types.ObjectId,

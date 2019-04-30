@@ -115,7 +115,10 @@ module.exports = {
         dbComment.updateOne({
             _id : req.params.id
         }, {
-            $set : req.body
+            $set : {
+                likes : req.body.likes
+            },
+            $push: {whoLiked : req.body.userId}
         })
         .then(function(dbModel){
             res.json(dbModel);

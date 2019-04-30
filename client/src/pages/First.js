@@ -100,13 +100,16 @@ class First extends Component {
         this.setState(state => {
             state.comment.map((com,j) => {
                 if(j===i){
-                    API.updateLikes(com._id, {
-                        likes : com.likes + 1
-                    })
-                    .then(res => this.getOneCategory())
-                    .catch(err => {
-                        console.log(err)
-                    });  
+                    if(!com.whoLiked.includes(this.props.userId) ){
+                        API.updateLikes(com._id, {
+                            likes : com.likes + 1,
+                            userId : this.props.userId
+                        })
+                        .then(res => this.getOneCategory())
+                        .catch(err => {
+                            console.log(err)
+                        }); 
+                    } 
                 } 
             });
         })
