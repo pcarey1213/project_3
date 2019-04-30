@@ -7,7 +7,7 @@ import Jumbotron from '../components/Jumbotron';
 import { Route, Link } from 'react-router-dom';
 import Chat from '../components/Chat';
 import ChatReply from '../components/ChatReply';
-import { Button, Comment, Form, Header } from 'semantic-ui-react';
+import { Button, Comment, Form, Header, Label } from 'semantic-ui-react';
 
 class Second extends Component { 
     constructor() {
@@ -133,7 +133,7 @@ class Second extends Component {
                                         <div style={{backgroundColor:"#FA6E59", color:"white"}} 
                                             className="ui circular massive label"><p className="p-3">BUBBLE</p></div>
                                         <span className="ml-3" style={{fontSize:"24px"}}>{title}</span>
-                                        <div className="mt-5 mr-5" 
+                                        <div className="mr-5" 
                                             style={{fontSize:"16px", color:"grey", float:"right", 
                                             display: "inline-block", verticalAlign: "middle"}}>
                                         click to show all sub bubbles</div>
@@ -190,7 +190,13 @@ class Second extends Component {
                         handleInputChange = {this.handleInputChange}
                         handleAddFormSubmit = {this.handleAddFormSubmit}
                     />
-                    ) : (null)}              
+                    ) : (
+                        <div className="mx-auto mt-5 mb-5">
+                            <Label circular color="grey">
+                                <p className="p-2">You can add bubble and do a lot more once you sign up</p>
+                            </Label>
+                        </div>
+                    )}              
                     
                 </Row>
             </Container>   

@@ -6,7 +6,7 @@ import API from '../utils/API'
 import { Route, Link } from 'react-router-dom'
 import ChatReply from '../components/ChatReply'
 import Chat from '../components/Chat'
-import { Comment, Header } from 'semantic-ui-react'
+import { Comment, Header, Label } from 'semantic-ui-react'
 
 
 
@@ -136,11 +136,11 @@ class First extends Component {
                         <div className="panel-group">
                             <div className={`panel ${isExpanded ? 'is-expanded' : ''}`} onClick={(e) => this.handleToggle(e)}>
                                 <div className="panel-heading">
-                                    <div className="ui raised segment mt-5 mb-5">
+                                    <div className="ui raised segment mt-5 mb-5" style={{overflow:"auto"}}>
                                         <div style={{backgroundColor:"#4897D8", color:"white"}} 
                                             className="ui circular massive label"><p className="p-3">BUBBLE</p></div>
                                         <span className="ml-3" style={{fontSize:"24px"}}>{title}</span>
-                                        <div className="mt-5 mr-5" 
+                                        <div className="mr-5" id="accordionDes"
                                             style={{fontSize:"16px", color:"grey", float:"right", 
                                             display: "inline-block", verticalAlign: "middle"}}>
                                         click to show all sub bubbles</div>
@@ -199,7 +199,13 @@ class First extends Component {
                         handleInputChange = {this.handleInputChange}
                         handleAddFormSubmit = {this.handleAddFormSubmit}
                     />
-                    ) : (null)}              
+                    ) : (
+                        <div className="mx-auto mt-5 mb-5">
+                            <Label circular color="grey">
+                                <p className="p-2">You can add bubble and do a lot more once you sign up</p>
+                            </Label>
+                        </div>
+                    )}              
                     
                 </Row>
             </Container>
