@@ -126,9 +126,12 @@ class Second extends Component {
                                 <div className="panel-heading">
                                     <div className="ui raised segment mt-5 mb-5">
                                         <div style={{backgroundColor:"#FA6E59", color:"white"}} 
-                                            className="ui ribbon massive label">BUBBLE</div>
-                                        <span style={{fontSize:"24px"}}>{title}</span>
-                                        <p className="mt-3" style={{fontSize:"16px", color:"grey"}}>click to categories drop down</p>
+                                            className="ui circular massive label"><p className="p-3">BUBBLE</p></div>
+                                        <span className="ml-3" style={{fontSize:"24px"}}>{title}</span>
+                                        <div className="mt-5 mr-5" 
+                                            style={{fontSize:"16px", color:"grey", float:"right", 
+                                            display: "inline-block", verticalAlign: "middle"}}>
+                                        click to show all sub bubbles</div>
                                     </div>
                                 </div>
                                 <div className="panel-collapse" style={{height: currentHeight+'px'}}>
