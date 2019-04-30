@@ -1,0 +1,12 @@
+.ui.success.message p{
+  color:#28a745;
+  text-align: center;
+}
+.ui.warning.message p{
+  color:#a39172;
+  text-align: center;
+}
+.ui.error.message p{
+  color:#bd7472;
+  text-align: center;
+}
