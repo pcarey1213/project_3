@@ -75,14 +75,6 @@ class Home extends Component {
                         </Categories>
                     </Link>
                 ))}
-                {/* <Route path="/category/:name" 
-                    component={test} 
-                    // render = {()=> <SecondCategory>hahaha</SecondCategory>}
-                />  */}
-                {/* <Route
-                    exact path = "/category/:id"
-                    component={Second} />
-                />     */}
                   
                 <Row>      
                     {this.props.loggedIn ? (

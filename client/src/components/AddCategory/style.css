@@ -274,33 +274,11 @@
       height: 35px;
       width: 135px;
       top: 7px;
+      left: 3px;
      }
 
   } 
 
-  @media only screen and (max-width: 400px) {
-    .title{
-      position: absolute;
-      top: 25px;
-      left: 0;
-      color: #3897f0;
-      font-size: 12px;
-    }
-    #icon{
-      font-size:20px;
-      color: #3897f0;
-     }
-     .plus{
-      position: absolute;
-      bottom: 7px;
-      left: 0;
-     }
-     #input{
-      height: 28px;
-      width: 75px;
-      bottom:15px;
-     }
-  }
   @media only screen and (max-width: 515px) {
     .title{
       position: absolute;
@@ -312,6 +290,7 @@
     #icon{
       font-size:26px;
       color: #3897f0;
+      
      }
      .plus{
       position: absolute;
@@ -345,9 +324,30 @@
       font-size: 13px;
     }
   }
-  @media only screen and (max-width: 419px) {}
 
-
+  @media only screen and (max-width: 400px) {
+    .title{
+      position: absolute;
+      top: 25px;
+      left: 0;
+      color: #3897f0;
+      font-size: 12px;
+    }
+    #icon{
+      font-size:20px;
+      color: #3897f0;
+     }
+     .plus{
+      position: absolute;
+      bottom: 7px;
+      left: 0;
+     }
+     #input{
+      height: 28px;
+      width: 75px;
+      bottom:15px;
+     }
+  }
   .submit {     
     background-color: Transparent;
     background-repeat:no-repeat;

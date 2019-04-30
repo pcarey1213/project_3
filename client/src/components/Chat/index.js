@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as ReactDOM from 'react-dom';
-import { Button, Comment, Form, Header } from 'semantic-ui-react';
 import "./style.css";
 import CommentLine from '../CommentLine';
 

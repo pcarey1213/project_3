@@ -25,6 +25,9 @@
     #menu {
        padding-left: 12px;
     }
+    #logo {
+        margin-left: 10px;
+    }
    }
 
 @media only screen and (max-width: 469px) {
@@ -58,7 +61,7 @@
     color: #fa6e59;
     font-family: 'Sigmar One', cursive;
     font-size: 20px;
-    margin-left: -20px;
+    margin-left: 1px;
     padding-bottom: 3px;
     margin-top:0;
 }

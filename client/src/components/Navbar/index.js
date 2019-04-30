@@ -5,7 +5,6 @@ import axios from 'axios'
 import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
 import { Image, Label } from 'semantic-ui-react'
-import API from '../../utils/API';
 import SearchResult from '../../pages/SearchResult'
 // ./pages/SearchResult'
 

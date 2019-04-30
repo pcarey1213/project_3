@@ -77,7 +77,7 @@ class App extends Component {
           userId = {this.state.userId}
           searchText = {this.state.searchText}
         />
-        <Switch>
+        {/* <Switch> */}
         <Route
         exact path = "/"
         render={(props) =>
@@ -153,7 +153,7 @@ class App extends Component {
             searchText = {this.state.searchText}
             />}
           />
-            </Switch>
+            {/* </Switch> */}
       </div>
     );
     

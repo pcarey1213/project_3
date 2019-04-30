@@ -6,7 +6,7 @@
 #show{
     margin-top: 10px;
 }
-.drop, #input{
+.drop, #drag{
     height:300px;
     width: 100%;
 }

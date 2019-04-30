@@ -148,7 +148,7 @@ class First extends Component {
                                 </div>
                                 <div className="panel-collapse" style={{height: currentHeight+'px'}}>
                                     <div className="panel-body" ref="inner">
-                                    {/* <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute.</p> */}
+                                    
                                     {this.state.subCategory ? (
                                         <div>
                                         {this.state.subCategory.map(sub =>(
@@ -171,9 +171,7 @@ class First extends Component {
                             </div>
                         </div>
                     </div>
-                    {/* <Jumbotron>
-                    {this.state.category}
-                    </Jumbotron> */}
+                    
                 </Row> 
             
                 <Row>
@@ -181,12 +179,6 @@ class First extends Component {
                     <Header as='h3' dividing>
                         Chat
                     </Header>
-                    <Chat 
-                        handleLikeChange = {this.handleLikeChange} 
-                        getOneCategory = {this.getOneCategory} 
-                        comment={this.state.comment}
-                    >
-                    </Chat>
                         <ChatReply
                             value = {this.state.commentText}
                             handleTextAreaChange = {this.handleTextAreaChange}
