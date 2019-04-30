@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 // components
 import Signup from './components/Sign-up'
 import LoginForm from './components/Login'
@@ -11,8 +11,7 @@ import First from './pages/First';
 import Second from './pages/Second';
 import Third from './pages/Third';
 import User from './pages/User';
-import SearchResult from './pages/SearchResult'
-
+import SearchResult from './pages/SearchResult';
 
 class App extends Component {
   constructor() {

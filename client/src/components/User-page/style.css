@@ -6,3 +6,13 @@
 #show{
     margin-top: 10px;
 }
+.drop, #input{
+    height:300px;
+    width: 100%;
+}
+#looks{
+    height: 70%;
+    width: 60%;
+    top:10%;
+    left: 20%
+}

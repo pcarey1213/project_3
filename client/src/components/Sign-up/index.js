@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
-import { Button, Form, Grid, Header, Image, Message, Segment, Modal } from 'semantic-ui-react'
+import { Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import SignupModal from './Modal';
 
 class Signup extends Component {

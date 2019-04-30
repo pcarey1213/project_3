@@ -1,14 +1,15 @@
 import React from 'react'
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
 import './style.css'
+import FileUpload from './FileUpload'
+import 'react-image-crop/dist/ReactCrop.css'
+import 'semantic-ui/dist/semantic.min.css'
 
 const ModalExampleScrollingContent = () => (
   <Modal id='looks' trigger={<Button id='show' color='blue'>Edit Image</Button>} closeIcon>
-    <Header icon='archive' content='Archive Old Messages' />
+    <Header icon='archive' content='Upload New Image' />
     <Modal.Content>
-      <p>
-        Your inbox is getting full, would you like us to enable automatic archiving of old messages?
-      </p>
+      <FileUpload/> 
     </Modal.Content>
     <Modal.Actions>
       <Button color='red'>

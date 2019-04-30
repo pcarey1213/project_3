@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import SecondCategory from "../components/SecondCategory";
-import { Col, Row, Container } from "../components/Grid";
-import AddCategory from '../components/AddCategory';
-import API from '../utils/API';
-import Jumbotron from '../components/Jumbotron';
+import SecondCategory from "../components/SecondCategory"
+import { Row, Container } from "../components/Grid"
+import AddCategory from '../components/AddCategory'
+import API from '../utils/API'
 import { Route, Link } from 'react-router-dom'
 import ChatReply from '../components/ChatReply'
 import CommentLine from '../components/CommentLine'
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Comment, Header } from 'semantic-ui-react'
 
 
 
