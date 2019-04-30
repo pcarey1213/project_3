@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-import { Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // components
 import Signup from './components/Sign-up'
@@ -67,8 +67,8 @@ class App extends Component {
     console.log("------------------------this.props")
     console.log(this.props)
     return (
+      <Router>
       <div className="App">
-      
         <Navbar 
         // history = {this.props.history}
           updateUser={this.updateUser} 
@@ -77,7 +77,7 @@ class App extends Component {
           userId = {this.state.userId}
           searchText = {this.state.searchText}
         />
-        {/* <Switch> */}
+        <Switch>
         <Route
         exact path = "/"
         render={(props) =>
@@ -153,8 +153,9 @@ class App extends Component {
             searchText = {this.state.searchText}
             />}
           />
-            {/* </Switch> */}
-      </div>
+          </Switch>
+        </div>
+      </Router>
     );
     
   }

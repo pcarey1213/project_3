@@ -44,7 +44,7 @@ class Signup extends Component {
 				console.log(response)
 				//route to the homepage
 				// alert("You are now signed up!");
-				if (!response.data.error) {
+				if (!response.data.errmsg) {
 					console.log('successful signup')
 					this.setState({
 						success: true,
