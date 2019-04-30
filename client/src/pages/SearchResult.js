@@ -57,15 +57,16 @@ class SearchResult extends Component {
         return (
             <Container> 
                 <Row>
-                <form className="item mx-auto mt-5" id="item" >
+                <form className="item mx-auto mt-5" id="item" 
+                onSubmit={(e)=>this.handleSearchSubmit(e)}>
                     <div className="ui icon input" id="search" >
                       <input type="text" 
                         placeholder="Search..." 
                         onChange={(e)=>this.handleInputChange(e)}
                         name="searchText"
                       />                  
-                      <i className="search link icon pt-1" 
-                          onClick = {(e)=>this.handleSearchSubmit(e)}
+                      <i className="search link icon pt-1" type="submit"
+                        //   onClick = {(e)=>this.handleSearchSubmit(e)}
                         />                      
                     </div>
 

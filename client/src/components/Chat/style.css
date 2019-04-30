@@ -1,5 +1,5 @@
 /* ChatHistory styles */.collection {
   margin: 0 0 130px 0;
   overflow-y: scroll;
-  height: 80vh;
+  max-height: 60vh;
   }

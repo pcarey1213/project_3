@@ -92,17 +92,22 @@ class Second extends Component {
     }
     handleLikeChange = i => {
         this.setState(state => {
-            state.comment.map((com,j) => {
-                if(j===i){
-                    API.updateLikes(com._id, {
-                        likes : com.likes + 1
-                    })
-                    .then(res => this.getOneCategory())
-                    .catch(err => {
-                        console.log(err)
-                    });  
-                } 
-            });
+            if(this.props.userId !== null){
+                state.comment.map((com,j) => {
+                    if(j===i){
+                        if(!com.whoLiked.includes(this.props.userId) ){
+                            API.updateLikes(com._id, {
+                                likes : com.likes + 1,
+                                userId : this.props.userId
+                            })
+                            .then(res => this.getOneCategory())
+                            .catch(err => {
+                                console.log(err)
+                            }); 
+                        } 
+                    } 
+                });
+            }            
         })
     }
     handleToggle(e){
