@@ -4,9 +4,10 @@ import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
-import { Card, Button, Image, Modal } from 'semantic-ui-react'
-import { Col, Row, Container } from '../Grid'
-import ModalExampleShorthand from './Modal';
+import { Card, Button, Image } from 'semantic-ui-react'
+import { Col, Row } from '../Grid'
+import ModalExampleShorthand from './Modal'
+
 
 class UserPage extends Component {
 
@@ -17,7 +18,7 @@ class UserPage extends Component {
                 <Col size ="3">
                 <div className="card">
                     <Card>
-                        <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
+                        <Image src='https://semantic-ui.com/images/avatar2/large/kristy.png'/>
                         <Card.Content>
                         <Card.Header>
                             {this.props.username}
