@@ -16,3 +16,16 @@
     top:10%;
     left: 20%
 }
+.here{
+    color:black;
+    text-align: center;
+    margin-top: 10px;
+}
+.drop{
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    margin-left: auto;
+    margin-right: auto;
+}

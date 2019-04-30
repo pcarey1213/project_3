@@ -93,7 +93,7 @@ class FileUpload extends Component {
                 {({getRootProps, getInputProps}) => (
                     <div id="drag"{...getRootProps()}>
                     <input {...getInputProps()} />
-                    <p>Drag 'n' drop some files here, or click to select files</p>
+                    <p className="here">Drag 'n' drop an image here, or click to select an image</p>
                     </div>
                 )}
                   </Dropzone>
