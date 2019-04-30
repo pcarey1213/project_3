@@ -68,9 +68,9 @@ class Navbar extends Component {
                       </Link>
                     </div>
                   </form>
-                  <Link to="/">
-                    <i className="ui question icon item" />
-                  </Link>
+                  {/* <Link to="/" className="item">
+                    <i className="ui question icon" />
+                  </Link> */}
                 </div>
             </div>
 

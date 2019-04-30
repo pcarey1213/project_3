@@ -100,9 +100,10 @@ class Third extends Component {
                                 <div className="panel-heading">
                                     <div className="ui raised segment mt-5 mb-5">
                                         <div style={{backgroundColor:"#FFDB5C", color:"white"}} 
-                                            className="ui ribbon massive label">BUBBLE</div>
-                                        <span style={{fontSize:"24px"}}>{this.state.category}</span>
+                                            className="ui circular massive label"><p className="p-3">BUBBLE</p></div>
+                                        <span className="ml-3" style={{fontSize:"24px"}}>{this.state.category}</span>
                                     </div>
+                                
                                 </div>
                             </div>
                         </div>
