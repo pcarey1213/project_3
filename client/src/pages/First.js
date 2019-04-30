@@ -98,20 +98,22 @@ class First extends Component {
     }
     handleLikeChange = i => {
         this.setState(state => {
-            state.comment.map((com,j) => {
-                if(j===i){
-                    if(!com.whoLiked.includes(this.props.userId) ){
-                        API.updateLikes(com._id, {
-                            likes : com.likes + 1,
-                            userId : this.props.userId
-                        })
-                        .then(res => this.getOneCategory())
-                        .catch(err => {
-                            console.log(err)
-                        }); 
+            if(this.props.userId !== null){
+                state.comment.map((com,j) => {
+                    if(j===i){
+                        if(!com.whoLiked.includes(this.props.userId) ){
+                            API.updateLikes(com._id, {
+                                likes : com.likes + 1,
+                                userId : this.props.userId
+                            })
+                            .then(res => this.getOneCategory())
+                            .catch(err => {
+                                console.log(err)
+                            }); 
+                        } 
                     } 
-                } 
-            });
+                });
+            }            
         })
     }
     handleToggle(e){
@@ -179,7 +181,11 @@ class First extends Component {
                     <Header as='h3' dividing>
                         Chat
                     </Header>
-                    <Chat handleLikeChange = {this.handleLikeChange} getOneCategory = {this.getOneCategory} comment={this.state.comment}>
+                    <Chat 
+                        handleLikeChange = {this.handleLikeChange} 
+                        getOneCategory = {this.getOneCategory} 
+                        comment={this.state.comment}
+                    >
                     </Chat>
                         <ChatReply
                             value = {this.state.commentText}
