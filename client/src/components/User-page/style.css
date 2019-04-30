@@ -6,15 +6,15 @@
 #show{
     margin-top: 10px;
 }
-.drop, #drag{
+#drag{
     height:300px;
     width: 100%;
 }
 #looks{
-    height: 70%;
-    width: 60%;
-    top:10%;
-    left: 20%
+    height: 100%;
+    width: 80%;
+    top:0;
+    left: 10%
 }
 .here{
     color:black;
@@ -28,4 +28,6 @@
     border-image: none;
     margin-left: auto;
     margin-right: auto;
+    height:300px;
+    width: 100%;
 }
