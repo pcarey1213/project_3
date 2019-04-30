@@ -11,6 +11,7 @@ import { Comment, Header } from 'semantic-ui-react'
 
 
 
+
 class First extends Component {
     constructor() {
         super()
@@ -132,9 +133,12 @@ class First extends Component {
                                 <div className="panel-heading">
                                     <div className="ui raised segment mt-5 mb-5">
                                         <div style={{backgroundColor:"#4897D8", color:"white"}} 
-                                            className="ui ribbon massive label">BUBBLE</div>
-                                        <span style={{fontSize:"24px"}}>{title}</span>
-                                        <p className="mt-3" style={{fontSize:"16px", color:"grey"}}>click to show all sub BUBBLES</p>
+                                            className="ui circular massive label"><p className="p-3">BUBBLE</p></div>
+                                        <span className="ml-3" style={{fontSize:"24px"}}>{title}</span>
+                                        <div className="mt-5 mr-5" 
+                                            style={{fontSize:"16px", color:"grey", float:"right", 
+                                            display: "inline-block", verticalAlign: "middle"}}>
+                                        click to show all sub bubbles</div>
                                     </div>
                                 </div>
                                 <div className="panel-collapse" style={{height: currentHeight+'px'}}>
@@ -166,56 +170,31 @@ class First extends Component {
                     {this.state.category}
                     </Jumbotron> */}
                 </Row> 
+            
                 <Row>
-
                     <Comment.Group>
-                        <Header as='h3' dividing>
-                            Chat
-                        </Header>
-                        {this.state.comment ? (
-                            <div>
-                                {this.state.comment.map((com, index) => (
-                                    <CommentLine
-                                        key = {com._id}
-                                        user= {com.user ? [com.user[0].username] : ["Unknown"]}
-                                        userID = {com.user ? [com.user[0]._id] : null}
-                                        date = {com.dates}
-                                        content = {com.content}
-                                        likes = {com.likes}
-                                    >
-                                        <div className="ui labeled button" id="like" tabIndex={0}
-                                            onClick = {() => {
-                                                this.handleLikeChange(index)
-                                            }}>
-                                            <div className="ui red button" id="red">
-                                                <i className="heart icon" /> Like
-                                            </div>
-                                            <p className="ui basic red left pointing label" id="white">
-                                                {com.likes}
-                                            </p>
-                                        </div>
-                                    </CommentLine>
-                                ))}
-                            </div>
-                        ): (
-                            <CommentLine></CommentLine>
-                        )}
+                    <Header as='h3' dividing>
+                        Chat
+                    </Header>
+                    <Chat handleLikeChange = {this.handleLikeChange} getOneCategory = {this.getOneCategory} comment={this.state.comment}>
+                    </Chat>
                         <ChatReply
                             value = {this.state.commentText}
                             handleTextAreaChange = {this.handleTextAreaChange}
                             handleCommentFormSubmit = {this.handleCommentFormSubmit}
                         ></ChatReply>
-
-
                     </Comment.Group>
-
                 </Row> 
-                <Row>                    
-                    <AddCategory 
+
+                <Row>      
+                    {this.props.loggedIn ? (
+                        <AddCategory 
                         value = {this.state.categoryName}
                         handleInputChange = {this.handleInputChange}
                         handleAddFormSubmit = {this.handleAddFormSubmit}
-                    />                    
+                    />
+                    ) : (null)}              
+                    
                 </Row>
             </Container>
             

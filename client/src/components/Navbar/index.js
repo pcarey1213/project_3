@@ -6,34 +6,17 @@ import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
 import { Image, Label } from 'semantic-ui-react'
 import API from '../../utils/API';
+import SearchResult from '../../pages/SearchResult'
+// ./pages/SearchResult'
 
 class Navbar extends Component {
   constructor() {
       super()
       this.state = {
-        searchText : ""
     }
       this.logout = this.logout.bind(this)
-      this.handleInputChange = this.handleInputChange.bind(this)
-      this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
   }
-    
-
-
-  handleInputChange (event){
-    event.preventDefault();
-    const { name, value } = event.target;
-    this.setState({
-        [name] : value
-    })
-  }
-  handleSearchSubmit (event){
-    console.log("handleSearchSubmit-------------------------")
-    event.preventDefault();
-    this.setState({
-      searchText : ""
-    })
-  }
+ 
   logout(event) {
       event.preventDefault()
       console.log('logging out')
@@ -52,9 +35,9 @@ class Navbar extends Component {
 
   render() {
       const loggedIn = this.props.loggedIn;
-      // console.log('navbar render, props: ')
-      // console.log(this.props);
-      
+      console.log('navbar render, props: ')
+      console.log(this.props);
+     
       return (
           <div className="ui secondary  menu" id="container">
               <div className="right menu" id="menu">
@@ -80,23 +63,19 @@ class Navbar extends Component {
                   ]}
                   <form className="item" id="item" >
                     <div className="ui icon input" id="search" >
-                      <input type="text" 
-                        placeholder="Search..." 
-                        onChange={(e)=>this.handleInputChange(e)}
-                        name="searchText"
-                      />
-                      <Link to ={`/search/${this.state.searchText}`}>
+                      <Link to={{ pathname: `/search`  }}>
                         <i className="search link icon" />
                       </Link>
-                        
                     </div>
-
-
                   </form>
+                  {/* <Link to="/" className="item">
+                    <i className="ui question icon" />
+                  </Link> */}
                 </div>
             </div>
 
         );
+        // }
 
       }
     }

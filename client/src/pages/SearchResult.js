@@ -3,13 +3,8 @@ import Categories from "../components/Categories";
 import SecondCategory from "../components/SecondCategory";
 import ThirdCategory from "../components/ThirdCategory";
 import { Col, Row, Container } from "../components/Grid";
-import AddCategory from '../components/AddCategory';
 import API from '../utils/API';
-import Jumbotron from '../components/Jumbotron';
 import { Route, Link } from 'react-router-dom'
-import ChatReply from '../components/ChatReply'
-import CommentLine from '../components/CommentLine'
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
 
 
 
@@ -17,40 +12,68 @@ class SearchResult extends Component {
     constructor() {
         super()
         this.state = {
-            results : {}
+            results : {},
+            searchText : ""
         }
         this.componentDidMount = this.componentDidMount.bind(this)
         this.searchCategory = this.searchCategory.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
         
     }
     componentDidMount() {
         console.log("-------------------------this.props")
         console.log(this.props);
-        this.searchCategory();
-        // this.setState({
-        //     id : this.props.match.params.id
-        // })
+        // this.searchCategory();
     }
 
     searchCategory() {
-        const url = this.props.location.pathname
-        API.searchCategory(url)
+        // const url = this.props.location.pathname
+        API.searchCategory(this.state.searchText)
         .then(res => {
-            console.log("--------------------------wanna check")
+            console.log("wannna check")
             console.log(res.data)
             this.setState({
-                results : res.data
+                results : res.data,
+                searchText : ""
             })
-            // window.location.reload();
         })
         .catch(err => console.log(err));
     }
+    handleInputChange (event){
+        event.preventDefault();
+        const { name, value } = event.target;
+        this.setState({
+            [name] : value
+        })
+    }
+    handleSearchSubmit (event){
+        event.preventDefault();
+        this.searchCategory()
 
+    }
 
     render() {
         
         return (
-            <Container>  
+            <Container> 
+                <Row>
+                <form className="item mx-auto mt-5" id="item" >
+                    <div className="ui icon input" id="search" >
+                      <input type="text" 
+                        placeholder="Search..." 
+                        onChange={(e)=>this.handleInputChange(e)}
+                        name="searchText"
+                      />                  
+                      <i className="search link icon pt-1" 
+                          onClick = {(e)=>this.handleSearchSubmit(e)}
+                        />                      
+                    </div>
+
+
+                  </form>
+                    
+                </Row> 
+                <p>{this.props.searchText}</p>
                 <div className="ui raised segment mt-5">
                     <div className="ui blue ribbon label">Results</div>
                     <span>Search Categories</span>
@@ -68,7 +91,7 @@ class SearchResult extends Component {
                             </Link>
                         ))}
                     </div>
-                ) : (<div></div>)}
+                ) : (null)}
                 {this.state.results.second
                 ? (
                     <div>
@@ -80,7 +103,7 @@ class SearchResult extends Component {
                             </Link>
                         ))}
                     </div>
-                ) : (<div></div>)}
+                ) : (null)}
                 {this.state.results.third
                 ? (
                     <div>
@@ -92,7 +115,14 @@ class SearchResult extends Component {
                             </Link>
                         ))}
                     </div>
-                ) : (<div></div>)}
+                ) : (null)}
+                {this.state.results.first === null
+                && this.state.results.second === null
+                && this.state.results.third === null ? (
+                    <div>
+                        <p>No results</p>
+                    </div>
+                ) : (null)}
                 
             </Container>
             
