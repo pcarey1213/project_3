@@ -91,7 +91,7 @@ class FileUpload extends Component {
                 <div className="drop">
                 <Dropzone onDrop={this.handleOnDrop} accept={acceptedFileTypes} multiple={false} maxSize={imageMaxSize}>
                 {({getRootProps, getInputProps}) => (
-                    <div id="input"{...getRootProps()}>
+                    <div id="drag"{...getRootProps()}>
                     <input {...getInputProps()} />
                     <p>Drag 'n' drop some files here, or click to select files</p>
                     </div>
