@@ -3,10 +3,6 @@ const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
 
-
-// API routes
-
-
 router.post('/', (req, res) => {
     console.log('user signup');
 
