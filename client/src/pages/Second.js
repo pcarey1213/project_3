@@ -129,7 +129,7 @@ class Second extends Component {
                         <div className="panel-group">
                             <div className={`panel ${isExpanded ? 'is-expanded' : ''}`} onClick={(e) => this.handleToggle(e)}>
                                 <div className="panel-heading">
-                                    <div className="ui raised segment mt-5 mb-5">
+                                    <div className="ui raised segment mt-5 mb-5" style={{overflow:"auto"}}>
                                         <div style={{backgroundColor:"#FA6E59", color:"white"}} 
                                             className="ui circular massive label"><p className="p-3">BUBBLE</p></div>
                                         <span className="ml-3" style={{fontSize:"24px"}}>{title}</span>
