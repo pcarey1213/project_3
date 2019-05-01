@@ -172,7 +172,7 @@ class FileUpload extends Component {
 
         
         if(this.props.yes){
-            this.updateUserPhoto()
+            // this.updateUserPhoto()
         }
         return (
             <div className="dropbox">
