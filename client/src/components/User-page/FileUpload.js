@@ -16,16 +16,39 @@ const acceptedFileTypesArray = acceptedFileTypes.split(",").map((item) => {retur
 class FileUpload extends Component {
     constructor(props){
         super(props)
-        this.imagePreviewCanvasRef = React.createRef()
-        this.fileInputRef = React.createRef()
+    
         this.state = {
             imgSrc: null,
             imgSrcExt: null,
             crop: {
                 aspect: 1/1
-            }
+            },
+            yes : false
         }
+        this.imagePreviewCanvasRef = React.createRef()
+        this.fileInputRef = React.createRef()
+        this.getOneUser = this.getOneUser.bind(this)
     }
+    componentDidMount(){
+        console.log("FIleUpload : componentDidMount")
+        this.setState({
+            yes : this.props.yes
+        })
+    }
+    getOneUser() {
+        
+        API.getOneUser("/user/"+this.props.userId)
+        .then(res => {
+            console.log("--------------------------wanna check")
+            console.log(res.data)
+            this.setState({
+                comment : res.data.comment,
+                username : res.data.username
+            })
+        })
+        .catch(err => console.log(err));
+    }
+
 
     verifyFile = (files) => {
         if (files && files.length > 0) {
@@ -79,23 +102,24 @@ class FileUpload extends Component {
         // console.log(this.state)
     }
     handleOnCropComplete = async (crop, pixelCrop) => {
-         console.log(crop, pixelCrop)
-        const canvasRef = this.imagePreviewCanvasRef.current
-        const {imgSrc}  = this.state
-        image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
-        if (this.state.image) {
+        //  console.log(crop, pixelCrop)
+        // const canvasRef = this.imagePreviewCanvasRef.current
+        // const {imgSrc}  = this.state
+        // image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
+        // if (this.state.image) {
             
-            const croppedImageUrl = await this.image64toCanvasRef(
-              this.state.image,
-              pixelCrop
-            //   "newFile.jpeg"
-            );
-            this.setState({ croppedImageUrl });
+        //     const croppedImageUrl = await this.image64toCanvasRef(
+        //       this.state.image,
+        //       pixelCrop
+        //     //   "newFile.jpeg"
+        //     );
+        //     this.setState({ croppedImageUrl });
             // {this.props.yes ? : [this.props.updateUser({
             //    userImage : croppedImageUrl
             // })]}
-          }
-        }
+        // }
+    }
+    
     
     handleDownloadClick = (event) => {
         event.preventDefault()
@@ -160,6 +184,14 @@ class FileUpload extends Component {
         console.log("this.state1")
         console.log(this.state);
         API.updateProfilePhoto(this.props.userId, this.state.imgSrc)
+        .then(res => this.getOneUser())
+        .catch(err => console.log(err))
+    }
+
+    update(){
+        this.props.updateUser({
+            imgSrc : this.state.imgSrc
+        })
     }
 
     render () {
@@ -168,13 +200,9 @@ class FileUpload extends Component {
         console.log(imgSrc)
         console.log(this.state.imgSrcExt)
         console.log(this.state.crop)
-        console.log("FIleUpload.js props")
-        console.log(this.props)
-
+        this.update()
         
-        if(this.props.yes){
-            // this.updateUserPhoto()
-        }
+
         return (
             <div className="dropbox">
                 <h1>Drop and Crop</h1>

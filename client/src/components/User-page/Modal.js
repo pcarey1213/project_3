@@ -12,7 +12,8 @@ class UploadModal extends Component {
     super()
     this.state = {
       open:false,
-      yes:false
+      yes:false,
+      imgSrc: null
     }
 
     this.show = this.show.bind(this)
