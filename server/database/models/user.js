@@ -8,6 +8,7 @@ const userSchema = new Schema({
 
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
+	// image : {type : String},
 	comment : [
 		{
             type : Schema.Types.ObjectId,

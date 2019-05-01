@@ -6,6 +6,7 @@ import {base64StringtoFile,
     downloadBase64File,
     extractImageFileExtensionFromBase64,
     image64toCanvasRef} from './Crop'
+import API from '../../utils/API';
  
 const imageMaxSize = 10000000000 // bytes
 const acceptedFileTypes = 'image/x-png, image/png, image/jpg, image/jpeg'
@@ -82,6 +83,7 @@ class FileUpload extends Component {
         // const {imgSrc}  = this.state
         // image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
         if (this.state.image) {
+            
             const croppedImageUrl = await this.image64toCanvasRef(
               this.state.image,
               pixelCrop
@@ -153,12 +155,25 @@ class FileUpload extends Component {
         }
     }
 
+    updateUserPhoto(){
+        console.log("this.state1")
+        console.log(this.state);
+        API.updateProfilePhoto(this.props.userId, this.state.imgSrc)
+    }
+
     render () {
         const {imgSrc} = this.state
         console.log("imgSrc")
         console.log(imgSrc)
         console.log(this.state.imgSrcExt)
         console.log(this.state.crop)
+        console.log("FIleUpload.js props")
+        console.log(this.props)
+
+        
+        if(this.props.yes){
+            this.updateUserPhoto()
+        }
         return (
             <div className="dropbox">
                 <h1>Drop and Crop</h1>

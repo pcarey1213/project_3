@@ -4,21 +4,40 @@ import './style.css'
 import FileUpload from './FileUpload'
 import 'react-image-crop/dist/ReactCrop.css'
 import 'semantic-ui/dist/semantic.min.css'
+import API from '../../utils/API';
 
 class UploadModal extends Component {
-  state = {
+
+  constructor() {
+    super()
+    this.state = {
       open:false,
       yes:false
+    }
+
+    this.show = this.show.bind(this)
+    this.close = this.close.bind(this)
+    this.yes = this.yes.bind(this)
   }
+  
 
   show = () => () => this.setState({ open: true })
   close = () => this.setState({open: false })
 
-  yes = () => this.setState({ open: false, yes: true})
+  yes = () => {
+    this.setState({ open: false, yes: true})
+
+    // API.updateProfilePhoto()
+  }
+  updateImg (imgObject) {
+    this.setState(imgObject)
+  }
 
   render(){
     const {open, yes} = this.state
     console.log(this.state)
+    console.log("Upload modal.js this.props")
+        console.log(this.props)
 
     return (
       <div>
@@ -27,7 +46,10 @@ class UploadModal extends Component {
       <Modal id='looks' open={open} onClose={this.close}>
       <Header icon='archive' content='Upload New Image' />
       <Modal.Content>
-        <FileUpload updateUser={this.props.updateUser} yes={yes}/> 
+        <FileUpload updateUser={this.props.updateUser} 
+          updateImg={this.updateImg}
+          yes ={ this.state.yes }
+          userId = {this.props.userId}/> 
       </Modal.Content>
       <Modal.Actions>
         <Button color='red' onClick={this.close}>

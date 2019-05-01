@@ -87,5 +87,20 @@ router.get('/:id', (req, res) => {
     res.status(422).json(err)
     });
 })
+router.put('/:id', (req, res) => {
+    User.updateOne({
+        _id : req.params.id
+    }, {
+        $set : {
+            image : req.body
+        }
+    })
+    .then(function(dbModel){
+        res.json(dbModel);
+    })
+    .catch(function(err){
+        res.json(err);
+    })
+})
 
 module.exports = router
