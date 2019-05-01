@@ -3,6 +3,7 @@ import { Button, Comment, Form, Header } from 'semantic-ui-react'
 import "./style.css";
 import Moment from 'react-moment';
 import { Route, Link } from 'react-router-dom';
+import Linkify from 'react-linkify'
 
 const CommentLine = props => {
 
@@ -16,7 +17,7 @@ const CommentLine = props => {
                 <Comment.Metadata>
                 <div><Moment format="YYYY/MM/DD hh:mm:ss a">{props.date}</Moment></div>
                 </Comment.Metadata>
-                <Comment.Text>{props.content}</Comment.Text>
+                <Comment.Text><Linkify>{props.content}</Linkify></Comment.Text>
                     {props.children}
             </Comment.Content>
         </Comment>
