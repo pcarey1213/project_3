@@ -86,8 +86,8 @@ class Home extends Component {
                     />
                     ) : (
                         <div className="mx-auto mt-5 mb-5">
-                            <Label circular color="grey">
-                                <p className="p-2">You can add bubble and do a lot more once you sign up</p>
+                            <Label circular color="yellow">
+                                <p className="p-2">Sign up to add your own bubbles!</p>
                             </Label>
                         </div>
                     )}              

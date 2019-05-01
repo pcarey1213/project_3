@@ -68,10 +68,10 @@ class FileUpload extends Component {
 
                 reader.readAsDataURL(currentFile)
         }
+        }
     }
-}
     handleImageLoaded = (image) => {
-        // console.log(image)
+        console.log(image)
     }
     handleOnCropChange = (crop) => {
         // console.log(crop)
@@ -79,23 +79,21 @@ class FileUpload extends Component {
         // console.log(this.state)
     }
     handleOnCropComplete = async (crop, pixelCrop) => {
-         console.log(crop, pixelCrop)
+        console.log(crop, pixelCrop)
         const canvasRef = this.imagePreviewCanvasRef.current
         const {imgSrc}  = this.state
-        image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
-        if (this.state.image) {
+        // console.log(imagePreviewCanvasRef.current)
+        // image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
+        // if (this.state.image) {
             
-            const croppedImageUrl = await this.image64toCanvasRef(
-              this.state.image,
-              pixelCrop
-            //   "newFile.jpeg"
-            );
-            this.setState({ croppedImageUrl });
-            // {this.props.yes ? : [this.props.updateUser({
-            //    userImage : croppedImageUrl
-            // })]}
+        //     const croppedImageUrl = await this.image64toCanvasRef(
+        //       this.state.image,
+        //       pixelCrop
+        //     //   "newFile.jpeg"
+        //     );
+        //     this.setState({ croppedImageUrl });
           }
-        }
+        
     
     handleDownloadClick = (event) => {
         event.preventDefault()
@@ -156,11 +154,11 @@ class FileUpload extends Component {
         }
     }
 
-    updateUserPhoto(){
-        console.log("this.state1")
-        console.log(this.state);
-        API.updateProfilePhoto(this.props.userId, this.state.imgSrc)
-    }
+    // updateUserPhoto() {
+    //     console.log("this.state1")
+    //     console.log(this.state);
+    //     API.updateProfilePhoto(this.props.userId, this.state.imgSrc)
+    // }
 
     render () {
         const {imgSrc} = this.state
@@ -172,9 +170,9 @@ class FileUpload extends Component {
         console.log(this.props)
 
         
-        if(this.props.yes){
-            // this.updateUserPhoto()
-        }
+        // if(this.props.yes){
+        //     // this.updateUserPhoto()
+        // }
         return (
             <div className="dropbox">
                 <h1>Drop and Crop</h1>
@@ -202,7 +200,7 @@ class FileUpload extends Component {
                         <button onClick={this.handleClearToDefault}>Clear</button>
                     </div>
                     </Col>
-                    <img src={imgSrc}/>
+                  
                 </Row>
 
                     :  
@@ -222,5 +220,7 @@ class FileUpload extends Component {
         )
     }
 }
+
+
 
 export default FileUpload

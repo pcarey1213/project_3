@@ -131,8 +131,7 @@ class Second extends Component {
                                 <div className="panel-heading">
                                     <div className="ui raised segment mt-5 mb-5" style={{overflow:"auto"}}>
                                         <div style={{backgroundColor:"#FA6E59", color:"white"}} 
-                                            className="ui circular massive label"><p className="p-3">BUBBLE</p></div>
-                                        <span className="ml-3" style={{fontSize:"24px"}}>{title}</span>
+                                            className="ui circular massive label"><p className="p-3">{title}</p></div>
                                         <div className="mr-5" 
                                             style={{fontSize:"16px", color:"grey", float:"right", 
                                             display: "inline-block", verticalAlign: "middle"}}>
@@ -192,8 +191,8 @@ class Second extends Component {
                     />
                     ) : (
                         <div className="mx-auto mt-5 mb-5">
-                            <Label circular color="grey">
-                                <p className="p-2">You can add bubble and do a lot more once you sign up</p>
+                            <Label circular color="yellow">
+                                <p className="p-2">Sign up to add your own bubbles!</p>
                             </Label>
                         </div>
                     )}              
