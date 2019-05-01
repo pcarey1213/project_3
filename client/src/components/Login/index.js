@@ -79,7 +79,6 @@ class LoginForm extends Component {
                           value={this.state.password}
                           onChange={this.handleChange}
                         />
-            
                         <Button color='blue' fluid size='large' onClick={this.handleSubmit} id="button">
                           Login
                         </Button>

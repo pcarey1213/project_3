@@ -91,10 +91,10 @@ class FileUpload extends Component {
 
                 reader.readAsDataURL(currentFile)
         }
+        }
     }
-}
     handleImageLoaded = (image) => {
-        // console.log(image)
+        console.log(image)
     }
     handleOnCropChange = (crop) => {
         // console.log(crop)
@@ -102,9 +102,11 @@ class FileUpload extends Component {
         // console.log(this.state)
     }
     handleOnCropComplete = async (crop, pixelCrop) => {
+
         //  console.log(crop, pixelCrop)
         // const canvasRef = this.imagePreviewCanvasRef.current
         // const {imgSrc}  = this.state
+
         // image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
         // if (this.state.image) {
             
@@ -114,12 +116,14 @@ class FileUpload extends Component {
         //     //   "newFile.jpeg"
         //     );
         //     this.setState({ croppedImageUrl });
+
             // {this.props.yes ? : [this.props.updateUser({
             //    userImage : croppedImageUrl
             // })]}
         // }
     }
     
+
     
     handleDownloadClick = (event) => {
         event.preventDefault()
@@ -180,6 +184,7 @@ class FileUpload extends Component {
         }
     }
 
+
     updateUserPhoto(){
         console.log("this.state1")
         console.log(this.state);
@@ -193,6 +198,7 @@ class FileUpload extends Component {
             imgSrc : this.state.imgSrc
         })
     }
+
 
     render () {
         const {imgSrc} = this.state
@@ -230,7 +236,7 @@ class FileUpload extends Component {
                         <button onClick={this.handleClearToDefault}>Clear</button>
                     </div>
                     </Col>
-                    <img src={imgSrc}/>
+                  
                 </Row>
 
                     :  
@@ -250,5 +256,7 @@ class FileUpload extends Component {
         )
     }
 }
+
+
 
 export default FileUpload

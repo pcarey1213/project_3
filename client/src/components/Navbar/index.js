@@ -4,7 +4,7 @@ import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
 import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
-import { Image, Label } from 'semantic-ui-react'
+import { Image, Label, Menu, Item } from 'semantic-ui-react'
 import SearchResult from '../../pages/SearchResult'
 // ./pages/SearchResult'
 
@@ -15,6 +15,8 @@ class Navbar extends Component {
     }
       this.logout = this.logout.bind(this)
   }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
  
   logout(event) {
       event.preventDefault()
@@ -35,6 +37,7 @@ class Navbar extends Component {
 
   render() {
       const loggedIn = this.props.loggedIn;
+      const { activeItem } = this.state
       console.log('navbar render, props: ')
       console.log(this.props);
      
@@ -56,9 +59,9 @@ class Navbar extends Component {
                           </Label>
                         </Link>
                   ] : [
-                        <Link to="/" className="active item">Home</Link>,
-                        <Link to="/login" className="item">Log in</Link>,
-                        <Link to="/signup" className="item">Sign Up</Link>
+                        <Link to="/" className="item"  name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}>Home</Link>,
+                        <Link to="/login" className="item" name='Log in' active={activeItem === 'Log in'} onClick={this.handleItemClick}>Log in</Link>,
+                        <Link to="/signup" className="item"name='Sign Up' active={activeItem === 'Sign Up'} onClick={this.handleItemClick}>Sign Up</Link>
                         
                   ]}
                   <form className="item" id="item" >
