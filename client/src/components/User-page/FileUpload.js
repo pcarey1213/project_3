@@ -150,6 +150,10 @@ class FileUpload extends Component {
 
     render () {
         const {imgSrc} = this.state
+        console.log("imgSrc")
+        console.log(imgSrc)
+        console.log(this.state.imgSrcExt)
+        console.log(this.state.crop)
         return (
             <div className="dropbox">
                 <h1>Drop and Crop</h1>
@@ -177,6 +181,7 @@ class FileUpload extends Component {
                         <button onClick={this.handleClearToDefault}>Clear</button>
                     </div>
                     </Col>
+                    <img src={imgSrc}/>
                 </Row>
 
                     :  
