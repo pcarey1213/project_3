@@ -23,7 +23,6 @@ class App extends Component {
       username: null,
       userId: null,
       searchText : "",
-      userImage: null
     }
 
     this.getUser = this.getUser.bind(this)

@@ -17,7 +17,6 @@ const search = require('./routes/search')
 
 // Define middleware here
 app.use(morgan('dev'))
-app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)

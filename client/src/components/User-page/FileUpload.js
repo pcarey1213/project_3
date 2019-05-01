@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import ReactCrop from 'react-image-crop'
 import { Col, Row } from '../Grid'
+import 'react-image-crop/dist/ReactCrop.css';
 import {base64StringtoFile,
     downloadBase64File,
     extractImageFileExtensionFromBase64,
@@ -78,10 +79,10 @@ class FileUpload extends Component {
         // console.log(this.state)
     }
     handleOnCropComplete = async (crop, pixelCrop) => {
-         // console.log(crop, pixelCrop)
-        // const canvasRef = this.imagePreviewCanvasRef.current
-        // const {imgSrc}  = this.state
-        // image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
+         console.log(crop, pixelCrop)
+        const canvasRef = this.imagePreviewCanvasRef.current
+        const {imgSrc}  = this.state
+        image64toCanvasRef(canvasRef, imgSrc, pixelCrop)
         if (this.state.image) {
             
             const croppedImageUrl = await this.image64toCanvasRef(
@@ -90,7 +91,7 @@ class FileUpload extends Component {
             //   "newFile.jpeg"
             );
             this.setState({ croppedImageUrl });
-            // {this.props. yes ? : [this.props.updateUser({
+            // {this.props.yes ? : [this.props.updateUser({
             //    userImage : croppedImageUrl
             // })]}
           }

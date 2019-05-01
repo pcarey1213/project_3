@@ -29,10 +29,10 @@ userSchema.methods = {
 }
 
 // Define hooks for pre-saving
-userSchema.pre('save', function (error, next) {
+userSchema.pre('save', function (next) {
 	if (!this.password) {
 		console.log('models/user.js =======NO PASSWORD PROVIDED=======')
-		return error
+		next()
 	} else {
 		console.log('models/user.js hashPassword in pre save');
 		
