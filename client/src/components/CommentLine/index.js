@@ -12,13 +12,14 @@ const CommentLine = props => {
             <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
             <Comment.Content>
                 <Link to={`/user/${props.userID}`}>
-                    <Comment.Author>{props.user}</Comment.Author>
-                </Link>
-                <Comment.Metadata>
-                <div><Moment format="YYYY/MM/DD hh:mm:ss a">{props.date}</Moment></div>
+                <Comment.Author>{props.user} 
+                <Comment.Metadata><div><Moment format="YYYY/MM/DD hh:mm:ss a">{props.date}</Moment></div>
                 </Comment.Metadata>
-                <Comment.Text><Linkify>{props.content}</Linkify></Comment.Text>
-                    {props.children}
+                </Comment.Author>
+                </Link>
+               
+                <Comment.Text><Linkify>{props.content}</Linkify>{props.children}</Comment.Text>
+                   
             </Comment.Content>
         </Comment>
     )
