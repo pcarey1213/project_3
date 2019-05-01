@@ -6,11 +6,15 @@ import "./style.css";
 import 'semantic-ui/dist/semantic.min.css'
 import { Card, Button, Image } from 'semantic-ui-react'
 import { Col, Row } from '../Grid'
-import ModalExampleShorthand from './Modal'
+import UploadModal from './Modal'
 
 
 class UserPage extends Component {
-
+    constructor() {
+        super()
+        this.state = {
+      }
+    }
     render(){
         return (
             <div className="container">
@@ -24,7 +28,7 @@ class UserPage extends Component {
                             {this.props.username}
                         </Card.Header>
                         <Card.Meta>        
-                            <ModalExampleShorthand />            
+                            <UploadModal updateUser={this.props.updateUser}/>            
                         </Card.Meta>
                         <Card.Description></Card.Description>
                         </Card.Content>

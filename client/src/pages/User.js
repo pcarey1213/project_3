@@ -46,6 +46,7 @@ class User extends Component {
                 <Row>
                     <UserPage
                         username = {this.state.username}
+                        updateUser = {this.props.updateUser}
                     >
                     {this.state.comment ? (
                         <div>

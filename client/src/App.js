@@ -22,7 +22,8 @@ class App extends Component {
       loggedIn: false,
       username: null,
       userId: null,
-      searchText : ""
+      searchText : "",
+      userImage: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -140,6 +141,7 @@ class App extends Component {
               {...props}
               userId={this.state.userId}
               username={this.state.username}
+              updateUser={this.updateUser}
               />}
             />
           <Route 
