@@ -13,7 +13,7 @@ const CommentLine = props => {
             <Comment.Content>
                 <Link to={`/user/${props.userID}`}>
                 <Comment.Author>{props.user} 
-                <Comment.Metadata><div><Moment format="YYYY/MM/DD hh:mm:ss a">{props.date}</Moment></div>
+                <Comment.Metadata><div><Moment format="DD/MM/YYYY hh:mm a">{props.date}</Moment></div>
                 </Comment.Metadata>
                 </Comment.Author>
                 </Link>
