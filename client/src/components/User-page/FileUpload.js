@@ -42,6 +42,8 @@ class FileUpload extends Component {
          }
     }
     handleOnDrop = (files, rejectedFiles) => {
+        console.log(files)
+        console.log('rejected files are', rejectedFiles)
         if(rejectedFiles && rejectedFiles.length > 0) {
             // console.log(rejectedFiles)
             this.verifyFile(rejectedFiles)
@@ -52,17 +54,17 @@ class FileUpload extends Component {
             if (isVerified){
                 // imageBase64Data
                 const currentFile = files[0]
-                const myFileItemReader = new FileReader()
-                myFileItemReader.addEventListener("load", ()=>{
-                    // console.log(reader.result)
-                    const myResult = myFileItemReader.result
+                const reader = new FileReader()
+                reader.addEventListener("load", ()=>{
+                    console.log(reader.result)
+                    const myResult = reader.result
                     this.setState({
                         imgSrc: myResult,
                         imgSrcExt: extractImageFileExtensionFromBase64(myResult)
                     })
                 }, false)
 
-                myFileItemReader.readAsDataURL(currentFile)
+                reader.readAsDataURL(currentFile)
         }
     }
 }
@@ -86,6 +88,9 @@ class FileUpload extends Component {
             //   "newFile.jpeg"
             );
             this.setState({ croppedImageUrl });
+            // {this.props. yes ? : [this.props.updateUser({
+            //    userImage : croppedImageUrl
+            // })]}
           }
         }
     
@@ -134,7 +139,7 @@ class FileUpload extends Component {
                  const currentFile = files[0]
                  const myFileItemReader = new FileReader()
                  myFileItemReader.addEventListener("load", ()=>{
-                     // console.log(myFileItemReader.result)
+                     console.log(myFileItemReader.result)
                      const myResult = myFileItemReader.result
                      this.setState({
                          imgSrc: myResult,
