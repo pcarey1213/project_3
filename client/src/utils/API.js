@@ -36,6 +36,9 @@ export default {
     searchCategory : function(data){
         return axios.get('/search/'+data)
         //data format example /search/ddd
+    },
+    updateProfilePhoto : function(id, data){
+        return axios.put('/user/'+id, data)
     }
 
 }

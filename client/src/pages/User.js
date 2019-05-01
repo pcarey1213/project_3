@@ -40,13 +40,15 @@ class User extends Component {
     }
 
     render() {
-        
+        console.log("User.js this.props")
+        console.log(this.props)
         return (
             <Container>
                 <Row>
                     <UserPage
                         username = {this.state.username}
                         updateUser = {this.props.updateUser}
+                        userId = {this.props.userId}
                     >
                     {this.state.comment ? (
                         <div>

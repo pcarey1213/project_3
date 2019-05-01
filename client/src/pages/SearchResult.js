@@ -34,7 +34,7 @@ class SearchResult extends Component {
             console.log(res.data)
             this.setState({
                 results : res.data,
-                searchText : ""
+                searched : true
             })
         })
         .catch(err => console.log(err));
@@ -53,7 +53,10 @@ class SearchResult extends Component {
     }
 
     render() {
-        
+        const tt = this.state.results.first?this.state.results.first.length : "dd"
+        console.log("this.state")
+        console.log(this.state)
+        console.log(tt)
         return (
             <Container> 
                 <Row>
@@ -66,7 +69,7 @@ class SearchResult extends Component {
                         name="searchText"
                       />                  
                       <i className="search link icon pt-1" type="submit"
-                        //   onClick = {(e)=>this.handleSearchSubmit(e)}
+                          onClick = {(e)=>this.handleSearchSubmit(e)}
                         />                      
                     </div>
 
@@ -117,13 +120,27 @@ class SearchResult extends Component {
                         ))}
                     </div>
                 ) : (null)}
-                {this.state.results.first === null
-                && this.state.results.second === null
-                && this.state.results.third === null ? (
+                {this.state.searched ? (
+                <div>
+                    { this.state.results.first.length ===0 
+                    && this.state.results.second.length ===0 
+                    && this.state.results.third.length ===0 
+                    ? (
+                        <div>
+                        <p>No results</p>
+                        </div>
+                    )
+                    :null}
+                </div>
+                )
+                : null}
+                {/* {(this.state.results.first === [""]
+                && this.state.results.second === [""]
+                && this.state.results.third === [""] )? (
                     <div>
                         <p>No results</p>
                     </div>
-                ) : (null)}
+                ) : (null)} */}
                 
             </Container>
             

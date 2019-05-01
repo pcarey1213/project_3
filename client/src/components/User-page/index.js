@@ -16,6 +16,8 @@ class UserPage extends Component {
       }
     }
     render(){
+        console.log("Userpage.js this.props")
+        console.log(this.props)
         return (
             <div className="container">
             <Row>
@@ -28,7 +30,10 @@ class UserPage extends Component {
                             {this.props.username}
                         </Card.Header>
                         <Card.Meta>        
-                            <UploadModal updateUser={this.props.updateUser}/>            
+                            <UploadModal 
+                                updateUser={this.props.updateUser}
+                                userId = {this.props.userId}
+                            />            
                         </Card.Meta>
                         <Card.Description></Card.Description>
                         </Card.Content>
