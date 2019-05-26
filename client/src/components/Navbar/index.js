@@ -42,44 +42,31 @@ class Navbar extends Component {
       console.log(this.props);
      
       return (
-          <div className="ui secondary  menu" id="container">
-              <div className="right menu" id="menu">
-                  <Link to="/">
-                      <Image src='../bubble.png' id="logo" />
-                      <h1 id="bubbles" >Bubbles</h1>
-                  </Link> 
-                  {loggedIn ? [
-                        <Link to="#" className="ui item" onClick={this.logout}>
-                        Logout
-                        </Link>, 
-                        <Link to={/user/+this.props.userId}>
-                          <Label image id="label">
-                          <img  id= "pic" src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
-                          {this.props.username}
-                          </Label>
-                        </Link>
-                  ] : [
-                        <Link to="/" className="item"  name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}>Home</Link>,
-                        <Link to="/login" className="item" name='Log in' active={activeItem === 'Log in'} onClick={this.handleItemClick}>Log in</Link>,
-                        <Link to="/signup" className="item"name='Sign Up' active={activeItem === 'Sign Up'} onClick={this.handleItemClick}>Sign Up</Link>
-                        
-                  ]}
-                  <form className="item" id="item" >
-                    <div className="ui icon input" id="search" >
-                      <Link to={{ pathname: `/search`  }}>
-                        <i className="search link icon" />
-                      </Link>
-                    </div>
-                  </form>
-                  {/* <Link to="/" className="item">
-                    <i className="ui question icon" />
-                  </Link> */}
-                </div>
-            </div>
-
-        );
-        // }
-
+        <div className="ui secondary  menu" id="container">
+        <Menu secondary id="menu">
+          <Menu.Item as={ Link } name='brand'id="brand" active={activeItem === 'brand'} onClick={this.handleItemClick} to="/">
+            <Image src='../bubble.png' id="logo" />
+            <h1 id="bubbles" >Bubbles</h1>
+          </Menu.Item>
+          {loggedIn ? [
+          <Menu.Item as={ Link } name='user' id="user" active={activeItem === 'user'} onClick={this.handleItemClick} to={/user/+this.props.userId}>
+            <Label image id="label">
+              <img  id= "pic" src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />
+              {this.props.username}
+           </Label>
+          </Menu.Item>,
+          <Menu.Item onClick={this.logout} name='Logout' active={activeItem === 'Logout'}/>
+          ] : [
+          <Menu.Item as={ Link } to="/" name='home' active={activeItem === 'home'} onClick={this.handleItemClick}/>,
+          <Menu.Item as={ Link } to="/login" className="item" name='Log In' active={activeItem === 'Log In'} onClick={this.handleItemClick}/>,
+          <Menu.Item as={ Link } to="/signup" className="item"name='Sign Up' active={activeItem === 'Sign Up'} onClick={this.handleItemClick}/>
+          ]}
+          <Menu.Item as={ Link } to={{ pathname: `/search` }} name='Search' active={activeItem === 'Search'} onClick={this.handleItemClick} id="search">
+            <i className="search link icon" />
+          </Menu.Item>
+        </Menu>
+        </div>
+      )
       }
     }
 

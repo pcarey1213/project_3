@@ -5,7 +5,8 @@ const session = require('express-session')
 const dbConnection = require('./database') 
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
-const app = express()
+const app = express();
+const path = require('path');
 const PORT = process.env.PORT || 3001
 // Route requires
 const user = require('./routes/user')
@@ -17,13 +18,14 @@ const search = require('./routes/search')
 
 // Define middleware here
 app.use(morgan('dev'))
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(bodyParser.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-}
-app.use(bodyParser.json())
+};
+
 
 // Sessions
 app.use(
@@ -47,9 +49,9 @@ app.use('/comment', comment);
 app.use('/search', search);
 
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 // Starting Server 
 app.listen(PORT, () => {
