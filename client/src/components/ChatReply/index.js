@@ -5,16 +5,15 @@ import { Button, Comment, Form, Header } from 'semantic-ui-react'
 const ChatReply = props => {
 
     return (
-        <Form reply>
-            <Form.TextArea 
-                onChange={props.handleTextAreaChange}
-                value={props.value}
-                name="commentText"
-            />
-            <Button content='Add Reply' labelPosition='left' 
-                icon='edit' primary 
-                onClick={props.handleCommentFormSubmit}            
-            />
+        <Form reply onSubmit={props.handleCommentFormSubmit}>
+        <Form.TextArea 
+            onChange={props.handleTextAreaChange}
+            value={props.value}
+            name="commentText"
+        />
+        <Button content='Add Reply' labelPosition='left' type="submit"
+            icon='edit' primary           
+        />
         </Form>
     )
 }

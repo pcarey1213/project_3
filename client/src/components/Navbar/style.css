@@ -5,55 +5,22 @@
 #menu{
     margin-left: 0 !important;
     float: left;
-    padding-left: 100px;
 }
 
 #logo{
     height: 45px;
     width: auto;
     padding-right: 8px;
-    padding-top: 2px;
 }
-
-@media only screen and (max-width: 595px) {
- #menu {
-    padding-left: 42px;
- }
-}
-
-@media only screen and (max-width: 510px) {
-    #menu {
-       padding-left: 12px;
-    }
-    #logo {
-        margin-left: 10px;
-    }
-   }
-
-@media only screen and (max-width: 469px) {
-    #search {
-        width: 135px;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    #menu {
-        padding-left: 12px;
-    }
-    #search {
-        width: 80px;
-    }
-}
-
 
 #label{
-    margin-top: 16px;
+    margin: 0px;
     padding-top: 13px;
     height: 38px;
     width: 140px !important;
 }
 #pic{
-    margin-right: 15px;
+    /* margin-right: 15px; */
     height: 34px !important;
     margin-top:-11px;
 }
@@ -65,7 +32,6 @@
     padding-bottom: 3px;
     margin-top:0;
 }
-
 
 .panel .panel-heading {
     cursor: pointer;
